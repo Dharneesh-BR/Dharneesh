@@ -74,7 +74,7 @@ const Navigation = () => {
             whileTap={{ scale: 0.95 }}
           >
             <img 
-              src="/Black Logo.png"
+              src="/Black_Logo.webp"
               alt="Dharneesh B R Logo"
               className="h-14 w-auto"
             />

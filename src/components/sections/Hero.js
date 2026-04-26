@@ -120,7 +120,7 @@ const Hero = () => {
               className="relative"
             >
                 <motion.img
-                  src="/Chair 2.png"
+                  src="/chair-2.png"
                   alt="Hero Banner"
                   className="w-full h-auto max-h-screen object-contain rounded-lg"
                   initial={{ opacity: 0, scale: 0.9 }}
