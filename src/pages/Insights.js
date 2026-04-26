@@ -131,10 +131,13 @@ const Insights = () => {
                         src={urlFor(post.mainImage).width(600).height(400).url()} 
                         alt={post.mainImage.alt || post.title}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'block';
+                        }}
                       />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#5B6CFF] to-[#2D3AFF] opacity-90"></div>
-                    )}
+                    ) : null}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#5B6CFF] to-[#2D3AFF] opacity-90" style={{display: post.mainImage ? 'none' : 'block'}}></div>
                     <div className="absolute inset-0 bg-black/20"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       {post.category && (
