@@ -54,7 +54,7 @@ const Services = () => {
         "Personal operating systems"
       ],
       bgImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
-      bgGradient: "from-orange-900/80 to-red-900/80"
+      bgGradient: "from-cyan-900/80 to-blue-900/80"
     },
     {
       number: "04",

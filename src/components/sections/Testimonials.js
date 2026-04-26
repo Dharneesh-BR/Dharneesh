@@ -43,7 +43,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 px-6 bg-dark-900">
+    <section id="testimonials" className="py-16 px-6" style={{ backgroundColor: '#000047' }}>
       <div className="container mx-auto" ref={ref}>
         <motion.div
           variants={containerVariants}
@@ -54,7 +54,7 @@ const Testimonials = () => {
             className="section-title text-4xl font-bold text-center mb-4"
             variants={itemVariants}
           >
-            LinkedIn Recommendations
+            Recommendations
           </motion.h2>
           
           <motion.p 

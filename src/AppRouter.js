@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navigation from './components/common/Navigation';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
+import WhatWeHaveBuilt from './components/sections/WhatWeHaveBuilt';
 import Mission from './components/sections/Mission';
 import Services from './components/sections/Services';
-import Ventures from './components/sections/Ventures';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
 import Footer from './components/common/Footer';
@@ -36,9 +36,9 @@ function AppRouter() {
       <Navigation />
       <Hero />
       <About />
+      <WhatWeHaveBuilt />
       <Mission />
       <Services />
-      <Ventures />
       <Testimonials />
       <Contact />
       <Footer />

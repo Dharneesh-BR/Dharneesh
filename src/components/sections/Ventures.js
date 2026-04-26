@@ -13,8 +13,8 @@ const Ventures = () => {
 
   // Combine current and past ventures for display
   const allVentures = [
-    ...currentVentures.filter(v => v.featured).map(v => ({ ...v, type: 'current' })),
-    ...pastVentures.filter(v => v.featured).map(v => ({ ...v, type: 'past' }))
+    ...currentVentures.filter(v => v.featured),
+    ...pastVentures.filter(v => v.featured)
   ];
 
   // Background images for each venture
@@ -33,7 +33,7 @@ const Ventures = () => {
     'Mind Magna': 'from-purple-900/85 to-indigo-900/85',
     'PHYGIT - CPG Distribution Consulting': 'from-green-900/85 to-teal-900/85',
     'Svasam Life Sciences': 'from-blue-900/85 to-cyan-900/85',
-    'EAZY': 'from-orange-900/85 to-amber-900/85',
+    'EAZY': 'from-cyan-900/85 to-blue-900/85',
     'Recibo.ai': 'from-indigo-900/85 to-violet-900/85',
   };
 
@@ -117,17 +117,7 @@ const Ventures = () => {
                     }}
                   />
                   
-                  {/* Status Badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      venture.type === 'current' 
-                        ? 'bg-green-500/80 text-white' 
-                        : 'bg-amber-500/80 text-white'
-                    }`}>
-                      {venture.type === 'current' ? 'Active' : 'Exit'}
-                    </span>
-                  </div>
-                  
+                                    
                   {/* Content */}
                   <div className="relative h-full flex flex-col justify-end p-6 lg:p-8">
                     {/* Icon */}
@@ -171,21 +161,7 @@ const Ventures = () => {
                         {venture.description}
                       </p>
                       
-                      {/* Achievement or Exit info for past ventures */}
-                      {venture.achievement && (
-                        <div className="mb-3 p-2 bg-white/10 rounded-lg backdrop-blur-sm">
-                          <p className="text-cyan-300 text-xs font-semibold">Achievement:</p>
-                          <p className="text-white/80 text-xs">{venture.achievement}</p>
-                        </div>
-                      )}
-                      
-                      {venture.exit && (
-                        <div className="mb-3 p-2 bg-green-500/20 rounded-lg backdrop-blur-sm">
-                          <p className="text-green-300 text-xs font-semibold">Exit:</p>
-                          <p className="text-white/80 text-xs">{venture.exit}</p>
-                        </div>
-                      )}
-                      
+                                            
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-4">
                         {venture.tags.slice(0, 4).map((tag, tagIndex) => (
@@ -257,17 +233,7 @@ const Ventures = () => {
                     style={{ opacity: 0.9 }}
                   />
                   
-                  {/* Status Badge */}
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
-                      venture.type === 'current' 
-                        ? 'bg-green-500/80 text-white' 
-                        : 'bg-amber-500/80 text-white'
-                    }`}>
-                      {venture.type === 'current' ? 'Active' : 'Exit'}
-                    </span>
-                  </div>
-                  
+                                    
                   {/* Content */}
                   <div className="relative h-full flex flex-col justify-end p-5">
                     <i className={`fas ${venture.icon} text-2xl text-white/90 mb-2`}></i>

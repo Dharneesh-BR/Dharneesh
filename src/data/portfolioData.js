@@ -40,9 +40,9 @@ export const ventures = [
     name: "FinTech Dynamics",
     description: "Blockchain-based financial solutions for decentralized banking and digital assets.",
     icon: "fa-chart-line",
-    iconColor: "text-orange-600",
-    tags: ["Blockchain", "FinTech"],
-    gradient: "from-orange-400 to-red-400"
+    iconColor: "text-cyan-600",
+    tags: ["ERP", "DMS", "SFA", "CRM", "B2B eCommerce", "AI Platform"],
+    gradient: "from-cyan-400 to-blue-400"
   },
   {
     id: 6,
@@ -122,7 +122,7 @@ export const navigationLinks = [
   { name: "Home", href: "/" },
   { name: "About us", href: "/experience" },
   { name: "Programs", href: "/programs" },
-  { name: "Insights ( Blog )", href: "/insights" },
+  { name: "Insights", href: "/insights" },
   { name: "Contact", href: "#contact" }
 ];
 

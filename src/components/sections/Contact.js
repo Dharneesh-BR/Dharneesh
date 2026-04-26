@@ -25,7 +25,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-6 bg-dark-900" ref={ref}>
+    <section id="contact" className="py-16 px-6" style={{ backgroundColor: '#000047' }} ref={ref}>
       <div className="container mx-auto text-center">
         <motion.div
           variants={containerVariants}

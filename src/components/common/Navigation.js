@@ -56,9 +56,10 @@ const Navigation = () => {
 
   return (
     <motion.nav 
-      className={`fixed top-0 w-full bg-black z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? 'shadow-lg' : 'shadow-sm'
       }`}
+      style={{ backgroundColor: '#000047' }}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -107,14 +108,14 @@ const Navigation = () => {
                 >
                   <NavComponent
                     className="nav-link px-4 py-2 rounded-lg transition-all duration-300 relative block font-semibold"
-                    style={{ color: '#00FFFF' }}
+                    style={{ color: '#40E0D0' }}
                     {...navProps}
                   >
-                    <span style={{ color: '#00FFFF', fontWeight: 600 }}>{link.name}</span>
+                    <span style={{ color: '#40E0D0', fontWeight: 600 }}>{link.name}</span>
                     {isActive && (
                       <motion.div
                         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full"
-                        style={{ backgroundColor: '#00FFFF' }}
+                        style={{ backgroundColor: '#40E0D0' }}
                         layoutId="activeIndicator"
                       />
                     )}
@@ -127,7 +128,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <motion.button
             className="md:hidden transition-colors font-semibold"
-            style={{ color: '#00FFFF' }}
+            style={{ color: '#40E0D0' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -144,7 +145,8 @@ const Navigation = () => {
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              className="md:hidden border-t border-gray-800 bg-black pt-4 pb-2 space-y-2"
+              className="md:hidden border-t border-gray-800 pt-4 pb-2 space-y-2"
+              style={{ backgroundColor: '#000047' }}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -174,17 +176,17 @@ const Navigation = () => {
                   >
                     <NavComponent
                       className="block transition-all duration-300 py-3 px-4 rounded-lg hover:bg-gray-900 font-semibold"
-                      style={{ color: '#00FFFF' }}
+                      style={{ color: '#40E0D0' }}
                       {...navProps}
                     >
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
                           {isActive && (
-                            <i className="fas fa-circle text-xs mr-3" style={{ color: '#00FFFF' }}></i>
+                            <i className="fas fa-circle text-xs mr-3" style={{ color: '#40E0D0' }}></i>
                           )}
-                          <span style={{ color: '#00FFFF', fontWeight: 600 }}>{link.name}</span>
+                          <span style={{ color: '#40E0D0', fontWeight: 600 }}>{link.name}</span>
                         </div>
-                        <i className="fas fa-chevron-right text-xs" style={{ color: '#00FFFF' }}></i>
+                        <i className="fas fa-chevron-right text-xs" style={{ color: '#40E0D0' }}></i>
                       </div>
                     </NavComponent>
                   </motion.div>

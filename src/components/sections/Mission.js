@@ -35,7 +35,7 @@ const Mission = () => {
   ];
 
   return (
-    <section id="mission" className="py-10 px-6" style={{ backgroundColor: '#171716' }} ref={ref}>
+    <section id="mission" className="py-10 px-6" style={{ backgroundColor: '#000047' }} ref={ref}>
       <div className="container mx-auto">
         <motion.div
           variants={containerVariants}

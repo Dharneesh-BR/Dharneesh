@@ -1,9 +1,9 @@
 export const profileInfo = {
   name: "Dharneesh B R",
   title: "Serial Entrepreneur & Business Strategist",
-  tagline: "Business Coaching and Human Transformation for Exponential Growth",
-  bio: "I help founders, business owners and growth leaders build conscious brands that scale — while optimizing personal energy, peak performance and longevity.",
-  subtitle: "From Brand Building to Human Transformation — this is growth from the inside out.",
+  tagline: "Transforming Founders into SuperHuman Leaders",
+  bio: "I help visionary founders unlock their SuperHuman potential — combining business strategy with human performance to scale companies and capabilities.",
+  subtitle: "From Business Founder to SuperHuman Leader — transforming ambition into extraordinary achievement.",
   location: "Bengaluru, Karnataka, India",
   experience: "22+ years",
   linkedin: "https://www.linkedin.com/in/dharneesh/",
