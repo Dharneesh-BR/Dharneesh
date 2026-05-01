@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { animations, useScrollAnimation } from '../utils/animations';
 import Navigation from '../components/common/Navigation';
 import ExperienceTimeline from '../components/sections/ExperienceTimeline';
+import Mission from '../components/sections/Mission';
 
 const Experience = () => {
   const [ref, inView] = useInView({
@@ -33,6 +34,9 @@ const Experience = () => {
       {/* Navigation */}
       <Navigation />
       
+      {/* Mission Section */}
+      <Mission />
+
       {/* Experience Timeline Section */}
       <div className="pt-24">
         <ExperienceTimeline />

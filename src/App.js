@@ -5,7 +5,6 @@ import Banner from './components/sections/Banner';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import WhatWeHaveBuilt from './components/sections/WhatWeHaveBuilt';
-import Mission from './components/sections/Mission';
 import Services from './components/sections/Services';
 import ExperienceTimeline from './components/sections/ExperienceTimeline';
 import Ventures from './components/sections/Ventures';
@@ -49,7 +48,6 @@ function App() {
         <Hero key="hero" />
         <About key="about" />
         <WhatWeHaveBuilt key="what-we-have-built" />
-        <Mission key="mission" />
         <Services key="services" />
         <ExperienceTimeline key="experience-timeline" />
         <Ventures key="ventures" />

@@ -5,7 +5,6 @@ import Navigation from './components/common/Navigation';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import WhatWeHaveBuilt from './components/sections/WhatWeHaveBuilt';
-import Mission from './components/sections/Mission';
 import Services from './components/sections/Services';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
@@ -37,7 +36,6 @@ function AppRouter() {
       <Hero />
       <About />
       <WhatWeHaveBuilt />
-      <Mission />
       <Services />
       <Testimonials />
       <Contact />

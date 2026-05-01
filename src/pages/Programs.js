@@ -237,13 +237,7 @@ const Programs = () => {
                   </div>
 
                   <div className="border-t border-white/20 pt-10 max-w-4xl mx-auto">
-                    <p className="text-lg mb-4 italic text-white/90">
-                      Unlike traditional programs, this is not about motivation or theory.
-                    </p>
-                    <p className="text-2xl font-bold text-white">
-                      This is about restructuring how your business actually runs.
-                    </p>
-                  </div>
+                                      </div>
                 </motion.div>
               </div>
             </section>
@@ -265,7 +259,7 @@ const Programs = () => {
                     animate={cardsInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
-                    <div className="w-[520px] h-[320px] rounded-2xl overflow-hidden bg-gray-100">
+                    <div className="w-[480px] h-[320px] rounded-2xl overflow-hidden bg-gray-100">
                       <img 
                         src="/banner.png" 
                         alt="Program mentor" 
@@ -276,7 +270,7 @@ const Programs = () => {
                 </div>
 
                 <motion.div
-                  className="absolute top-0 left-12 z-20 w-[300px] rounded-2xl bg-white border border-gray-300 border-b-2 border-b-[#6cc6d8] p-8 text-center shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
+                  className="absolute top-0 left-12 z-20 w-[280px] rounded-2xl bg-white border border-gray-300 border-b-2 border-b-[#6cc6d8] p-8 text-center shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
                   initial={{ opacity: 0, x: -24, y: -12 }}
                   animate={cardsInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -24, y: -12 }}
                   transition={{ duration: 0.55, delay: 0.15 }}
