@@ -27,16 +27,22 @@ const WhatWeHaveBuilt = () => {
 
   const features = [
     {
-      title: "Real Business Training",
-      icon: "fa-rocket"
+      title: "Mindset Transformation",
+      subtitle: "Build Founder Before Business",
+      description: "Every business reflects the thinking of its founder.\nWe work on upgrading decision-making, clarity, and leadership mindset so growth is not driven by pressure, but by precision. \n\nWe restructure how founders think, decide, and lead.",
+      icon: "fa-brain"
     },
     {
-      title: "Guided Business Facilitation",
-      icon: "fa-users"
+      title: "System Architecture Design",
+      subtitle: "From Dependency to Scalable Systems",
+      description: "We help you design your business to run on systems, not individuals. \nFrom SOPs to workflows to AI-enabled structures, every layer is built to reduce chaos and increase consistency.\n\nThe goal is simple: A business that operates with or without the founder.",
+      icon: "fa-cogs"
     },
     {
-      title: "On-Ground Implementation Support",
-      icon: "fa-hands-helping"
+      title: "Growth & Control Engine",
+      subtitle: "Predictable Growth with Measurable Control",
+      description: "Growth is not guesswork; it is engineered.\n We build structured growth engines backed by clear numbers, conversion systems, and performance tracking. \n\nYou don't just grow faster. \nYou grow with visibility, control, and sustainability.",
+      icon: "fa-chart-line"
     }
   ];
 
@@ -60,7 +66,7 @@ const WhatWeHaveBuilt = () => {
             className="text-4xl font-bold text-center mb-16 text-gray-800"
             variants={itemVariants}
           >
-            Scale-up Ecosystem for Consumer Brands
+            Scale-up Ecosystem for MSMEs
           </motion.h2>
 
           {/* Features Grid */}
@@ -69,7 +75,7 @@ const WhatWeHaveBuilt = () => {
               <motion.div
                 key={feature.title}
                 className=" p-8 rounded-2xl shadow-lg border border-gray-200"
-                style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', color: '#FFFFFF', border: '1px solid #00FFFF' }}
+                style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', color: '#000000', border: '1px solid #00FFFF' }}
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.05,
@@ -95,14 +101,21 @@ const WhatWeHaveBuilt = () => {
 
                 {/* Content */}
                 <motion.h3
-                  className="text-xl font-bold text-white mb-4 text-center"
+                  className="text-xl font-bold text-white mb-2 text-center"
                   variants={itemVariants}
                 >
                   {feature.title}
                 </motion.h3>
                 
+                <motion.h4
+                  className="text-lg font-semibold text-white mb-4 text-center opacity-90"
+                  variants={itemVariants}
+                >
+                  {feature.subtitle}
+                </motion.h4>
+                
                 <motion.p
-                  className="text-gray-600 leading-relaxed whitespace-pre-line"
+                  className="text-gray-900 leading-relaxed whitespace-pre-line font-semibold"
                   variants={itemVariants}
                 >
                   {feature.description}
