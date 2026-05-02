@@ -6,7 +6,7 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import WhatWeHaveBuilt from './components/sections/WhatWeHaveBuilt';
 import Services from './components/sections/Services';
-import ExperienceTimeline from './components/sections/ExperienceTimeline';
+import { Roadmap } from './components/Roadmap';
 import Ventures from './components/sections/Ventures';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
@@ -49,7 +49,7 @@ function App() {
         <About key="about" />
         <WhatWeHaveBuilt key="what-we-have-built" />
         <Services key="services" />
-        <ExperienceTimeline key="experience-timeline" />
+        <Roadmap key="roadmap" />
         <Ventures key="ventures" />
         <Testimonials key="testimonials" />
         <Contact key="contact" />

@@ -35,7 +35,7 @@ const Mission = () => {
   ];
 
   return (
-    <section id="mission" className="py-10 px-6" style={{ backgroundColor: '#000047' }} ref={ref}>
+    <section id="mission" className="pt-6 pb-10 px-6" style={{ backgroundColor: '#000047' }} ref={ref}>
       <div className="container mx-auto">
         <motion.div
           variants={containerVariants}
@@ -50,11 +50,11 @@ const Mission = () => {
               className="text-4xl md:text-5xl font-bold mb-4 text-white"
               variants={itemVariants}
             >
-              MISSION
+              My MISSION
             </motion.h2>
             
             <motion.p 
-              className="text-lg md:text-xl text-gray-100 mb-3 leading-relaxed font-medium"
+              className="text-2xl md:text-3xl text-white mb-3 leading-relaxed font-medium"
               variants={itemVariants}
             >
               Help founders build stronger brands, sharper minds, healthier bodies and more meaningful lives.
@@ -68,7 +68,7 @@ const Mission = () => {
             </motion.p>
             
             <motion.p 
-              className="text-lg text-subtext mb-4 leading-relaxed"
+              className="text-lg text-white mb-4 leading-relaxed"
               variants={itemVariants}
             >
               Through coaching, strategic advisory and transformational programs, I help people:

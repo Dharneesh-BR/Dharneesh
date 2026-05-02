@@ -30,9 +30,9 @@ const About = () => {
   title: "Growth Begins in the Mind. Scale Begins in Consciousness.",
   introduction: "Hi, I'm Dharneesh.",
   mainContent: [
-    "I work at the intersection of <span style='color: #FFFFFF; font-weight: 700;'>Brand Strategy</span>, <span style='color: #FFFFFF; font-weight: 700;'>Founder Coaching</span>, <span style='color: #FFFFFF; font-weight: 700;'>Peak Performance</span> and <span style='color: #FFFFFF; font-weight: 700;'>Longevity Optimization</span>.",
+    "I work at the intersection of <span style='color: #FFFFFF; font-weight: 700;'>Brand Strategy</span>, <span style='color: #FFFFFF; font-weight: 700;'>Business Coaching</span>, and <span style='color: #FFFFFF; font-weight: 700;'>Human Transformation</span>.",
     "I believe better businesses are built at the intersection of clear thinking, aligned energy and intelligent systems.",
-    "My work sits where conscious brand building, AI-powered growth, founder performance and human potential meet\u2014because lasting scale comes from optimizing both the business and the builder.",
+    "My work sits where conscious brand building, AI-powered growth, founder performance and human potential meet, because lasting scale comes from optimizing both the business and the builder.",
     "<span style='color: #FFFFFF; font-weight: 700;'>Iconic brands are built when scalable systems, conscious leadership and human optimization come together.</span>"
   ]
 };

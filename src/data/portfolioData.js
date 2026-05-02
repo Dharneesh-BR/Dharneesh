@@ -120,7 +120,6 @@ export const testimonials = [
 
 export const navigationLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/experience" },
   { name: "Programs", href: "/programs" },
   { name: "Insights", href: "/insights" },
   { name: "Contact", href: "#contact" }

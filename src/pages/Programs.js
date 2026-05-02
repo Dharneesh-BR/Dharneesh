@@ -4,6 +4,9 @@ import { useInView } from 'react-intersection-observer';
 import Navigation from '../components/common/Navigation';
 import Footer from '../components/common/Footer';
 
+const MAGNA_HEX_BLUE = '#3533cd';
+const MAGNA_HEX_ORANGE = '#f97316';
+
 const Programs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [ref, inView] = useInView({
@@ -47,50 +50,50 @@ const Programs = () => {
         "Align founder identity with long-term vision",
         "Build belief systems for scale, not survival"
       ],
-      keyQuestion: "Am I building from pressure or from purpose?",
+      keyQuestion: " Am I building from pressure or from purpose?",
       bgGradient: "from-blue-900/80 to-purple-900/80"
     },
     {
       number: "A",
       title: "Architecture of Systems",
       subtitle: "Business stops depending on you when systems start thinking.",
-      description: "Create SOPs for every repeatable process. Map sales, marketing, delivery clearly. Build hiring systems over hero employees. Create dashboards for visibility.",
+      description: "Create SOPs for every repeatable process. Map sales, marketing, and delivery clearly. Build hiring systems over hero employees. Create dashboards for visibility where numbers trump assumptions.",
       items: [
         "SOPs for every repeatable process",
         "Sales, marketing, delivery mapped clearly",
         "Hiring system > hero employees",
         "Dashboards for visibility (numbers > assumptions)"
       ],
-      keyQuestion: "If I disappear for 30 days, what breaks first?",
-      bgGradient: "from-emerald-900/80 to-teal-900/80"
+      keyQuestion: " If I disappear for 30 days, what breaks first?",
+      bgGradient: "from-blue-900/80 to-purple-900/80"
     },
     {
       number: "G",
       title: "Growth Engine Design",
       subtitle: "Growth is engineered, not hoped for.",
-      description: "Build predictable lead generation systems. Create conversion optimization funnels. Expand customer lifetime value. Develop referral and retention loops.",
+      description: "Build predictable lead generation systems. Optimize conversion funnels. Expand customer lifetime value. Create referral and retention loops.",
       items: [
         "Predictable lead generation system",
         "Conversion optimization funnels",
         "Customer lifetime value expansion",
         "Referral + retention loops"
       ],
-      keyQuestion: "Where exactly is my growth leaking?",
-      bgGradient: "from-orange-900/80 to-red-900/80"
+      keyQuestion: " Where exactly is my growth leaking?",
+      bgGradient: "from-blue-900/80 to-purple-900/80"
     },
     {
       number: "N",
       title: "Numbers & Navigation",
       subtitle: "What gets measured gets multiplied.",
-      description: "Track daily/weekly KPIs. Gain cashflow visibility beyond revenue. Understand unit economics clearly. Create founder dashboard for decisions.",
+      description: "Track daily/weekly KPIs. Maintain cashflow visibility beyond just revenue. Gain unit economics clarity. Create founder dashboard for informed decisions.",
       items: [
         "Daily/weekly KPI tracking",
         "Cashflow visibility (not just revenue)",
         "Unit economics clarity",
         "Founder dashboard for decisions"
       ],
-      keyQuestion: "Am I running my business or guessing it?",
-      bgGradient: "from-indigo-900/80 to-blue-900/80"
+      keyQuestion: " Am I running my business or guessing it?",
+      bgGradient: "from-blue-900/80 to-purple-900/80"
     },
     {
       number: "A",
@@ -103,8 +106,8 @@ const Programs = () => {
         "Team alignment with vision & values",
         "Reduce chaos-driven execution"
       ],
-      keyQuestion: "Is my business growing faster than my capacity to sustain it?",
-      bgGradient: "from-purple-900/80 to-pink-900/80"
+      keyQuestion: " Is my business growing faster than my capacity to sustain it?",
+      bgGradient: "from-blue-900/80 to-purple-900/80"
     }
   ];
 
@@ -112,7 +115,7 @@ const Programs = () => {
     <div className="min-h-screen bg-[#fbfaf9]">
       <Navigation />
       
-      <section className="pt-32 pb-24 px-6" ref={ref}>
+      <section className="pt-24 pb-12 px-6" ref={ref}>
         <div className="container mx-auto max-w-6xl">
           <motion.div
             variants={containerVariants}
@@ -121,25 +124,26 @@ const Programs = () => {
           >
             {/* Header */}
             <motion.div 
-              className="mb-20"
+              className="mb-6"
               variants={itemVariants}
             >
-              <div className="text-center mb-12">
+              <div className="text-center mb-4">
                 <div className="relative inline-block">
                   <div className="absolute -inset-x-6 -inset-y-3 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 blur-2xl" />
-                  <h1 className="relative text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-heading tracking-tight">
+                  <h1 className="relative text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight bg-gradient-to-r from-[#000080] via-[#1e3a8a] to-[#1e40af] bg-clip-text text-transparent">
                     JOIN THE BUSINESS MAGNA PROGRAM
                   </h1>
                   <div className="relative mx-auto h-1.5 w-32 md:w-40 lg:w-48 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" />
                 </div>
 
                 
+
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="grid lg:grid-cols-5 gap-6 items-center">
                 {/* Left side - Image */}
                 <motion.div 
-                  className="relative"
+                  className="relative lg:col-span-2"
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
                 >
@@ -148,7 +152,7 @@ const Programs = () => {
                     <div className="absolute -inset-4 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 rounded-3xl opacity-60" />
                     
                     {/* Main image */}
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-sm mx-auto">
+                    <div className="relative rounded-3xl overflow-hidden shadow-2xl max-w-xs mx-auto">
                       <img 
                         src="/banner.png" 
                         alt="Business Magna Program" 
@@ -162,45 +166,65 @@ const Programs = () => {
                 </motion.div>
 
                 {/* Right side - Text content */}
-                <div className="text-center lg:text-left">
-                  <div className="space-y-6">
-                    <h2 className="text-3xl md:text-4xl font-bold text-heading">
+                <div className="text-center lg:text-left lg:col-span-3">
+                  <div className="space-y-4">
+                    <h2 className="text-xl md:text-2xl font-bold text-blue-900 pt-4">
                       Build a Business That Scales Without Burning You Out
                     </h2>
                     
-                    <div className="space-y-4">
-                      <p className="text-xl font-semibold text-subtext">Are you still:</p>
-                      <ul className="space-y-3 text-lg text-subtext">
+                    <div className="space-y-3">
+                      <p className="text-base text-gray-700">Are you still:</p>
+                      <ul className="space-y-3 text-base text-subtext">
                         <li className="flex items-start">
-                          <span className="text-[#3533cd] mr-3">•</span>
+                          <span className="text-red-600 mr-3">✗</span>
                           <span>Handling sales, operations, and decisions yourself?</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-[#3533cd] mr-3">•</span>
+                          <span className="text-red-600 mr-3">✗</span>
                           <span>Growing—but feeling stuck, stressed, or unclear?</span>
                         </li>
                         <li className="flex items-start">
-                          <span className="text-[#3533cd] mr-3">•</span>
+                          <span className="text-red-600 mr-3">✗</span>
                           <span>Working harder every year but not building real freedom?</span>
                         </li>
                       </ul>
                     </div>
                     
-                    <div className="mt-8 p-8 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 rounded-2xl border border-[#3533cd]/20">
-                      <p className="text-xl font-bold text-heading mb-4">
-                        You don't need more hustle.
-                      </p>
-                      <p className="text-xl font-bold text-heading">
-                        You need a structured business evolution system.
+                    <div className="mt-4">
+                      <p className="text-base text-gray-700 mb-2">
+                        You don't need more hustle. You need a structured business evolution system.
                       </p>
                     </div>
+
+                    <div className="text-center mb-6 max-w-4xl mx-auto">
+                    <h2 className="text-xl md:text-2xl font-bold text-blue-900 pb-4">
+                      A high-impact business transformation program designed for MSME founders:
+                    </h2>                  
+                    <div className="text-left max-w-3xl mx-auto">
+                    <ul className="space-y-3 text-base text-gray-700">
+                      <li className="flex items-start">
+                        <span className="text-2xl mr-3 text-green-600">✓</span>
+                        <span>Build system-driven businesses</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-2xl mr-3 text-green-600">✓</span>
+                        <span>Create predictable growth engines</span>
+                      </li>
+                      <li className="flex items-start">
+                        <span className="text-2xl mr-3 text-green-600">✓</span>
+                        <span>Gain clarity, control, and sustainability</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
             
-            {/* INTRODUCING Section */}
+            
+            {/* MAGNA Framework Section — one row per pillar (circle + copy, vertically centered) */}
             <section
               className="py-16 md:py-20 mb-20"
               style={{
@@ -210,41 +234,67 @@ const Programs = () => {
                 marginRight: 'calc(50% - 50vw)'
               }}
             >
-              <div className="px-6">
-                <motion.div variants={itemVariants} className="max-w-5xl mx-auto text-center">
-                  <h2 className="text-4xl font-bold mb-6 text-white leading-[1.3]">
-                    INTRODUCING <br/><span className="block mt-4">THE BUSINESS MAGNA PROGRAM</span>
-                  </h2>
-                  <p className="text-xl mb-10 leading-relaxed text-white/90 max-w-3xl mx-auto">
-                    A high-impact business transformation program designed for MSME founders to:
+              <motion.div
+                variants={itemVariants}
+              >
+              <div className="px-6 max-w-5xl mx-auto">
+                <div className="text-center mb-14 md:mb-16">
+                  <h2 className="text-4xl font-bold mb-4 text-white">MAGNA Framework</h2>
+                  <p className="text-xl font-semibold mb-8 text-white/90 max-w-3xl mx-auto">
+                    A Conscious Growth System for MSME Founders & Business Scaling
                   </p>
+                  <p className="text-lg italic text-cyan-400 max-w-4xl mx-auto">
+                    &ldquo;Build businesses that scale consciously — where growth, systems, and founder longevity evolve together.&rdquo;
+                  </p>
+                </div>
 
-                  <div className="text-left mb-10 max-w-3xl mx-auto">
-                    <ul className="space-y-4 text-lg text-white/90">
-                      <li className="flex items-start">
-                        <span className="text-2xl mr-3 text-white">•</span>
-                        <span>Build system-driven businesses</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-2xl mr-3 text-white">•</span>
-                        <span>Create predictable growth engines</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-2xl mr-3 text-white">•</span>
-                        <span>Gain clarity, control, and sustainability</span>
-                      </li>
-                    </ul>
-                  </div>
+                <div className="max-w-5xl mx-auto flex flex-col gap-10 md:gap-12">
+                  {magnaFramework.map((framework, index) => {
+                    const isBlue = index % 2 === 0;
+                    const fill = isBlue ? MAGNA_HEX_BLUE : MAGNA_HEX_ORANGE;
+                    const titleColor = fill;
+                    return (
+                      <motion.div
+                        key={`${framework.number}-${index}-row`}
+                        className="grid grid-cols-[76px_1fr] md:grid-cols-[128px_1fr] gap-5 md:gap-10 items-center"
+                        variants={itemVariants}
+                      >
+                        <div className="flex justify-center md:justify-center shrink-0">
+                          <div
+                            className="w-[76px] h-[76px] md:w-[128px] md:h-[128px] rounded-full flex items-center justify-center shadow-lg"
+                            style={{ backgroundColor: fill }}
+                          >
+                            <span className="text-white text-5xl md:text-7xl font-extrabold leading-none tracking-tight">
+                              {framework.number}
+                            </span>
+                          </div>
+                        </div>
 
-                  <div className="border-t border-white/20 pt-10 max-w-4xl mx-auto">
-                                      </div>
-                </motion.div>
+                        <div className="min-w-0 md:pl-0">
+                          <h3
+                            className="text-lg md:text-xl font-extrabold tracking-tight uppercase mb-3"
+                            style={{ color: titleColor }}
+                          >
+                            {framework.title}
+                          </h3>
+                          <p className="text-sm md:text-[15px] font-semibold text-gray-700 mb-2 leading-snug">
+                            {framework.subtitle}
+                          </p>
+                          <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                            {framework.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
+              </motion.div>
             </section>
 
             {/* WHAT YOU WILL ACHIEVE Section */}
             <motion.div 
-              className="mb-20"
+              className="mb-20 py-16 md:py-20"
               variants={itemVariants}
             >
               <h2 className="text-4xl font-bold text-center mb-20 text-heading">
@@ -294,7 +344,7 @@ const Programs = () => {
                 </motion.div>
 
                 <motion.div
-                  className="absolute bottom-0 left-12 z-20 w-[300px] rounded-2xl bg-white border border-gray-300 border-b-2 border-b-[#6cc6d8] p-8 text-center shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
+                  className="absolute bottom-0 left-8 z-20 w-[300px] rounded-2xl bg-white border border-gray-300 border-b-2 border-b-[#6cc6d8] p-8 text-center shadow-[0_8px_20px_rgba(0,0,0,0.08)]"
                   initial={{ opacity: 0, x: -24, y: 12 }}
                   animate={cardsInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -24, y: 12 }}
                   transition={{ duration: 0.55, delay: 0.45 }}

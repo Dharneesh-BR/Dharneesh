@@ -28,14 +28,14 @@ const WhatWeHaveBuilt = () => {
   const features = [
     {
       title: "Mindset Transformation",
-      subtitle: "Build Founder Before Business",
+      subtitle: "Build Founder before Scaling Business",
       description: "Every business reflects the thinking of its founder.\nWe work on upgrading decision-making, clarity, and leadership mindset so growth is not driven by pressure, but by precision. \n\nWe restructure how founders think, decide, and lead.",
       icon: "fa-brain"
     },
     {
       title: "System Architecture Design",
       subtitle: "From Dependency to Scalable Systems",
-      description: "We help you design your business to run on systems, not individuals. \nFrom SOPs to workflows to AI-enabled structures, every layer is built to reduce chaos and increase consistency.\n\nThe goal is simple: A business that operates with or without the founder.",
+      description: "We help you design your business to run on systems, not individuals. \nFrom SOPs to workflows to AI-enabled structures, every layer is built to reduce chaos and increase consistency.\n\nThe goal is simple: A business that operates with or without the interference of the founder.",
       icon: "fa-cogs"
     },
     {
@@ -66,7 +66,7 @@ const WhatWeHaveBuilt = () => {
             className="text-4xl font-bold text-center mb-16 text-gray-800"
             variants={itemVariants}
           >
-            Scale-up Ecosystem for MSMEs
+            Scale-up Ecosystem for Consumer Brands
           </motion.h2>
 
           {/* Features Grid */}
@@ -115,7 +115,7 @@ const WhatWeHaveBuilt = () => {
                 </motion.h4>
                 
                 <motion.p
-                  className="text-gray-900 leading-relaxed whitespace-pre-line font-semibold"
+                  className="text-sm text-gray-900 leading-relaxed whitespace-pre-line font-semibold"
                   variants={itemVariants}
                 >
                   {feature.description}

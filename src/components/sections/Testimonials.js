@@ -42,7 +42,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-16 px-6" style={{ backgroundColor: '#000047' }}>
+    <section id="testimonials" className="pt-16 pb-8 px-6" style={{ backgroundColor: '#000047' }}>
       <div className="container mx-auto" ref={ref}>
         <motion.div
           variants={containerVariants}

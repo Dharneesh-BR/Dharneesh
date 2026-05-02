@@ -52,7 +52,7 @@ const ExperienceTimeline = () => {
     },
   };
 
-  const TimelineItem = ({ item, index, isLeft = true }) => {
+  const RoadmapItem = ({ item, index, isLast = false }) => {
     const [itemRef, itemInView] = useInView({
       triggerOnce: false,
       threshold: 0.1,
@@ -60,64 +60,39 @@ const ExperienceTimeline = () => {
     });
 
     return (
-    <motion.div
-      ref={itemRef}
-      className={`flex items-center mb-8 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-      variants={itemVariants}
-      animate={itemInView ? "visible" : "hidden"}
-    >
-      <div className={`md:w-1/2 ${isLeft ? 'md:pr-8 text-right' : 'md:pl-8'}`}>
+      <motion.div
+        ref={itemRef}
+        className="relative flex flex-col items-center"
+        variants={itemVariants}
+        animate={itemInView ? "visible" : "hidden"}
+        initial={{ opacity: 0, y: 30 }}
+      >
+        {/* Milestone Marker */}
         <motion.div 
-          className="card-light p-6 cursor-pointer"
-          whileHover={{ scale: 1.02 }}
-          {...useScrollAnimation()}
+          className="relative"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
         >
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xl font-bold text-heading">{item.name}</h3>
-            <div className="w-10 h-10 bg-gradient-to-br from-[#5B6CFF] to-[#2D3AFF] rounded-full flex items-center justify-center">
-              <i className={`fas ${item.icon} text-white text-sm`}></i>
-            </div>
-          </div>
-          <p className="text-[#5B6CFF] font-semibold mb-2">{item.role}</p>
-          <p className="text-subtext text-sm mb-3">{item.period}</p>
-          <p className="text-subtext text-sm leading-relaxed">{item.description}</p>
+          {/* Milestone Post */}
+          <motion.div 
+            className="w-3 h-12 bg-gray-700 rounded-t-sm"
+            initial={{ scaleY: 0 }}
+            animate={itemInView ? { scaleY: 1 } : { scaleY: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            style={{ transformOrigin: 'top' }}
+          />
           
-          {item.achievement && (
-            <div className="mt-3 p-2 bg-[#5B6CFF]/10 rounded-lg">
-              <p className="text-[#5B6CFF] text-xs font-semibold">Achievement:</p>
-              <p className="text-subtext text-xs">{item.achievement}</p>
-            </div>
-          )}
-          
-          {item.exit && (
-            <div className="mt-3 p-2 bg-green-100 rounded-lg">
-              <p className="text-green-700 text-xs font-semibold">Exit:</p>
-              <p className="text-green-600 text-xs">{item.exit}</p>
-            </div>
-          )}
-          
-          {item.website && item.website !== "#" && (
-            <a 
-              href={item.website} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block mt-3 text-[#5B6CFF] hover:text-[#2D3AFF] text-sm underline"
-            >
-              Visit Website
-            </a>
-          )}
+          {/* Milestone Sign */}
+          <motion.div 
+            className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white px-3 py-1 rounded shadow-md border border-gray-300 whitespace-nowrap"
+            initial={{ opacity: 0, y: -10 }}
+            animate={itemInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+            transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
+          >
+            <p className="text-xs font-bold text-gray-800">{item.name}</p>
+          </motion.div>
         </motion.div>
-      </div>
-      
-      <div className="md:w-12 flex justify-center">
-        <motion.div 
-          className="w-4 h-4 bg-[#5B6CFF] rounded-full border-4 border-white shadow-lg"
-          whileHover={{ scale: 1.5 }}
-        ></motion.div>
-      </div>
-      
-      <div className="md:w-1/2"></div>
-    </motion.div>
+      </motion.div>
     );
   };
 
@@ -133,7 +108,7 @@ const ExperienceTimeline = () => {
             className="text-5xl md:text-6xl font-bold text-center mb-4 text-heading"
             variants={itemVariants}
           >
-            Professional Journey
+            Professional Journey Road
           </motion.h2>
           
           <motion.p 
@@ -143,89 +118,61 @@ const ExperienceTimeline = () => {
             22+ years of building systems, scaling products, and creating value across multiple industries and ventures.
           </motion.p>
 
-          {/* Current Ventures */}
-          <div className="mb-16" ref={currentVenturesRef}>
-            <motion.h2 
-                className="text-3xl font-bold mb-8 text-heading"
-                variants={itemVariants}
-                animate={currentVenturesInView ? "visible" : "hidden"}
-              >
-                Current Ventures
-              </motion.h2>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-300"></div>
-              {currentVentures.map((venture, index) => (
-                <TimelineItem 
-                  key={venture.id} 
-                  item={venture} 
-                  index={index}
-                  isLeft={index % 2 === 0}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Past Ventures */}
-          <div className="mb-16" ref={pastVenturesRef}>
-            <motion.h3 
-                className="text-2xl font-bold mb-6 text-heading"
-                variants={itemVariants}
-                animate={pastVenturesInView ? "visible" : "hidden"}
-              >
-                Successful Exits & Past Ventures
-              </motion.h3>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-300"></div>
-              {pastVentures.map((venture, index) => (
-                <TimelineItem 
-                  key={venture.id} 
-                  item={venture} 
-                  index={index}
-                  isLeft={index % 2 === 1}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Corporate Experience */}
-          <div ref={corporateExpRef}>
-            <motion.h2 
-                className="text-3xl font-bold mb-8 text-heading"
-                variants={itemVariants}
-                animate={corporateExpInView ? "visible" : "hidden"}
-              >
-                Corporate Leadership
-              </motion.h2>
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-[#5B6CFF] to-[#2D3AFF]"></div>
+          {/* Single Road with All Milestones */}
+          <div className="relative overflow-x-auto pb-16">
+            {/* Road Base */}
+            <div className="relative min-h-[200px] bg-gradient-to-b from-gray-200 to-gray-300 rounded-lg mx-8">
+              {/* Road Surface */}
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-300 to-gray-400 rounded-lg">
+                {/* Road Lines */}
+                <div className="absolute top-1/2 -translate-y-1/2 w-full h-1 bg-yellow-400 opacity-60"></div>
+                <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between">
+                  {[...Array(20)].map((_, i) => (
+                    <div key={i} className="w-8 h-1 bg-yellow-400"></div>
+                  ))}
+                </div>
+              </div>
               
-              {/* Timeline Items */}
-              {corporateExperience.map((exp, index) => {
-                const [corpItemRef, corpItemInView] = useInView({
-                  triggerOnce: false,
-                  threshold: 0.1,
-                  rootMargin: "-30px 0px"
-                });
-
-                const isLeft = index % 2 === 0;
-                
-                return (
-                  <TimelineItem 
-                    key={exp.id}
-                    item={{
-                      name: exp.company,
-                      role: exp.role,
-                      period: exp.period,
-                      description: exp.description,
-                      icon: exp.icon,
-                      iconColor: exp.iconColor
-                    }}
-                    index={index}
-                    isLeft={isLeft}
-                  />
-                );
-              })}
+              {/* Milestones Container */}
+              <div className="absolute top-0 left-0 right-0 h-full flex items-center justify-center px-12">
+                <div className="flex items-center justify-between w-full min-w-max">
+                  {/* Current Ventures */}
+                  {currentVentures.map((venture, index) => (
+                    <RoadmapItem 
+                      key={venture.id}
+                      item={venture} 
+                      index={index}
+                      isLast={false}
+                    />
+                  ))}
+                  
+                  {/* Past Ventures */}
+                  {pastVentures.map((venture, index) => (
+                    <RoadmapItem 
+                      key={venture.id}
+                      item={venture} 
+                      index={index + currentVentures.length}
+                      isLast={false}
+                    />
+                  ))}
+                  
+                  {/* Corporate Experience */}
+                  {corporateExperience.map((exp, index) => (
+                    <RoadmapItem 
+                      key={exp.id}
+                      item={{
+                        name: exp.company,
+                        role: exp.role,
+                        period: exp.period,
+                        description: exp.description,
+                        icon: 'fa-building'
+                      }}
+                      index={index + currentVentures.length + pastVentures.length}
+                      isLast={index === corporateExperience.length - 1}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

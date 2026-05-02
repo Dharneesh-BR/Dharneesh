@@ -6,13 +6,14 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import WhatWeHaveBuilt from './components/sections/WhatWeHaveBuilt';
 import Services from './components/sections/Services';
+import { Roadmap } from './components/Roadmap';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
 import Footer from './components/common/Footer';
 import LoadingSpinner from './components/ui/LoadingSpinner';
-import Experience from './pages/Experience';
 import Programs from './pages/Programs';
 import Insights from './pages/Insights';
+import Mission from './components/sections/Mission';
 import { pageTransition } from './utils/animations';
 
 function AppRouter() {
@@ -35,9 +36,11 @@ function AppRouter() {
       <Navigation />
       <Hero />
       <About />
+      <Roadmap />
       <WhatWeHaveBuilt />
       <Services />
       <Testimonials />
+      <Mission />
       <Contact />
       <Footer />
     </>
@@ -55,7 +58,6 @@ function AppRouter() {
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/experience" element={<Experience />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/insights" element={<Insights />} />
           </Routes>

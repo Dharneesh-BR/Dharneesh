@@ -9,14 +9,14 @@ const Navigation = () => {
   const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('ventures');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
       
       // Update active section based on scroll position
-      const sections = ['about', 'experience', 'ventures', 'testimonials', 'contact'];
+      const sections = ['ventures', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {

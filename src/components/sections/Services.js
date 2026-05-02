@@ -13,7 +13,7 @@ const Services = () => {
   const services = [
     {
       number: "01",
-      title: "Conscious Brand Building",
+      title: "Brand Strategy",
       subtitle: "Position your brand for relevance, trust and growth.",
       description: "Build a brand that resonates with your audience and stands the test of time. We focus on strategic positioning, authentic storytelling, and sustainable growth frameworks.",
       items: [
@@ -43,21 +43,6 @@ const Services = () => {
     },
     {
       number: "03",
-      title: "Peak Performance",
-      subtitle: "Perform at your highest level consistently.",
-      description: "Unlock your full potential with science-backed performance optimization. Develop routines and systems that sustain elite-level output.",
-      items: [
-        "Energy optimization",
-        "Focus enhancement",
-        "Cognitive performance",
-        "High-performance routines",
-        "Personal operating systems"
-      ],
-      bgImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
-      bgGradient: "from-cyan-900/80 to-blue-900/80"
-    },
-    {
-      number: "04",
       title: "Longevity & Transformation",
       subtitle: "Upgrade how long and how well you live.",
       description: "Invest in your most valuable asset - yourself. Discover cutting-edge approaches to extend your healthspan and maximize human potential.",
@@ -94,7 +79,7 @@ const Services = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 text-center text-heading">
-            What I Help You Achieve
+            How I Help in Scaling and Transformation
           </h2>
           
           {/* Desktop: Horizontal expanding cards */}
@@ -211,9 +196,7 @@ const Services = () => {
                         ))}
                       </ul>
                       
-                      <button className="mt-4 px-4 py-2 bg-white/20 hover:bg-white/30 text-white text-sm font-medium rounded-lg backdrop-blur-sm transition-all duration-300">
-                        Learn More
-                      </button>
+                      
                     </div>
                   </div>
                   
