@@ -47,7 +47,7 @@ const WhatWeHaveBuilt = () => {
   ];
 
   return (
-    <section id="what-we-have-built" className="py-16 px-6" style={{ backgroundColor: '#fbfaf9' }} ref={ref}>
+    <section id="what-we-have-built" className="px-6" style={{ backgroundColor: '#fbfaf9' }} ref={ref}>
       <div className="container mx-auto">
         <motion.div
           variants={containerVariants}
@@ -123,6 +123,22 @@ const WhatWeHaveBuilt = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Program Image */}
+          <motion.div 
+            className="mt-20 text-center"
+            variants={itemVariants}
+          >
+            <motion.img
+              src="/Program.png"
+              alt="Program Overview"
+              className="w-full max-w-md mx-auto h-auto object-contain"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              whileHover={{ scale: 1.02 }}
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

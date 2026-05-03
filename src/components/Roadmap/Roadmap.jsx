@@ -3,14 +3,14 @@ import { motion, useInView } from 'framer-motion';
 import Milestone from './Milestone';
 
 const milestones = [
-  { title: "GSK", description: "Healthcare expansion", position: "Sales Representative", logo: "/GSK.png" },
-  { title: "Hindustan Unilever", description: "FMCG scale partnership", position: "Territory Sales Officer", logo: "/Unilever.png" },
-  { title: "Philips", description: "Global brand association", position: "Branch Manager", logo: "/Philips.png" },
-  { title: "Samsung", description: "Enterprise collaboration", position: "Head of Marketing", logo: "/Samsung.png" },
-  { title: "Recibo", description: "Market expansion", position: "Founder, Director", logo: "/recibo-logo.png" },
-  { title: "Eazy", description: "Scaling operations", position: "Co-founder, COO", logo: "/eazy.png" },
-  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Business Coach", logo: "/mind magna.png" },
-  { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", logo: "/Eterno_logo.webp" }
+  { title: "GSK", description: "Healthcare expansion", position: "Sales Representative", year: "2004", logo: "/GSK.png" },
+  { title: "Hindustan Unilever", description: "FMCG scale partnership", position: "Territory Sales Officer", year: "2008", logo: "/Unilever.png" },
+  { title: "Philips", description: "Global brand association", position: "Branch Manager", year: "2010", logo: "/Philips.png" },
+  { title: "Samsung", description: "Enterprise collaboration", position: "Head of Marketing", year: "2013", logo: "/Samsung.png" },
+  { title: "Recibo", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
+  { title: "Eazy", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
+  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Business Coach", year: "2019", logo: "/mind magna.png" },
+  { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", year: "2026", logo: "/Eterno_logo.webp" }
 ];
 
 const majorBrands = ["Samsung", "Philips", "Hindustan Unilever", "GSK"];

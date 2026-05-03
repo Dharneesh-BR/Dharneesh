@@ -83,7 +83,10 @@ const Milestone = ({
         <h3 className="font-bold text-gray-800 text-sm mb-1">
           {milestone.title}
         </h3>
-        <p className="text-xs font-semibold text-blue-600">
+        <p className="text-xs font-semibold text-purple-600 mb-1">
+          {milestone.year}
+        </p>
+        <p className="text-xs text-gray-600">
           {milestone.position}
         </p>
       </div>

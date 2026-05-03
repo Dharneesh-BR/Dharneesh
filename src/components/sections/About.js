@@ -66,7 +66,7 @@ const About = () => {
                 transition={{ duration: 0.3 }}
               >
                 <motion.img
-                  src="/About_1.png"
+                  src="/About.png"
                   alt="About Dharneesh"
                   className="w-3/4 h-auto object-cover rounded-full mx-auto"
                   initial={{ opacity: 0, scale: 0.9 }}

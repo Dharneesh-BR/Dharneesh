@@ -175,16 +175,22 @@ const Programs = () => {
                     <div className="space-y-3">
                       <p className="text-base text-gray-700">Are you still:</p>
                       <ul className="space-y-3 text-base text-subtext">
-                        <li className="flex items-start">
-                          <span className="text-red-600 mr-3">✗</span>
+                        <li className="flex items-start gap-4">
+                          <span className="mt-1 w-8 h-8 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
+                            <i className="fas fa-times text-sm"></i>
+                          </span>
                           <span>Handling sales, operations, and decisions yourself?</span>
                         </li>
-                        <li className="flex items-start">
-                          <span className="text-red-600 mr-3">✗</span>
+                        <li className="flex items-start gap-4">
+                          <span className="mt-1 w-8 h-8 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
+                            <i className="fas fa-times text-sm"></i>
+                          </span>
                           <span>Growing—but feeling stuck, stressed, or unclear?</span>
                         </li>
-                        <li className="flex items-start">
-                          <span className="text-red-600 mr-3">✗</span>
+                        <li className="flex items-start gap-4">
+                          <span className="mt-1 w-8 h-8 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
+                            <i className="fas fa-times text-sm"></i>
+                          </span>
                           <span>Working harder every year but not building real freedom?</span>
                         </li>
                       </ul>
@@ -202,16 +208,22 @@ const Programs = () => {
                     </h2>                  
                     <div className="text-left max-w-3xl mx-auto">
                     <ul className="space-y-3 text-base text-gray-700">
-                      <li className="flex items-start">
-                        <span className="text-2xl mr-3 text-green-600">✓</span>
+                      <li className="flex items-start gap-4">
+                        <span className="mt-1 w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                          <i className="fas fa-check text-sm"></i>
+                        </span>
                         <span>Build system-driven businesses</span>
                       </li>
-                      <li className="flex items-start">
-                        <span className="text-2xl mr-3 text-green-600">✓</span>
+                      <li className="flex items-start gap-4">
+                        <span className="mt-1 w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                          <i className="fas fa-check text-sm"></i>
+                        </span>
                         <span>Create predictable growth engines</span>
                       </li>
-                      <li className="flex items-start">
-                        <span className="text-2xl mr-3 text-green-600">✓</span>
+                      <li className="flex items-start gap-4">
+                        <span className="mt-1 w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 flex-shrink-0">
+                          <i className="fas fa-check text-sm"></i>
+                        </span>
                         <span>Gain clarity, control, and sustainability</span>
                       </li>
                     </ul>

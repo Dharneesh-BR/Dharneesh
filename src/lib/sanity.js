@@ -19,36 +19,125 @@ export const urlFor = (source) => {
 
 // Example query functions
 export const getPosts = async () => {
-  const query = `*[_type == "blog" && status == "published"] | order(publishedAt desc) {
+  // Try both 'post' and 'blog' types
+  const query = `*[_type in ["post", "blog"]] | order(publishedAt desc) {
     title,
     slug,
     publishedAt,
     excerpt,
     mainImage,
-    category,
-    readTime,
-    featured,
-    body
+    categories,
+    body,
+    _type
   }`;
   
-  const posts = await client.fetch(query);
-  return posts;
+  try {
+    console.log('Sanity client config:', {
+      projectId: client.config().projectId,
+      dataset: client.config().dataset,
+      useCdn: client.config().useCdn,
+    });
+    console.log('Executing query:', query);
+    const posts = await client.fetch(query);
+    console.log('Sanity query result:', posts);
+    console.log('Number of posts:', posts?.length || 0);
+    if (posts && posts.length > 0) {
+      console.log('Successfully fetched posts from Sanity');
+      return posts;
+    } else {
+      console.log('No posts found in Sanity, using fallback data');
+    }
+  } catch (error) {
+    console.error('Error fetching posts from Sanity:', error);
+    console.error('Error details:', error.message);
+    console.log('Using fallback data due to error');
+  }
+
+  // Fallback static blog data
+  return [
+    {
+      _id: "1",
+      title: "The Art of Conscious Brand Building",
+      slug: { current: "conscious-brand-building" },
+      publishedAt: "2025-03-15",
+      excerpt: "Discover how conscious brand building transforms businesses from the inside out, creating lasting impact and meaningful connections with your audience.",
+      categories: [{ title: "Brand Strategy" }],
+      body: [
+        {
+          _type: 'block',
+          children: [{ _type: 'span', text: 'Conscious brand building is more than just creating a logo or tagline. It\'s about crafting a brand that resonates deeply with your audience and creates meaningful connections that last.' }]
+        },
+        {
+          _type: 'block',
+          style: 'h2',
+          children: [{ _type: 'span', text: 'What Makes a Brand Conscious?' }]
+        },
+        {
+          _type: 'block',
+          children: [{ _type: 'span', text: 'A conscious brand is built on authenticity, purpose, and a deep understanding of your audience\'s needs and values. It\'s about creating experiences that align with your brand\'s core values and resonate with your target market.' }]
+        }
+      ]
+    },
+    {
+      _id: "2",
+      title: "Founder Performance: The Missing Link",
+      slug: { current: "founder-performance" },
+      publishedAt: "2025-03-10",
+      excerpt: "Why founder performance is the single most important factor in startup success, and how to optimize your energy, focus, and decision-making.",
+      categories: [{ title: "Health & Performance" }],
+    },
+    {
+      _id: "3",
+      title: "Scaling with Systems, Not Hustle",
+      slug: { current: "scaling-with-systems" },
+      publishedAt: "2025-03-05",
+      excerpt: "Learn the framework for building systems that scale your business without burning out. The shift from operator to architect.",
+      categories: [{ title: "Growth" }],
+    },
+    {
+      _id: "4",
+      title: "Leadership in the Age of AI",
+      slug: { current: "leadership-age-of-ai" },
+      publishedAt: "2025-02-28",
+      excerpt: "How AI is reshaping leadership requirements and what founders need to do differently to lead teams in this new era.",
+      categories: [{ title: "Leadership" }],
+    },
+    {
+      _id: "5",
+      title: "The Future of Work is Human",
+      slug: { current: "future-of-work-human" },
+      publishedAt: "2025-02-20",
+      excerpt: "Why the companies that prioritize human connection and wellbeing will win the talent war in the next decade.",
+      categories: [{ title: "Future of Work" }],
+    },
+    {
+      _id: "6",
+      title: "Innovation Through Constraint",
+      slug: { current: "innovation-through-constraint" },
+      publishedAt: "2025-02-15",
+      excerpt: "How limitations and constraints can actually accelerate innovation and lead to breakthrough ideas that change industries.",
+      categories: [{ title: "Innovation" }],
+    },
+  ];
 };
 
 export const getPostBySlug = async (slug) => {
-  const query = `*[_type == "blog" && slug.current == $slug && status == "published"][0] {
+  // Try both 'post' and 'blog' types, and both 'body' and 'content' fields
+  const query = `*[_type in ["post", "blog"] && slug.current == $slug][0] {
     title,
     slug,
     publishedAt,
     excerpt,
     mainImage,
-    category,
-    readTime,
-    featured,
-    body
+    categories,
+    body,
+    content,
+    _type
   }`;
-  
+
+  console.log('Fetching post with slug:', slug);
   const post = await client.fetch(query, { slug });
+  console.log('Post result:', post);
   return post;
 };
 

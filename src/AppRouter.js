@@ -13,7 +13,13 @@ import Footer from './components/common/Footer';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import Programs from './pages/Programs';
 import Insights from './pages/Insights';
+import BlogPost from './pages/BlogPost';
+import Add from './pages/Add';
+import GalleryPage from './pages/Gallery';
 import Mission from './components/sections/Mission';
+import BrandCarousel from './components/sections/BrandCarousel';
+import Gallery from './components/sections/Gallery';
+import WaysToWork from './components/sections/WaysToWork';
 import { pageTransition } from './utils/animations';
 
 function AppRouter() {
@@ -37,10 +43,13 @@ function AppRouter() {
       <Hero />
       <About />
       <Roadmap />
+      <BrandCarousel />
       <WhatWeHaveBuilt />
+      <WaysToWork />
       <Services />
       <Testimonials />
       <Mission />
+      <Gallery />
       <Contact />
       <Footer />
     </>
@@ -60,6 +69,9 @@ function AppRouter() {
             <Route path="/" element={<HomePage />} />
             <Route path="/programs" element={<Programs />} />
             <Route path="/insights" element={<Insights />} />
+            <Route path="/insights/:slug" element={<BlogPost />} />
+            <Route path="/add" element={<Add />} />
+            <Route path="/gallery" element={<GalleryPage />} />
           </Routes>
         </AnimatePresence>
       </motion.div>

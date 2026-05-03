@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { contactOptions } from '../../data/portfolioData';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -26,64 +25,107 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-16 px-6" style={{ backgroundColor: '#000047' }} ref={ref}>
-      <div className="container mx-auto text-center">
+      <div className="container mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          <motion.h2 
-            className="section-title text-4xl font-bold mb-6"
-            variants={itemVariants}
-          >
-            Connect With Dharneesh
-          </motion.h2>
-          
-          <motion.p 
-            className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
-            variants={itemVariants}
-          >
-            Whether you're looking to invest, collaborate, or seek mentorship, Dharneesh is always open to connecting with passionate individuals and innovative ideas.
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-wrap justify-center gap-4 mb-12"
-            variants={itemVariants}
-          >
-            <a 
-              href="mailto:contact@dharneesh.com" 
-              className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-700 transition-colors inline-flex items-center"
+          {/* Header */}
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="section-title text-4xl font-bold mb-6"
+              variants={itemVariants}
             >
-              <i className="fas fa-envelope mr-2"></i> Send Email
-            </a>
-            <a 
-              href="#" 
-              className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors inline-flex items-center"
+              Connect With Dharneesh
+            </motion.h2>
+            
+            <motion.p 
+              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+              variants={itemVariants}
             >
-              <i className="fab fa-linkedin mr-2"></i> LinkedIn
-            </a>
-            <a 
-              href="#" 
-              className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition-colors inline-flex items-center"
+              Whether you’re building a brand, evolving as a founder, or exploring deeper human transformation, Dharneesh is always open to engaging with ambitious individuals and forward-thinking ideas.
+            </motion.p>
+          </div>
+
+          {/* Two Grid Layout */}
+          <div className="grid lg:grid-cols-5 gap-12 items-center max-w-6xl mx-auto">
+            {/* Left Side - Content */}
+            <motion.div 
+              className="space-y-8 lg:col-span-3"
+              variants={itemVariants}
             >
-              <i className="fab fa-twitter mr-2"></i> Twitter
-            </a>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {contactOptions.map((option) => (
-              <motion.div
-                key={option.id}
-                className="text-center"
+              <div>
+                <h3 className="text-3xl font-bold text-white mb-6">Let's Build Something Amazing</h3>
+                <p className="text-gray-300 text-lg mb-8">
+                  I'm always excited to connect with passionate individuals, innovative startups, and forward-thinking organizations. Let's discuss how we can create value together.
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <motion.div 
+                className="flex flex-wrap gap-4 pt-4 items-center justify-center"
                 variants={itemVariants}
               >
-                <div className={`w-16 h-16 ${option.bgColor} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <i className={`fas ${option.icon} ${option.iconColor} text-2xl`}></i>
-                </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-200">{option.title}</h3>
-                <p className="text-gray-400">{option.description}</p>
+                <a 
+                  href="mailto:contact@dharneesh.com" 
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 inline-flex items-center shadow-lg"
+                >
+                  <i className="fas fa-envelope mr-2"></i> Send Email
+                </a>
+                <a 
+                  href="https://www.linkedin.com/in/dharneesh/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300 inline-flex items-center border border-white/20"
+                >
+                  <i className="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a 
+                  href="https://www.instagram.com/dharneesh.br?igsh=cjFlbm9rNnhremVi" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300 inline-flex items-center border border-white/20"
+                >
+                  <i className="fab fa-instagram mr-2"></i> Instagram
+                </a>
+                <a 
+                  href="https://www.facebook.com/share/17b6pqhyr6/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300 inline-flex items-center border border-white/20"
+                >
+                  <i className="fab fa-facebook mr-2"></i> Facebook
+                </a>
               </motion.div>
-            ))}
+
+              {/* Additional Info */}
+              <motion.div 
+                className="pt-8 border-t border-white/20"
+                variants={itemVariants}
+              >
+                
+              </motion.div>
+            </motion.div>
+
+            {/* Right Side - Image */}
+            <motion.div 
+              className="relative lg:col-span-2 flex items-center justify-center"
+              variants={itemVariants}
+            >
+              <motion.img
+                src="/Contact.png"
+                alt="Dharneesh B R - Contact"
+                className="w-3/4 h-auto object-cover rounded-full mx-auto shadow-2xl shadow-cyan-500/50"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+              {/* Decorative Elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full opacity-20 blur-xl"></div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
