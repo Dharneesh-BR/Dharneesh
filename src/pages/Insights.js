@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../components/common/Navigation';
 import Footer from '../components/common/Footer';
+import InsightsBanner from '../components/sections/InsightsBanner';
 import { getPosts } from '../lib/sanity';
 import { urlFor } from '../lib/sanity';
 
@@ -68,7 +69,9 @@ const Insights = () => {
     <div className="min-h-screen bg-[#fbfaf9]">
       <Navigation />
 
-      <section className="py-24 px-6" ref={ref}>
+      <InsightsBanner />
+
+      <section className="py-12 px-6" ref={ref}>
         <div className="container mx-auto max-w-6xl">
           <motion.div
             initial="hidden"

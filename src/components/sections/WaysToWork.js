@@ -32,7 +32,7 @@ const WaysToWork = () => {
       id: 1,
       title: "Business Magna Program",
       description: "Join our comprehensive business transformation program designed for MSME founders who want to scale their operations without burning out. Build systems, create predictable growth, and achieve sustainable success.",
-      image: "/banner.png",
+      image: "/1.png",
       buttonText: "Explore Business Magna",
       url: "/programs",
       gradient: "from-purple-600 to-blue-600"
@@ -41,7 +41,7 @@ const WaysToWork = () => {
       id: 2,
       title: "Eterno Partnership",
       description: "Partner with Eterno to leverage cutting-edge health optimization and performance enhancement solutions. Perfect for businesses and individuals looking to optimize their physical and mental well-being.",
-      image: "/eterno-partnership.jpg",
+      image: "/2.png",
       buttonText: "Discover Eterno",
       url: "https://eterno.fit/",
       gradient: "from-cyan-600 to-blue-600"
@@ -70,7 +70,7 @@ const WaysToWork = () => {
           </motion.div>
 
           {/* Two Grid Layout */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
             {workWays.map((way, index) => (
               <motion.div
                 key={way.id}
@@ -88,8 +88,17 @@ const WaysToWork = () => {
                   }}
                 ></div>
                 
+                {/* Image Section */}
+                <div className="w-full h-72 overflow-hidden">
+                  <img 
+                    src={way.image} 
+                    alt={way.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
                 {/* Content Section */}
-                <div className="p-8">
+                <div className="p-4">
                   <motion.h3 
                     className="text-2xl font-bold text-gray-900 mb-4"
                     variants={itemVariants}
