@@ -78,16 +78,7 @@ const Insights = () => {
             animate={inView ? "visible" : "hidden"}
           >
 
-            {/* Header */}
-            <div className="text-center mb-20">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-heading">
-                Insights
-              </h1>
-              <p className="text-xl text-subtext max-w-3xl mx-auto">
-                Thoughts, strategies, and frameworks on conscious brand building
-              </p>
-            </div>
-
+            
             {/* Categories */}
             <div className="flex flex-wrap justify-center gap-3 mb-16">
               {categories.map((cat, index) => (
@@ -108,7 +99,7 @@ const Insights = () => {
             {/* Blog Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredPosts.length === 0 ? (
-                <p className="text-center col-span-3 text-gray-500">
+                <p className="text-center col-span-3 text-white">
                   No posts found.
                 </p>
               ) : (
@@ -116,7 +107,7 @@ const Insights = () => {
                   <motion.div
                     key={post._id}
                     onClick={() => navigate(`/insights/${post.slug.current}`)}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100"
+                    className="group bg-[#000047] rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/60 shadow-cyan-500/40 transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100"
                     whileHover={{ y: -8, scale: 1.02 }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -152,12 +143,12 @@ const Insights = () => {
                     {/* Content */}
                     <div className="p-6">
                       {/* Title */}
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#5B6CFF] transition-colors duration-200">
+                      <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-[#5B6CFF] transition-colors duration-200">
                         {post.title}
                       </h3>
 
                       {/* Excerpt */}
-                      <p className="text-gray-600 mb-4 line-clamp-3 text-sm leading-relaxed">
+                      <p className="text-gray-200 mb-4 line-clamp-3 text-sm leading-relaxed">
                         {post.excerpt}
                       </p>
 

@@ -62,110 +62,158 @@ const Add = () => {
             variants={itemVariants}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight bg-gradient-to-r from-[#3533cd] to-[#00ffff] bg-clip-text text-transparent">
-              MAGNA Business Workshop
+              Business Growth Masterclass
             </h1>
             <div className="relative mx-auto h-1.5 w-32 md:w-40 lg:w-48 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" />
-            <p className="text-lg md:text-xl text-gray-600 mt-6 max-w-3xl mx-auto">
-              Join and Become Like The Top 1% Successful Business Owners & Entrepreneurs Before It's Too Late
-            </p>
           </motion.div>
 
-          {/* Coach Info */}
+          {/* Workshop Details */}
+          <motion.div 
+            className="text-center mb-4"
+            variants={itemVariants}
+          >
+            <div className="inline-block bg-gradient-to-r from-[#3533cd] to-[#00ffff] rounded-lg p-6 shadow-xl">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                4 hour Online Workshop
+              </h3>
+              <p className="text-xl md:text-2xl text-white mb-2 font-semibold">
+                ON 6th May 2026
+              </p>
+              <p className="text-lg text-white/90">
+                (9:00 AM - 1:00 PM IST)
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Subtitle */}
           <motion.div 
             className="text-center mb-12"
             variants={itemVariants}
           >
-            <p className="text-xl md:text-2xl text-gray-700 mb-4">
-              I will be your coach for 4 hours
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-900 mb-2">
-              Dharneesh BR
-            </h2>
-            <p className="text-lg text-gray-600">
-              India's MSME Business Coach | Trained over 7,88,175 Business Owners in Last 6 Years
-            </p>
-          </motion.div>
-
-          {/* Rating */}
-          <motion.div 
-            className="text-center mb-16"
-            variants={itemVariants}
-          >
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 rounded-full border border-[#3533cd]/20">
-              <div className="flex text-yellow-400">
-                {[...Array(5)].map((_, i) => (
-                  <i key={i} className="fas fa-star"></i>
-                ))}
-              </div>
-              <span className="font-semibold text-blue-900">4.96</span>
-              <span className="text-gray-600">(70,000+ People Rated My Programs)</span>
+            <div className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto p-4 border-2 border-[#3533cd] rounded-lg">
+              Join and Become Like The Top 1% Successful<br/> Business Owners & Entrepreneurs <br/> Before It's Too Late
             </div>
           </motion.div>
-        </div>
-      </motion.section>
 
-      {/* What Happens Section */}
-      <motion.section className="py-16 px-6 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <motion.h2 
-              className="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-900"
+          {/* Trainer and Benefits Grid */}
+          <motion.div 
+            className="bg-blue-900 -mx-6 px-6 py-8 mb-12"
+            variants={itemVariants}
+          >
+            <div className="container mx-auto max-w-4xl">
+              <div className="grid md:grid-cols-2 gap-0 relative">
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/20"></div>
+            {/* Left: Trainer Information */}
+            <motion.div 
+              className="pr-8"
               variants={itemVariants}
             >
-              What Happens When You Join?
-            </motion.h2>
-            
-            <motion.div className="space-y-6" variants={itemVariants}>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
-                  <i className="fas fa-unlock"></i>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    You Unlock Secrets To Create Time & Wealth In Business
-                  </h3>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
-                  <i className="fas fa-graduation-cap"></i>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    You Learn Strong Foundational Activities To Win In Your Business
-                  </h3>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
-                  <i className="fas fa-chart-line"></i>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    Your Business Growth With Increased Revenue & Cashflow
-                  </h3>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
-                  <i className="fas fa-trophy"></i>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">
-                    More Profit, More Freedom, More Scale Is Guaranteed If You Follow The Exact Steps Covered In The Workshop
-                  </h3>
+              <div className="text-center">
+                <img 
+                  src="/Edited-1.png" 
+                  alt="Dharneesh BR" 
+                  className="w-24 h-24 mx-auto mb-8 shadow-lg rounded-lg object-contain"
+                />
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  Dharneesh BR
+                </h3>
+                <p className="text-lg text-gray-200 mb-4">
+                  India's MSME Business Coach
+                </p>
+                <p className="text-gray-300 mb-4">
+                  Trained over 7,88,175 Business Owners in Last 6 Years
+                </p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <i key={i} className="fas fa-star"></i>
+                    ))}
+                  </div>
+                  <span className="font-semibold text-white">4.96</span>
                 </div>
               </div>
             </motion.div>
+
+            {/* Right: What Happens When You Join */}
+            <motion.div 
+              className="pl-8"
+              variants={itemVariants}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+                What Happens When You Join?
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
+                    <i className="fas fa-unlock"></i>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-200">
+                      You Unlock Secrets To Create Time & Wealth In Business
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
+                    <i className="fas fa-graduation-cap"></i>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-200">
+                      You Learn Strong Foundational Activities To Win In Your Business
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
+                    <i className="fas fa-chart-line"></i>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-200">
+                      Your Business Growth With Increased Revenue & Cashflow
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white flex-shrink-0">
+                    <i className="fas fa-trophy"></i>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-200">
+                      More Profit, More Freedom, More Scale Is Guaranteed If You Follow The Exact Steps Covered In The Workshop
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+              </div>
+            </div>
           </motion.div>
         </div>
+        <motion.div className="text-center mt-8" variants={itemVariants}>
+              <p className="text-lg text-gray-600 mb-4">Register in next</p>
+              <div className="bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white rounded-2xl p-8 mb-6 max-w-md mx-auto">
+                <div className="text-4xl md:text-5xl font-bold mb-2">
+                  {formatTime(timeLeft)}
+                </div>
+                <p className="text-lg">Minutes Seconds</p>
+              </div>
+              <p className="text-lg text-gray-700 mb-6">To Unlock Bonuses Worth Rs 6,487</p>
+              <motion.button
+                className="bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white font-bold text-xl px-8 py-4 rounded-full hover:shadow-2xl transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                REGISTER NOW AT ₹99/- ONLY
+              </motion.button>
+            </motion.div>
       </motion.section>
 
+
       {/* Workshop Details */}
-      <motion.section className="py-16 px-6 bg-gradient-to-br from-[#3533cd]/5 to-[#00ffff]/5">
+      <motion.section className="px-6 bg-bg-white/20">
         <div className="container mx-auto max-w-4xl">
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.h2 
@@ -174,7 +222,6 @@ const Add = () => {
             >
               To Unlock Bonuses Worth ₹6,487
             </motion.h2>
-            
             <motion.div className="grid md:grid-cols-2 gap-8 mt-12" variants={itemVariants}>
               <div className="bg-white rounded-2xl shadow-xl p-8 border border-[#3533cd]/20">
                 <h3 className="text-2xl font-bold text-blue-900 mb-6">Who This Workshop Will Help The Best?</h3>
@@ -221,10 +268,163 @@ const Add = () => {
               </div>
             </motion.div>
           </motion.div>
+            
+            <div className="flex justify-center mt-12">
+              <motion.img 
+                src="/Program.png" 
+                alt="Workshop Program"
+                className="w-full max-w-sm"
+                variants={itemVariants}
+              />
+            </div>
         </div>
       </motion.section>
 
-      {/* Timer and Pricing */}
+      {/* What Will Change In Your Business Section */}
+      <motion.section className="py-16 px-6 bg-blue-900 text-white">
+        <div className="container mx-auto max-w-4xl text-center">
+          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
+              variants={itemVariants}
+            >
+              What Will Change In Your Business?
+            </motion.h2>
+
+            <div className="relative flex items-center justify-center mb-12" style={{ minHeight: '400px', width: '100%', maxWidth: '600px', margin: '0 auto' }}>
+              {/* Central Circle */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center shadow-lg z-10">
+                <p className="text-center font-bold text-lg px-4 text-white">Business Breakthrough</p>
+              </div>
+
+              {/* Top: Right Psychology */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 md:w-48 p-3 md:p-4 border-2 border-dashed border-[#00ffff] rounded-lg flex items-center justify-center bg-gray-900">
+                <p className="text-center text-xs md:text-sm text-white">Right Psychology Of Running The Business</p>
+              </div>
+              
+              {/* Bottom Right: Right Strategies */}
+              <div className="absolute bottom-16 md:bottom-20 right-4 md:right-8 w-40 md:w-48 p-3 md:p-4 border-2 border-dashed border-[#00ffff] rounded-lg flex items-center justify-center bg-gray-900">
+                <p className="text-center text-xs md:text-sm text-white">Right Strategies</p>
+              </div>
+              
+              {/* Bottom Left: Right Systems */}
+              <div className="absolute bottom-16 md:bottom-20 left-4 md:left-8 w-40 md:w-48 p-3 md:p-4 border-2 border-dashed border-[#00ffff] rounded-lg flex items-center justify-center bg-gray-900">
+                <p className="text-center text-xs md:text-sm text-white">Right Systems</p>
+              </div>
+              
+                                        </div>
+
+            <motion.button
+              className="bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white font-bold text-xl px-8 py-4 rounded-full hover:shadow-2xl transition-all duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              variants={itemVariants}
+            >
+              REGISTER NOW AT ₹99/- ONLY
+            </motion.button>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Who This Workshop Is NOT For Section */}
+      <motion.section className="py-20 px-6 bg-white-20">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            {/* Heading */}
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-center mb-16 text-blue-900"
+              variants={itemVariants}
+            >
+              Who This Workshop Will Help The Best?
+            </motion.h2>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left: Circular Graphic */}
+              <motion.div className="relative" variants={itemVariants}>
+                <div className="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+                  {/* Circular Segmented Shape */}
+                  <svg viewBox="0 0 320 320" className="w-full h-full">
+                    {/* Segment 1 */}
+                    <path d="M 160 40 A 120 120 0 0 1 280 160" 
+                          fill="none" 
+                          stroke="#3533cd" 
+                          strokeWidth="8" 
+                          strokeLinecap="round"/>
+                    {/* Segment 2 */}
+                    <path d="M 280 160 A 120 120 0 0 1 160 280" 
+                          fill="none" 
+                          stroke="#00ffff" 
+                          strokeWidth="8" 
+                          strokeLinecap="round"/>
+                    {/* Segment 3 */}
+                    <path d="M 160 280 A 120 120 0 0 1 40 160" 
+                          fill="none" 
+                          stroke="#3533cd" 
+                          strokeWidth="8" 
+                          strokeLinecap="round"/>
+                    {/* Segment 4 */}
+                    <path d="M 40 160 A 120 120 0 0 1 160 40" 
+                          fill="none" 
+                          stroke="#00ffff" 
+                          strokeWidth="8" 
+                          strokeLinecap="round"/>
+                    
+                    {/* Center Text */}
+                    <text x="160" y="160" 
+                          textAnchor="middle" 
+                          dominantBaseline="middle" 
+                          className="fill-blue-900 font-bold text-xl uppercase"
+                          style={{ letterSpacing: '2px' }}>
+                      DON'T JOIN IF
+                    </text>
+                  </svg>
+                </div>
+              </motion.div>
+
+              {/* Right: Bullet Points */}
+              <motion.div className="space-y-6 md:space-y-8" variants={itemVariants}>
+                {/* Bullet Point 1 */}
+                <div className="flex items-start gap-4 relative">
+                  {/* Connecting Line from Circle */}
+                  <div className="absolute top-1/2 left-0 w-20 md:w-32 h-px bg-gradient-to-r from-[#3533cd] to-[#00ffff]" 
+                       style={{ transform: 'translateX(-100%)' }}></div>
+                  {/* Dot at connection point */}
+                  <div className="absolute top-1/2 left-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" 
+                       style={{ transform: 'translate(-50%, -50%)' }}></div>
+                  <div className="w-4"></div>
+                  <p className="text-lg md:text-xl font-medium text-blue-900">You Are Not A Business Owner</p>
+                </div>
+
+                {/* Bullet Point 2 */}
+                <div className="flex items-start gap-4 relative">
+                  {/* Connecting Line from Circle */}
+                  <div className="absolute top-1/2 left-0 w-20 md:w-32 h-px bg-gradient-to-r from-[#3533cd] to-[#00ffff]" 
+                       style={{ transform: 'translateX(-100%)' }}></div>
+                  {/* Dot at connection point */}
+                  <div className="absolute top-1/2 left-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" 
+                       style={{ transform: 'translate(-50%, -50%)' }}></div>
+                  <div className="w-4"></div>
+                  <p className="text-lg md:text-xl font-medium text-blue-900">You Are Not An Action Taker</p>
+                </div>
+
+                {/* Bullet Point 3 */}
+                <div className="flex items-start gap-4 relative">
+                  {/* Connecting Line from Circle */}
+                  <div className="absolute top-1/2 left-0 w-20 md:w-32 h-px bg-gradient-to-r from-[#3533cd] to-[#00ffff]" 
+                       style={{ transform: 'translateX(-100%)' }}></div>
+                  {/* Dot at connection point */}
+                  <div className="absolute top-1/2 left-0 w-3 h-3 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" 
+                       style={{ transform: 'translate(-50%, -50%)' }}></div>
+                  <div className="w-4"></div>
+                  <p className="text-lg md:text-xl font-medium text-blue-900">You Are Not Serious About Your Business</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Timer and Pricing - Main CTA Section */}
       <motion.section className="py-16 px-6 bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white">
         <div className="container mx-auto max-w-4xl text-center">
           <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -311,9 +511,12 @@ const Add = () => {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-900">Our Guarantee</h2>
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center">
-                  <i className="fas fa-shield-alt text-white text-3xl"></i>
-                </div>
+                <motion.img 
+                  src="/Guarntee.webp" 
+                  alt="Guarantee"
+                  className="w-32 h-32 mx-auto mb-6"
+                  variants={itemVariants}
+                />
                 <h3 className="text-2xl font-bold text-blue-900 mb-4">A Promise</h3>
                 <p className="text-lg text-gray-700 max-w-2xl mx-auto">
                   If you don't feel this workshop provides immense value and actionable insights to transform your business, 

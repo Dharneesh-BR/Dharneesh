@@ -16,6 +16,7 @@ import Insights from './pages/Insights';
 import BlogPost from './pages/BlogPost';
 import Add from './pages/Add';
 import GalleryPage from './pages/Gallery';
+import ContactUs from './pages/ContactUs';
 import Mission from './components/sections/Mission';
 import BrandCarousel from './components/sections/BrandCarousel';
 import Gallery from './components/sections/Gallery';
@@ -72,6 +73,7 @@ function AppRouter() {
             <Route path="/insights/:slug" element={<BlogPost />} />
             <Route path="/add" element={<Add />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </AnimatePresence>
       </motion.div>

@@ -39,16 +39,17 @@ const MasonryGallery = ({ images = [] }) => {
   // Main page images (only specified ones)
   const mainPageImages = [
     { id: 19, src: '/Gallery Images/Image19.jpg', alt: 'Gallery Image 19', size: 'horizontal-large' },
-    { id: 20, src: '/Gallery Images/Image 20.jpg', alt: 'Gallery Image 20', size: 'small' },
-    { id: 21, src: '/Gallery Images/Image 21.webp', alt: 'Gallery Image 21', size: 'horizontal-large' },
-    { id: 1, src: '/Gallery Images/Image 1.webp', alt: 'Gallery Image 1', size: 'small' },
     { id: 4, src: '/Gallery Images/Image 3.webp', alt: 'Gallery Image 3', size: 'vertical-large' },
-    { id: 5, src: '/Gallery Images/Image 4.jpg', alt: 'Gallery Image 4', size: 'horizontal-large' },
-    { id: 6, src: '/Gallery Images/Image 4.webp', alt: 'Gallery Image 4 WebP', size: 'small' },
+    { id: 22, src: '/Gallery Images/Image 5.jpg', alt: 'Gallery Image 5', size: 'large' },
+    { id: 20, src: '/Gallery Images/Image 20.jpg', alt: 'Gallery Image 20', size: 'small' },
+    { id: 1, src: '/Gallery Images/Image 1.webp', alt: 'Gallery Image 1', size: 'small' },
+    { id: 23, src: '/Gallery Images/Image 14.jpg', alt: 'Gallery Image 14', size: 'vertical-large' },
     { id: 9, src: '/Gallery Images/Image 6.jpg', alt: 'Gallery Image 6', size: 'vertical-large' },
-    { id: 15, src: '/Gallery Images/Image 10.jpg', alt: 'Gallery Image 10', size: 'horizontal-large' },
+    { id: 21, src: '/Gallery Images/Image 21.webp', alt: 'Gallery Image 21', size: 'horizontal-large' },
+    { id: 5, src: '/Gallery Images/Image 4.jpg', alt: 'Gallery Image 4', size: 'horizontal-large' },
     { id: 14, src: '/Gallery Images/Image 9.jpg', alt: 'Gallery Image 9', size: 'vertical-large' },
     { id: 2, src: '/Gallery Images/Image 2.jpg', alt: 'Gallery Image 2', size: 'vertical-large' },
+    { id: 15, src: '/Gallery Images/Image 10.jpg', alt: 'Gallery Image 10', size: 'horizontal-large' },
   ];
 
   const galleryImages = images.length > 0 ? images : mainPageImages;

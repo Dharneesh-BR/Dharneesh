@@ -122,7 +122,7 @@ export const navigationLinks = [
   { name: "Home", href: "/" },
   { name: "Programs", href: "/programs" },
   { name: "Insights", href: "/insights" },
-  { name: "Contact", href: "#contact" }
+  { name: "Contact", href: "/contact-us" }
 ];
 
 export const contactOptions = [

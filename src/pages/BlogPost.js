@@ -173,7 +173,7 @@ const BlogPost = () => {
 
             {/* Content */}
             <motion.div 
-              className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-em:text-[#5B6CFF]"
+              className="prose prose-lg max-w-none prose-headings:text-white prose-p:text-white prose-strong:text-white prose-em:text-[#5B6CFF] bg-[#000047] p-8 rounded-2xl shadow-xl shadow-cyan-500/60"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -183,14 +183,14 @@ const BlogPost = () => {
                   return (
                     <motion.div 
                       key={index} 
-                      className="mb-12"
+                      className="mb-4"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8 + index * 0.1 }}
                     >
                       {block.style === 'h1' && (
                         <motion.h1 
-                          className="text-3xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight"
+                          className="text-3xl md:text-5xl font-bold text-white mb-2 leading-tight"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                         >
@@ -199,7 +199,7 @@ const BlogPost = () => {
                       )}
                       {block.style === 'h2' && (
                         <motion.h2 
-                          className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 mt-12"
+                          className="text-2xl md:text-4xl font-bold text-white mb-2 mt-4"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                         >
@@ -208,7 +208,7 @@ const BlogPost = () => {
                       )}
                       {block.style === 'h3' && (
                         <motion.h3 
-                          className="text-xl md:text-3xl font-semibold text-gray-900 mb-4 mt-8"
+                          className="text-xl md:text-3xl font-semibold text-white mb-2 mt-4"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                         >
@@ -217,7 +217,7 @@ const BlogPost = () => {
                       )}
                       {block.style === 'blockquote' && (
                         <motion.blockquote 
-                          className="border-l-4 border-[#5B6CFF] pl-8 py-6 bg-gradient-to-r from-[#5B6CFF]/5 via-[#00ffff]/5 to-white rounded-r-2xl my-12 italic text-gray-700 text-xl relative overflow-hidden"
+                          className="border-l-4 border-[#5B6CFF] pl-8 py-4 bg-gradient-to-r from-[#5B6CFF]/5 via-[#00ffff]/5 to-white rounded-r-2xl my-4 italic text-white text-xl relative overflow-hidden"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                         >
@@ -227,13 +227,13 @@ const BlogPost = () => {
                       )}
                       {(!block.style || block.style === 'normal') && (
                         <motion.p 
-                          className="text-gray-700 leading-relaxed mb-8 text-lg"
+                          className="text-white leading-relaxed mb-2 text-lg"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                         >
                           {block.children?.map((child, childIndex) => (
                             <span key={childIndex}>
-                              {child.marks?.includes('strong') && <strong className="font-semibold text-gray-900">{child.text}</strong>}
+                              {child.marks?.includes('strong') && <strong className="font-semibold text-white">{child.text}</strong>}
                               {child.marks?.includes('em') && <em className="italic text-[#5B6CFF]">{child.text}</em>}
                               {!child.marks?.includes('strong') && !child.marks?.includes('em') && child.text}
                             </span>

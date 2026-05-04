@@ -104,41 +104,161 @@ const Roadmap = () => {
             </h3>
           </motion.div>
 
-          <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gray-300" />
-            
-            {/* Progress Line */}
-            <motion.div
-              className="absolute left-8 top-0 w-1 bg-gradient-to-b from-blue-500 to-purple-500"
-              style={{ height: `${progress}%` }}
-              initial={{ height: 0 }}
-              animate={{ height: `${progress}%` }}
-              transition={{ duration: 0.3 }}
-            />
+          <div className="relative h-[800px]">
+            {/* Mobile Curved Road */}
+            <svg
+              className="absolute inset-0 w-full h-full z-5"
+              viewBox="0 0 100 800"
+              preserveAspectRatio="xMidYMin meet"
+            >
+              <defs>
+                <linearGradient id="roadGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#2f2f2f" />
+                  <stop offset="100%" stopColor="#3a3a3a" />
+                </linearGradient>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="#3b82f6" />
+                  <stop offset="50%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#ec4899" />
+                </linearGradient>
+              </defs>
+              
+              {/* Main Curved Road */}
+              <path
+                d="M -20 50 
+                   C -40 100, -40 100, -20 150
+                   S 0 200, -20 250
+                   S -40 300, -20 350
+                   S 0 400, -20 450
+                   S -40 500, -20 550
+                   S 0 600, -20 650
+                   S -30 700, -10 750"
+                stroke="url(#roadGradient)"
+                strokeWidth="15"
+                fill="none"
+                strokeLinecap="round"
+              />
+              
+              {/* Road Edges */}
+              <path
+                d="M -20 50 
+                   C -40 100, -40 100, -20 150
+                   S 0 200, -20 250
+                   S -40 300, -20 350
+                   S 0 400, -20 450
+                   S -40 500, -20 550
+                   S 10 600, -10 650
+                   S -30 700, -10 750"
+                stroke="#1a1a1a"
+                strokeWidth="1"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.3"
+              />
+              <path
+                d="M -20 50 
+                   C -40 100, -40 100, -20 150
+                   S 0 200, -20 250
+                   S -40 300, -20 350
+                   S 0 400, -20 450
+                   S -40 500, -20 550
+                   S 10 600, -10 650
+                   S -30 700, -10 750"
+                stroke="#1a1a1a"
+                strokeWidth="1"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.3"
+              />
+              
+              {/* Center Dashed Line */}
+              <path
+                d="M -20 50 
+                   C -40 100, -40 100, -20 150
+                   S 0 200, -20 250
+                   S -40 300, -20 350
+                   S 0 400, -20 450
+                   S -40 500, -20 550
+                   S 0 600, -20 650
+                   S -40 700, -20 750"
+                stroke="white"
+                strokeWidth="1"
+                fill="none"
+                strokeLinecap="round"
+                strokeDasharray="5 4"
+                opacity="0.7"
+              />
+              
+              {/* Animated Progress Line */}
+              <motion.path
+                d="M -20 50 
+                   C -40 100, -40 100, -20 150
+                   S 0 200, -20 250
+                   S -40 300, -20 350
+                   S 0 400, -20 450
+                   S -40 500, -20 550
+                   S 10 600, -10 650
+                   S -30 700, -10 750"
+                stroke="url(#progressGradient)"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeDasharray="800"
+                strokeDashoffset={800 - (progress * 8)}
+                initial={{ strokeDashoffset: 800 }}
+                animate={{ strokeDashoffset: 800 - (progress * 8) }}
+                transition={{ duration: 0.3 }}
+              />
+            </svg>
             
             {/* Mobile Milestones */}
-            {milestones.map((milestone, index) => (
+            {milestones.map((milestone, index) => {
+              // Calculate positions for straight vertical alignment
+              const yPos = 50 + (index * 87.5); // Distribute evenly along 800px height
+              
+              return (
               <motion.div
                 key={milestone.title}
-                className="relative flex items-center mb-12"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                className="absolute"
+                style={{ 
+                  left: '60px', // Move nodes further right
+                  top: `${yPos}px`,
+                  transform: 'translate(-50%, -50%)'
+                }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="absolute left-6 w-5 h-5 bg-white border-4 border-blue-500 rounded-full shadow-lg" />
+                {/* Milestone Node on Road */}
+                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg border-3 border-blue-500 relative z-10">
+                  <img 
+                    src={milestone.logo}
+                    alt={milestone.title}
+                    className="w-5 h-5 object-contain"
+                  />
+                </div>
                 
-                <div className="ml-16 bg-white rounded-xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow cursor-pointer"
+                {/* Content Card on Right Side with straight alignment */}
+                <div className="absolute left-full ml-8 top-1/2 transform -translate-y-1/2 w-44 bg-white rounded-lg shadow-lg p-3 border border-gray-200 z-20"
                      onClick={() => handleMilestoneClick(milestone.title)}>
-                  <h3 className="font-bold text-gray-800 text-lg mb-2">
-                    {milestone.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">
+                  <div className="mb-2">
+                    <h3 className="font-bold text-gray-800 text-xs leading-tight">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-blue-600 font-bold text-xs">
+                      {milestone.year}
+                    </p>
+                  </div>
+                  <p className="text-gray-600 font-medium text-xs mb-1">
+                    {milestone.position}
+                  </p>
+                  <p className="text-gray-600 text-xs leading-tight">
                     {milestone.description}
                   </p>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

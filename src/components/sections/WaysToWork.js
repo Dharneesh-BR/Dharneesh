@@ -30,19 +30,19 @@ const WaysToWork = () => {
   const workWays = [
     {
       id: 1,
-      title: "Business Magna Program",
-      description: "Join our comprehensive business transformation program designed for MSME founders who want to scale their operations without burning out. Build systems, create predictable growth, and achieve sustainable success.",
+      title: "MAGNA Business Program",
+      description: "Join our comprehensive business transformation program designed to scale operations without burning out. Learn the strategies to build a profitable & scalable business.",
       image: "/1.png",
-      buttonText: "Explore Business Magna",
+      buttonText: "Show Me How To Scale",
       url: "/programs",
       gradient: "from-purple-600 to-blue-600"
     },
     {
       id: 2,
-      title: "Eterno Partnership",
-      description: "Partner with Eterno to leverage cutting-edge health optimization and performance enhancement solutions. Perfect for businesses and individuals looking to optimize their physical and mental well-being.",
+      title: "Longevity Blueprint ",
+      description: "The Longevity Blueprint creates long-term systems for vitality, peak performance, and disease prevention - supporting a stronger, sharper, and more resilient life at every stage.",
       image: "/2.png",
-      buttonText: "Discover Eterno",
+      buttonText: "I Am Ready for Peak Performance",
       url: "https://eterno.fit/",
       gradient: "from-cyan-600 to-blue-600"
     }
@@ -81,7 +81,7 @@ const WaysToWork = () => {
                 {/* Gradient Strip */}
                 <div 
                   style={{ 
-                    background: way.title.includes("Magna") 
+                    background: way.title.includes("MAGNA") 
                       ? 'linear-gradient(90deg, #3533cd 0%, #00ffff 100%)'
                       : 'linear-gradient(90deg, #9B26B6 0%, #d44fe6 100%)',
                     height: '8px' 
@@ -114,7 +114,7 @@ const WaysToWork = () => {
                   </motion.p>
 
                   {/* Button */}
-                  {way.title.includes("Magna") ? (
+                  {way.title.includes("MAGNA") ? (
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
