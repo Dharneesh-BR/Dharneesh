@@ -6,9 +6,9 @@ const milestones = [
   { title: "Glaxo Smithkline", description: "Healthcare expansion", position: "Medical Representative", year: "2004", logo: "/GSK.png" },
   { title: "Hindustan Unilever", description: "FMCG scale partnership", position: "Territory Sales Officer", year: "2008", logo: "/Unilever.png" },
   { title: "Philips", description: "Global brand association", position: "Branch Manager", year: "2010", logo: "/Philips.png" },
-  { title: "Samsung", description: "Enterprise collaboration", position: "Retail MArketing Head,MT", year: "2013", logo: "/Samsung.png" },
-  { title: "Recibo", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
-  { title: "Eazy", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
+  { title: "Samsung", description: "Enterprise collaboration", position: "Retail Marketing Head,MT", year: "2013", logo: "/Samsung.png" },
+  { title: "Recibo.Ai", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
+  { title: "EAZY.Ai", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
   { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Chief Consultant", year: "2019", logo: "/mind magna.png" },
   { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", year: "2026", logo: "/Eterno_logo.webp" }
 ];
@@ -243,12 +243,12 @@ const Roadmap = () => {
                 <div className="absolute left-full ml-8 top-1/2 transform -translate-y-1/2 w-48 bg-white rounded-xl shadow-lg p-4 border border-gray-200 z-20"
                      onClick={() => handleMilestoneClick(milestone.title)}>
                   <div className="mb-1">
-                    <h3 className="font-bold text-gray-800 text-sm leading-tight">
-                      {milestone.title}
-                    </h3>
                     <p className="text-blue-600 font-bold text-sm">
                       {milestone.year}
                     </p>
+                    <h3 className="font-bold text-gray-800 text-sm leading-tight">
+                      {milestone.title}
+                    </h3>
                   </div>
                   <p className="text-gray-600 font-medium text-sm">
                     {milestone.position}
