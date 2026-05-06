@@ -55,6 +55,7 @@ const Roadmap = () => {
     if (!isMobile && pathRef.current) {
       const calculatePositions = () => {
         const path = pathRef.current;
+        if (!path) return;
         const totalLength = path.getTotalLength();
 
         const newPositions = milestones.map((_, index) => {
@@ -104,7 +105,7 @@ const Roadmap = () => {
             </h3>
           </motion.div>
 
-          <div className="relative h-[800px]">
+          <div className="relative h-[950px]">
             {/* Mobile Curved Road */}
             <svg
               className="absolute inset-0 w-full h-full z-5"
@@ -213,15 +214,15 @@ const Roadmap = () => {
             
             {/* Mobile Milestones */}
             {milestones.map((milestone, index) => {
-              // Calculate positions for straight vertical alignment
-              const yPos = 50 + (index * 87.5); // Distribute evenly along 800px height
+              // Consistent spacing calculation
+              const yPos = 60 + (index * 115);
               
               return (
               <motion.div
                 key={milestone.title}
                 className="absolute"
                 style={{ 
-                  left: '60px', // Move nodes further right
+                  left: '50px',
                   top: `${yPos}px`,
                   transform: 'translate(-50%, -50%)'
                 }}
@@ -229,31 +230,28 @@ const Roadmap = () => {
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                {/* Milestone Node on Road */}
-                <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg border-3 border-blue-500 relative z-10">
+                {/* Milestone Node on Road - Larger */}
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-blue-500 relative z-10">
                   <img 
                     src={milestone.logo}
                     alt={milestone.title}
-                    className="w-5 h-5 object-contain"
+                    className="w-10 h-10 object-contain"
                   />
                 </div>
                 
-                {/* Content Card on Right Side with straight alignment */}
-                <div className="absolute left-full ml-8 top-1/2 transform -translate-y-1/2 w-44 bg-white rounded-lg shadow-lg p-3 border border-gray-200 z-20"
+                {/* Content Card */}
+                <div className="absolute left-full ml-8 top-1/2 transform -translate-y-1/2 w-48 bg-white rounded-xl shadow-lg p-4 border border-gray-200 z-20"
                      onClick={() => handleMilestoneClick(milestone.title)}>
-                  <div className="mb-2">
-                    <h3 className="font-bold text-gray-800 text-xs leading-tight">
+                  <div className="mb-1">
+                    <h3 className="font-bold text-gray-800 text-sm leading-tight">
                       {milestone.title}
                     </h3>
-                    <p className="text-blue-600 font-bold text-xs">
+                    <p className="text-blue-600 font-bold text-sm">
                       {milestone.year}
                     </p>
                   </div>
-                  <p className="text-gray-600 font-medium text-xs mb-1">
+                  <p className="text-gray-600 font-medium text-sm">
                     {milestone.position}
-                  </p>
-                  <p className="text-gray-600 text-xs leading-tight">
-                    {milestone.description}
                   </p>
                 </div>
               </motion.div>

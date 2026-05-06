@@ -38,18 +38,21 @@ const MasonryGallery = ({ images = [] }) => {
 
   // Main page images (only specified ones)
   const mainPageImages = [
-    { id: 19, src: '/Gallery Images/Image19.jpg', alt: 'Gallery Image 19', size: 'horizontal-large' },
-    { id: 4, src: '/Gallery Images/Image 3.webp', alt: 'Gallery Image 3', size: 'vertical-large' },
-    { id: 22, src: '/Gallery Images/Image 5.jpg', alt: 'Gallery Image 5', size: 'large' },
-    { id: 20, src: '/Gallery Images/Image 20.jpg', alt: 'Gallery Image 20', size: 'small' },
-    { id: 1, src: '/Gallery Images/Image 1.webp', alt: 'Gallery Image 1', size: 'small' },
-    { id: 23, src: '/Gallery Images/Image 14.jpg', alt: 'Gallery Image 14', size: 'vertical-large' },
-    { id: 9, src: '/Gallery Images/Image 6.jpg', alt: 'Gallery Image 6', size: 'vertical-large' },
-    { id: 21, src: '/Gallery Images/Image 21.webp', alt: 'Gallery Image 21', size: 'horizontal-large' },
-    { id: 5, src: '/Gallery Images/Image 4.jpg', alt: 'Gallery Image 4', size: 'horizontal-large' },
-    { id: 14, src: '/Gallery Images/Image 9.jpg', alt: 'Gallery Image 9', size: 'vertical-large' },
-    { id: 2, src: '/Gallery Images/Image 2.jpg', alt: 'Gallery Image 2', size: 'vertical-large' },
-    { id: 15, src: '/Gallery Images/Image 10.jpg', alt: 'Gallery Image 10', size: 'horizontal-large' },
+    { id: 19, src: '/Gallery Images/Image19.jpg', alt: 'Gulf Food Expo', size: 'horizontal-large' },
+    { id: 4, src: '/Gallery Images/Image 3.webp', alt: 'B2B Meet in Kenya', size: 'vertical-large' },
+    { id: 22, src: '/Gallery Images/Image 5.jpg', alt: 'B2B Meet in Jordan', size: 'large' },
+    { id: 20, src: '/Gallery Images/Image 20.jpg', alt: 'Ethiopia Business Deal', size: 'small' },
+    { id: 1, src: '/Gallery Images/Image 1.webp', alt: 'Kenya Delegation Meet', size: 'small' },
+    { id: 23, src: '/Gallery Images/Image 14.jpg', alt: 'Dubai Partnership', size: 'vertical-large' },
+    { id: 9, src: '/Gallery Images/Image 12.jpg', alt: 'Milma Sales Automation', size: 'vertical-large' },
+    { id: 21, src: '/Gallery Images/Image 21.webp', alt: 'Delegation in Nairobi', size: 'horizontal-large' },
+    { id: 5, src: '/Gallery Images/Image 13.jpg', alt: 'Client Meeting', size: 'horizontal-large' },
+    { id: 25, src: '/Gallery Images/Image 16.jpg', alt: 'Team Meeting', size: 'horizontal-large' },
+    { id: 14, src: '/Gallery Images/Image 9.jpg', alt: 'B2B Meet in Bahrain', size: 'vertical-large' },
+    { id: 2, src: '/Gallery Images/Image 2.jpg', alt: 'Meeting with Embassy of India for Jordan', size: 'vertical-large' },
+    { id: 15, src: '/Gallery Images/Image 10.jpg', alt: 'Wipro Client Meeting', size: 'horizontal-large' },
+    { id: 16, src: '/Gallery Images/Image 17.jpg', alt: 'Best Ai Innovation Award to Eazy', size: 'horizontal-large' },
+    { id: 8, src: '/Gallery Images/Image 8.jpg', alt: 'TAFE Client Meeting', size: 'small' },
   ];
 
   const galleryImages = images.length > 0 ? images : mainPageImages;

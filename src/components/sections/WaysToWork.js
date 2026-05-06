@@ -69,8 +69,8 @@ const WaysToWork = () => {
             </p>
           </motion.div>
 
-          {/* Two Grid Layout */}
-          <div className="grid lg:grid-cols-2 gap-12 items-stretch">
+          {/* Desktop Layout - Two Grid */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-stretch">
             {workWays.map((way, index) => (
               <motion.div
                 key={way.id}
@@ -142,6 +142,95 @@ const WaysToWork = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg min-w-[200px] justify-center"
+                        style={{
+                          background: 'linear-gradient(90deg, #9B26B6 0%, #d44fe6 100%)'
+                        }}
+                      >
+                        <span>{way.buttonText}</span>
+                        <i className="fas fa-arrow-right ml-2"></i>
+                      </a>
+                    </motion.div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Layout - Full Width Cards */}
+          <div className="lg:hidden space-y-8">
+            {workWays.map((way, index) => (
+              <motion.div
+                key={way.id}
+                className="bg-white rounded-2xl shadow-xl shadow-cyan-500/60 overflow-hidden border border-cyan-500/40"
+                variants={itemVariants}
+                whileHover={{ y: -3 }}
+              >
+                {/* Gradient Strip */}
+                <div 
+                  style={{ 
+                    background: way.title.includes("MAGNA") 
+                      ? 'linear-gradient(90deg, #3533cd 0%, #00ffff 100%)'
+                      : 'linear-gradient(90deg, #9B26B6 0%, #d44fe6 100%)',
+                    height: '6px' 
+                  }}
+                ></div>
+                
+                {/* Full Width Image - Flush with edges */}
+                <div className="w-full">
+                  <img 
+                    src={way.image} 
+                    alt={way.title}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+                
+                {/* Content Section */}
+                <div className="p-6 sm:p-8">
+                  <motion.h3 
+                    className="text-xl sm:text-2xl font-bold text-gray-900 mb-4"
+                    variants={itemVariants}
+                  >
+                    {way.title}
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="text-gray-600 leading-relaxed mb-6 text-base sm:text-lg"
+                    variants={itemVariants}
+                  >
+                    {way.description}
+                  </motion.p>
+
+                  {/* Button */}
+                  {way.title.includes("MAGNA") ? (
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      variants={itemVariants}
+                      className="w-full sm:w-auto"
+                    >
+                      <Link
+                        to={way.url}
+                        className="inline-flex items-center w-full sm:w-auto px-8 py-4 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg justify-center text-base sm:text-lg"
+                        style={{
+                          background: 'linear-gradient(90deg, #3533cd 0%, #00ffff 100%)'
+                        }}
+                      >
+                        <span>{way.buttonText}</span>
+                        <i className="fas fa-arrow-right ml-2"></i>
+                      </Link>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      variants={itemVariants}
+                      className="w-full sm:w-auto"
+                    >
+                      <a
+                        href={way.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center w-full sm:w-auto px-8 py-4 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg justify-center text-base sm:text-lg"
                         style={{
                           background: 'linear-gradient(90deg, #9B26B6 0%, #d44fe6 100%)'
                         }}

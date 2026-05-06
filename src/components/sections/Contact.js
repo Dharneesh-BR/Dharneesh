@@ -68,16 +68,11 @@ const Contact = () => {
                 variants={itemVariants}
               >
                 <a 
-                  href="mailto:contact@dharneesh.com" 
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full hover:from-purple-700 hover:to-blue-700 transition-all duration-300 inline-flex items-center shadow-lg"
-                >
-                  <i className="fas fa-envelope mr-2"></i> Send Email
-                </a>
-                <a 
                   href="https://www.linkedin.com/in/dharneesh/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300 inline-flex items-center border border-white/20"
+                  className="text-white px-8 py-3 rounded-full transition-all duration-300 inline-flex items-center shadow-lg"
+                  style={{ backgroundColor: '#0077B5' }}
                 >
                   <i className="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
@@ -85,7 +80,8 @@ const Contact = () => {
                   href="https://www.instagram.com/dharneesh.br?igsh=cjFlbm9rNnhremVi" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300 inline-flex items-center border border-white/20"
+                  className="text-white px-8 py-3 rounded-full transition-all duration-300 inline-flex items-center shadow-lg"
+                  style={{ background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)' }}
                 >
                   <i className="fab fa-instagram mr-2"></i> Instagram
                 </a>
@@ -93,7 +89,8 @@ const Contact = () => {
                   href="https://www.facebook.com/share/17b6pqhyr6/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300 inline-flex items-center border border-white/20"
+                  className="text-white px-8 py-3 rounded-full transition-all duration-300 inline-flex items-center shadow-lg"
+                  style={{ backgroundColor: '#1877F2' }}
                 >
                   <i className="fab fa-facebook mr-2"></i> Facebook
                 </a>

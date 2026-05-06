@@ -108,7 +108,7 @@ const ContactUs = () => {
       <Navigation />
       
       {/* Contact Us Banner */}
-      <section className="relative pt-24 pb-16 px-6 overflow-hidden" style={{ backgroundColor: '#fbfaf9' }}>
+      <section className="relative pt-24 pb-0 px-6 overflow-hidden" style={{ backgroundColor: '#fbfaf9' }}>
         {/* Background Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 rounded-full blur-3xl"></div>
@@ -123,34 +123,46 @@ const ContactUs = () => {
             animate={inView ? "visible" : "hidden"}
             ref={ref}
           >
-            <motion.div variants={itemVariants} className="text-center">
-              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-wide">
-                <motion.span
-                  variants={itemVariants}
-                  className="inline-block bg-gradient-to-r from-[#3533cd] via-[#00ffff] to-[#00ffff] bg-clip-text text-transparent"
-                >
-                  Contact Us
-                </motion.span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-medium max-w-3xl mx-auto"
-                variants={itemVariants}
-              >
-                Get in touch with us to explore how we can help transform your business and accelerate your growth journey.
-              </motion.p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              {/* Left: Text Content */}
+              <motion.div variants={itemVariants} className="text-center md:text-left">
+                <motion.h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-wide pt-8">
+                  <motion.span
+                    variants={itemVariants}
+                    className="inline-block bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 bg-clip-text text-transparent "
+                  >
+                    Contact Us
+                  </motion.span>
+                </motion.h1>
 
-              <motion.div 
-                className="relative mx-auto h-1 w-20 sm:w-24 bg-gradient-to-r from-[#3533cd] to-[#00ffff] mb-8 rounded-full"
-                variants={itemVariants}
-              />
-            </motion.div>
+                <motion.p
+                  className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed font-medium max-w-2xl"
+                  variants={itemVariants}
+                >
+                  Get in touch with us to explore how we can help transform your business and accelerate your growth journey.
+                </motion.p>
+
+                <motion.div
+                  className="relative h-1 w-20 sm:w-24 bg-gradient-to-r from-[#3533cd] to-[#00ffff] rounded-full mx-auto md:mx-0 mb-6"
+                  variants={itemVariants}
+                />
+              </motion.div>
+
+              {/* Right: Image */}
+              <motion.div variants={itemVariants} className="hidden md:flex items-center justify-center -ml-16">
+                <img
+                  src="/contact-1.png"
+                  alt="Contact Us"
+                  className="w-full h-auto max-h-[400px] object-contain rounded-lg"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="relative py-16 px-6 overflow-hidden">
+      <section className="relative pt-0 pb-12 px-6 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -167,13 +179,10 @@ const ContactUs = () => {
             ref={ref}
           >
             {/* Two Grid Layout */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-0 md:gap-4 items-start">
               {/* Left Column - Content */}
-              <motion.div variants={itemVariants} className="relative">
-                {/* Decorative background */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-[#3533cd]/5 to-[#00ffff]/5 rounded-3xl blur-2xl"></div>
-                
-                <div className="relative z-10">
+              <motion.div variants={itemVariants} className="relative order-3 md:order-1">
+                <div className="relative z-10 text-center md:text-left">
                   <motion.h2 
                     className="text-3xl md:text-4xl font-bold mb-6 text-gray-900"
                     variants={itemVariants}
@@ -188,12 +197,7 @@ const ContactUs = () => {
                     Have a question? We're here to help.
                   </motion.p>
 
-                  <motion.p 
-                    className="text-lg text-gray-600 mb-4 leading-relaxed"
-                    variants={itemVariants}
-                  >
-                    Our support team is available Monday to Friday, 10:00 AM to 4:00 PM IST.
-                  </motion.p>
+                  
 
                   <motion.p 
                     className="text-lg text-gray-600 mb-8 leading-relaxed"
@@ -203,45 +207,32 @@ const ContactUs = () => {
                   </motion.p>
 
                   <motion.div variants={itemVariants} className="space-y-6">
-                    <div className="group flex items-start space-x-4 p-4 transition-all duration-300">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#3533cd] to-[#00ffff] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <i className="fas fa-envelope text-white"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">Email Us</h3>
-                        <p className="text-gray-600">dharneeshbr@gmail.com</p>
-                      </div>
-                    </div>
-
-                    <div className="group flex items-start space-x-4 p-4 transition-all duration-300">
+                    
+                    <div className="group flex flex-col md:flex-row md:items-start items-center space-x-0 md:space-x-4 p-4 transition-all duration-300">
                       <div className="w-12 h-12 bg-gradient-to-r from-[#3533cd] to-[#00ffff] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <i className="fas fa-phone text-white"></i>
                       </div>
-                      <div>
+                      <div className="text-center md:text-left mt-3 md:mt-0">
                         <h3 className="font-semibold text-gray-900 mb-1">Call Us</h3>
                         <p className="text-gray-600">+91 99804 56995</p>
-                      </div>
-                    </div>
-
-                    <div className="group flex items-start space-x-4 p-4 transition-all duration-300">
-                      <div className="w-12 h-12 bg-gradient-to-r from-[#3533cd] to-[#00ffff] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <i className="fas fa-map-marker-alt text-white"></i>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">Visit Us</h3>
-                        <p className="text-gray-600">Bangalore, India</p>
                       </div>
                     </div>
                   </motion.div>
                 </div>
               </motion.div>
 
+              {/* Mobile-only Image */}
+              <motion.div variants={itemVariants} className="md:hidden w-full flex justify-center mb-0 order-1">
+                <img
+                  src="/contact-1.png"
+                  alt="Contact Us"
+                  className="w-full max-w-[350px] h-auto object-contain rounded-lg"
+                />
+              </motion.div>
+
               {/* Right Column - Contact Form */}
-              <motion.div variants={itemVariants} className="relative">
-                {/* Decorative background */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-[#00ffff]/5 to-[#3533cd]/5 rounded-3xl blur-2xl"></div>
-                
-                <div className="relative z-10 bg-gradient-to-br from-[#3533cd] to-[#00ffff] backdrop-blur-sm rounded-2xl shadow-2xl shadow-cyan-500/60 p-8 border border-cyan-500/40">
+              <motion.div variants={itemVariants} className="relative order-2 md:order-2">
+                <div className="relative z-10 bg-gradient-to-br from-[#3533cd] to-[#00ffff] backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/40 mb-6">
                   <motion.h3 
                     className="text-2xl font-bold mb-6 text-white"
                     variants={itemVariants}

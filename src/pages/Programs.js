@@ -661,16 +661,7 @@ const Programs = () => {
                   variants={itemVariants}
                   className="max-w-6xl mx-auto"
                 >
-                  <div className="text-center mb-16">
-                    
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-                      LIMITED SEATS ONLY
-                    </h2>
-                    <div className="relative mx-auto h-1.5 w-32 md:w-40 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] mb-6" />
-                    <p className="text-xl text-white/90 max-w-2xl mx-auto">
-                      This is not a mass program. This is transformation.
-                    </p>
-                  </div>
+                  
 
                   <div className="max-w-5xl mx-auto">
                     <div className="relative">
@@ -684,12 +675,7 @@ const Programs = () => {
                         
                         <div className="p-8 md:p-12">
                           {/* Alert badge */}
-                          <div className="flex justify-center mb-8">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full">
-                              <div className="w-2 h-2 bg-[#00ffff] rounded-full animate-pulse" />
-                              <span className="text-sm font-semibold text-white">Only 12 Seats Per Batch</span>
-                            </div>
-                          </div>
+                          
 
                       {/* Main message */}
                       <div className="text-center mb-10">
@@ -743,28 +729,7 @@ const Programs = () => {
                         </motion.div>
                       </div>
 
-                      {/* Urgency message */}
-                      <div className="bg-gradient-to-r from-[#3533cd] to-[#00ffff] rounded-2xl p-6 text-center text-white">
-                        <div className="flex items-center justify-center mb-3">
-                          <i className="fas fa-clock text-3xl mr-3"></i>
-                          <span className="text-xl font-bold">Limited Availability</span>
-                        </div>
-                        <p className="text-lg opacity-95">
-                          Every batch fills up within 48 hours of announcement
-                        </p>
-                        <div className="mt-4 flex justify-center gap-2">
-                          {[1,2,3,4,5,6,7,8,9,10,11,12].map((seat) => (
-                            <div 
-                              key={seat}
-                              className={`w-3 h-3 rounded-full ${
-                                seat <= 8 ? 'bg-white/30' : 'bg-white/80'
-                              }`}
-                              title={`Seat ${seat <= 8 ? 'Taken' : 'Available'}`}
-                            />
-                          ))}
-                        </div>
-                        <p className="text-sm mt-2 opacity-80">8 of 12 seats already filled</p>
-                      </div>
+                      
                         </div>
                       </div>
                     </div>
@@ -773,142 +738,7 @@ const Programs = () => {
               </div>
             </section>
 
-            {/* FINAL CALL Section */}
-            <motion.div 
-              className="mb-20"
-              variants={itemVariants}
-            >
-              <div className="max-w-5xl mx-auto">
-                <div className="relative">
-                  {/* Background decoration */}
-                  <div className="absolute -inset-8 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 rounded-3xl opacity-60" />
-                  
-                  {/* Main content */}
-                  <div className="relative bg-gradient-to-br from-[#3533cd] to-[#00ffff] rounded-3xl shadow-2xl overflow-hidden">
-                    {/* Pattern overlay */}
-                    <div className="absolute inset-0 bg-white/5 backdrop-blur-sm" />
-                    
-                    <div className="relative p-10 md:p-16">
-                      {/* Header with badge */}
-                      <div className="text-center mb-12">
-                        <div className="inline-flex items-center justify-center mb-6">
-                          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                            <i className="fas fa-bullhorn text-2xl text-white"></i>
-                          </div>
-                        </div>
-                        
-                        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-gray-900">
-                          FINAL CALL
-                        </h2>
-                        
-                        <div className="relative mx-auto h-1.5 w-24 md:w-32 rounded-full bg-gray-900/40 mb-8" />
-                        
-                        <div className="max-w-3xl mx-auto">
-                          <p className="text-xl md:text-2xl mb-6 leading-relaxed text-gray-800">
-                            Most founders spend years trying to figure this out.
-                          </p>
-                          <p className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
-                            You don't have to.
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Program benefits */}
-                      <div className="text-center mb-12">
-                        <p className="text-lg md:text-xl mb-8 text-gray-800">
-                          The Business MAGNA Program gives you:
-                        </p>
-
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                          <motion.div 
-                            className="group"
-                            whileHover={{ y: -4 }}
-                          >
-                            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-300/50 h-full shadow-lg">
-                              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-[#3533cd] to-[#00ffff] flex items-center justify-center group-hover:shadow-lg transition-all">
-                                <i className="fas fa-sitemap text-white text-xl"></i>
-                              </div>
-                              <p className="text-lg font-bold text-gray-900">Structure</p>
-                            </div>
-                          </motion.div>
-
-                          <motion.div 
-                            className="group"
-                            whileHover={{ y: -4 }}
-                          >
-                            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-300/50 h-full shadow-lg">
-                              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-[#00ffff] to-[#3533cd] flex items-center justify-center group-hover:shadow-lg transition-all">
-                                <i className="fas fa-cogs text-white text-xl"></i>
-                              </div>
-                              <p className="text-lg font-bold text-gray-900">Systems</p>
-                            </div>
-                          </motion.div>
-
-                          <motion.div 
-                            className="group"
-                            whileHover={{ y: -4 }}
-                          >
-                            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-300/50 h-full shadow-lg">
-                              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-[#3533cd] to-[#00ffff] flex items-center justify-center group-hover:shadow-lg transition-all">
-                                <i className="fas fa-lightbulb text-white text-xl"></i>
-                              </div>
-                              <p className="text-lg font-bold text-gray-900">Clarity</p>
-                            </div>
-                          </motion.div>
-
-                          <motion.div 
-                            className="group"
-                            whileHover={{ y: -4 }}
-                          >
-                            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 border border-gray-300/50 h-full shadow-lg">
-                              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br from-[#00ffff] to-[#3533cd] flex items-center justify-center group-hover:shadow-lg transition-all">
-                                <i className="fas fa-gamepad text-white text-xl"></i>
-                              </div>
-                              <p className="text-lg font-bold text-gray-900">Control</p>
-                            </div>
-                          </motion.div>
-                        </div>
-                      </div>
-
-                      {/* Transformation message */}
-                      <div className="text-center mb-12">
-                        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-300/50 max-w-3xl mx-auto shadow-lg">
-                          <p className="text-lg md:text-xl mb-4 italic text-gray-800">
-                            So your business stops depending on you…
-                          </p>
-                          <p className="text-xl md:text-2xl font-bold text-gray-900">
-                            and starts scaling with you.
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <div className="text-center">
-                        <motion.button
-                          className="bg-gray-900 text-white px-12 py-5 rounded-full text-xl md:text-2xl font-bold shadow-2xl shadow-black/30 transition-all hover:shadow-black/40 group"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <span className="flex items-center gap-3">
-                            <span>👉 APPLY / JOIN NOW</span>
-                            <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                          </span>
-                        </motion.button>
-
-                        <div className="mt-8 max-w-2xl mx-auto">
-                          <p className="text-lg md:text-xl italic leading-relaxed text-gray-800">
-                            Build a business that doesn't just grow—
-                          </p>
-                          <p className="text-xl md:text-2xl font-bold text-gray-900">
-                            but evolves intelligently.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            
           </motion.div>
         </div>
       </section>
