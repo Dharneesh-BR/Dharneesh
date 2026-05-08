@@ -13,6 +13,11 @@ const BlogPost = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const fetchPost = async () => {
       try {
         const postData = await getPostBySlug(slug);
@@ -44,7 +49,10 @@ const BlogPost = () => {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-800 mb-4">Post not found</h1>
           <button
-            onClick={() => navigate('/insights')}
+            onClick={() => {
+              window.scrollTo(0, 0);
+              navigate('/insights');
+            }}
             className="px-6 py-3 bg-[#5B6CFF] text-white rounded-lg hover:bg-[#4a5ce6] transition"
           >
             Back to Insights
@@ -67,7 +75,10 @@ const BlogPost = () => {
           >
             {/* Back Button */}
             <motion.button
-              onClick={() => navigate('/insights')}
+              onClick={() => {
+                window.scrollTo(0, 0);
+                navigate('/insights');
+              }}
               className="mb-8 inline-flex items-center px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300 group shadow-sm"
               whileHover={{ x: -4 }}
               whileTap={{ scale: 0.95 }}

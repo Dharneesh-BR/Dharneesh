@@ -122,6 +122,7 @@ const WaysToWork = () => {
                     >
                       <Link
                         to={way.url}
+                        onClick={() => window.scrollTo(0, 0)}
                         className="inline-flex items-center px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg min-w-[200px] justify-center"
                         style={{
                           background: 'linear-gradient(90deg, #3533cd 0%, #00ffff 100%)'
@@ -141,6 +142,7 @@ const WaysToWork = () => {
                         href={way.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => window.scrollTo(0, 0)}
                         className="inline-flex items-center px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg min-w-[200px] justify-center"
                         style={{
                           background: 'linear-gradient(90deg, #9B26B6 0%, #d44fe6 100%)'

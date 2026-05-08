@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import Navigation from '../components/common/Navigation';
 import Footer from '../components/common/Footer';
+import ProgramsImage from '../components/sections/ProgramsImage';
 
 const MAGNA_COLORS = {
   M: '#2A1AD8',
@@ -16,6 +17,12 @@ const MAGNA_COLORS = {
 const Programs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -228,23 +235,10 @@ const Programs = () => {
               
               {/* Right Grid - Image */}
               <div className="lg:ml-3 mt-2 lg:mt-0">
-                <motion.div 
-                  className="relative"
-                  variants={itemVariants}
-                >
-                  {/* Main image */}
-                  <div className="relative rounded-3xl overflow-hidden">
-                    <img 
-                      src="/Programs.png" 
-                      alt="Business Magna Program" 
-                      className="w-full h-auto lg:h-full object-cover"
-                    />
-                  </div>
-                </motion.div>
+                <ProgramsImage />
               </div>
             </div>
 
-            {/* MAGNA Framework Section — one row per pillar (circle + copy, vertically centered) */}
             <section
               className="relative overflow-hidden py-20 md:py-24 mb-20"
               style={{
@@ -618,7 +612,7 @@ const Programs = () => {
 
             {/* WHO IS THIS FOR / NOT FOR Section */}
             <section
-              className="py-16 md:py-20 mb-20"
+              
               
             >
               <div className="px-6">
@@ -646,9 +640,9 @@ const Programs = () => {
                     }}
                   >
                     <div className="p-6 md:p-8 border-b border-gray-200">
-                      <div className="flex items-center justify-between gap-4">
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                         <div>
-                          <p className="text-sm font-semibold text-[#3533cd]">WHO THIS IS FOR</p>
+                          <p className="text-base sm:text-sm font-semibold text-[#3533cd]">WHO THIS IS FOR</p>
                           <h3 className="text-2xl font-extrabold text-[#000047] mt-1">This program is designed for:</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white shadow-sm flex-shrink-0">
@@ -700,9 +694,9 @@ const Programs = () => {
                     }}
                   >
                     <div className="p-6 md:p-8 border-b border-red-200">
-                      <div className="flex items-center justify-between gap-4">
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                         <div>
-                          <p className="text-sm font-semibold text-red-600">WHO THIS IS NOT FOR</p>
+                          <p className="text-base sm:text-sm font-semibold text-red-600">WHO THIS IS NOT FOR</p>
                           <h3 className="text-2xl font-extrabold text-[#000047] mt-1">This will not be a fit if:</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
@@ -738,7 +732,7 @@ const Programs = () => {
                   </motion.div>
                   </div>
                 </motion.div>
-                <p className="text-2xl font-semibold mb-8 text-gray-700 max-w-3xl mx-auto text-center py-6">
+                <p className="text-2xl font-semibold mb-8 text-gray-700 max-w-3xl mx-auto text-center pt-8 ">
                           This is for builders who want real transformation.
                         </p>
               </div>
@@ -748,7 +742,7 @@ const Programs = () => {
 
             {/* 2-DAY MAGNA BUSINESS PROGRAM Section */}
             <motion.div 
-              className="relative mb-20 overflow-hidden py-16 md:py-20"
+              className="relative mb-20 overflow-hidden py-24 md:py-32"
               variants={itemVariants}
               style={{
                 backgroundColor: '#000047',
@@ -787,13 +781,14 @@ const Programs = () => {
                     <div 
                       className="p-6 md:p-8"
                     >
-                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                        <div>
-                          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">FOUNDATION & SYSTEMS</h3>
-                          
-                        </div>
+                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between items-center sm:items-start">
+                        
                         <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-lg font-extrabold text-[#3533cd] shadow-[0_0_24px_rgba(0,255,255,0.35)]">
                           Day 1
+                        </div>
+                        <div className="text-center sm:text-left">
+                          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">FOUNDATION & SYSTEMS</h3>
+                          
                         </div>
                       </div>
                     </div>
@@ -908,13 +903,14 @@ const Programs = () => {
                     <div 
                       className="p-6 md:p-8"
                     >
-                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-                        <div>
-                          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">SCALE & SUSTAINABILITY</h3>
-                          
-                        </div>
+                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between items-center sm:items-start">
+                        
                         <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-lg font-extrabold text-[#953DF5] shadow-[0_0_24px_rgba(185,72,255,0.35)]">
                           Day 2
+                        </div>
+                        <div className="text-center sm:text-left">
+                          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">SCALE & SUSTAINABILITY</h3>
+                          
                         </div>
                       </div>
                     </div>
@@ -1029,10 +1025,10 @@ const Programs = () => {
                   >
                     <div className="h-1.5 w-full bg-gradient-to-r from-red-500 to-rose-400" />
                     <div className="p-6 md:p-8 border-b border-red-200">
-                      <div className="flex items-center justify-between gap-4">
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                         <div>
-                          <p className="text-sm font-semibold text-red-600">Before</p>
-                          <h3 className="text-2xl font-extrabold text-[#000047] mt-1">Where most founders start</h3>
+                          <p className="text-lg sm:text-base font-semibold text-red-600">Before</p>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#000047] mt-1">Where most founders start</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
                           <i className="fas fa-exclamation"></i>
@@ -1077,10 +1073,10 @@ const Programs = () => {
                   >
                     <div className="h-1.5 w-full bg-gradient-to-r from-emerald-500 to-cyan-400" />
                     <div className="p-6 md:p-8 border-b border-emerald-200">
-                      <div className="flex items-center justify-between gap-4">
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                         <div>
-                          <p className="text-sm font-semibold text-emerald-600">After</p>
-                          <h3 className="text-2xl font-extrabold text-[#000047] mt-1">What MAGNA unlocks</h3>
+                          <p className="text-lg sm:text-base font-semibold text-emerald-600">After</p>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#000047] mt-1">What MAGNA unlocks</h3>
                         </div>
                         <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-400 flex items-center justify-center text-white shadow-sm flex-shrink-0">
                           <i className="fas fa-check"></i>
@@ -1355,7 +1351,10 @@ const Programs = () => {
                   scale: 1.05
                 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => navigate('/contact-us')}
+                onClick={() => {
+  window.scrollTo(0, 0);
+  navigate('/contact-us');
+}}
               >
                 <span className="relative z-10">APPLY NOW</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>

@@ -10,6 +10,12 @@ import { urlFor } from '../lib/sanity';
 
 const Insights = () => {
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -106,7 +112,10 @@ const Insights = () => {
                 filteredPosts.map((post) => (
                   <motion.div
                     key={post._id}
-                    onClick={() => navigate(`/insights/${post.slug.current}`)}
+                    onClick={() => {
+  window.scrollTo(0, 0);
+  navigate(`/insights/${post.slug.current}`);
+}}
                     className="group bg-[#000047] rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-cyan-500/60 shadow-cyan-500/40 transition-all duration-300 overflow-hidden cursor-pointer border border-gray-100"
                     whileHover={{ y: -8, scale: 1.02 }}
                     initial={{ opacity: 0, y: 20 }}

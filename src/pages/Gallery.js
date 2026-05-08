@@ -7,6 +7,11 @@ const GalleryPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const galleryRef = useRef(null);
 
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+
   // All 25 images with varied sizes
   const allImages = [
     { id: 1, src: '/Gallery Images/Image 1.webp', alt: 'Gallery Image 1', size: 'small' },

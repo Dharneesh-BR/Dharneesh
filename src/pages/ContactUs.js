@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Navigation from '../components/common/Navigation';
@@ -6,6 +6,11 @@ import Footer from '../components/common/Footer';
 import emailjs from '@emailjs/browser';
 
 const ContactUs = () => {
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',

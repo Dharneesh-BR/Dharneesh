@@ -10,6 +10,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const heroTitles = ['Build a Brand ', 'Ecosystem ', 'Designed for Scale'];
+  const mobileHeroTitles = ['Build a Brand<br />', 'Ecosystem<br />', '<span class="bg-gradient-to-r from-[#3533cd] to-[#00ffff] bg-clip-text text-transparent">Designed for Scale</span>'];
 
   const statsData = [
     {
@@ -73,8 +74,8 @@ const Hero = () => {
           >
             {/* Mobile Title */}
             <motion.div variants={itemVariants} className="text-left mb-12 pt-12">
-              <motion.h1 className="text-3xl sm:text-4xl font-bold leading-tight tracking-wide text-center overflow-visible break-words">
-                {heroTitles.map((title, index) => (
+              <motion.h1 className="text-5xl sm:text-6xl font-bold leading-tight tracking-wide text-center overflow-visible break-words">
+                {mobileHeroTitles.map((title, index) => (
                   <Fragment key={title}>
                     <motion.span
                       custom={index}
@@ -84,7 +85,7 @@ const Hero = () => {
                       className={`inline text-center ${index === 1 ? 'text-blue-600 font-bold' : index === 2 ? 'text-cyan-400 font-bold' : ''}`}
                       style={index === 0 || index === 1 ? { color: '#000047' } : {}}
                     >
-                      {title}
+                      <span dangerouslySetInnerHTML={{ __html: title }} />
                     </motion.span>
                                       </Fragment>
                 ))}
@@ -95,11 +96,11 @@ const Hero = () => {
             {/* Mobile Bio */}
             <motion.div variants={itemVariants} className="mb-8 px-2">
               <motion.p 
-                className="text-base sm:text-lg text-subtext leading-relaxed font-medium text-center break-words"
+                className="text-lg sm:text-xl text-subtext leading-relaxed font-medium text-center break-words"
                 variants={itemVariants}
                 {...scrollAnimation}
               >
-                {profileInfo.bio}
+                <span dangerouslySetInnerHTML={{ __html: profileInfo.mobileBio }} />
               </motion.p>
             </motion.div>
 
@@ -142,8 +143,8 @@ const Hero = () => {
           </motion.div>
 
           {/* Mobile Image */}
-            <motion.div variants={itemVariants} className="mb-8 px-4">
-              <div className="relative mx-auto w-56 h-56 sm:w-64 sm:h-64">
+            <motion.div variants={itemVariants} className="px-4">
+              <div className="relative mx-auto w-72 h-72 sm:w-80 sm:h-80">
                 <motion.img
                   src="/Edited.png"
                   alt="Hero Banner"
