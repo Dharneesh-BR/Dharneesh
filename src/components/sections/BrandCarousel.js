@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 const BrandCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
   const intervalRef = useRef(null);
 
   const brands = [
@@ -38,6 +39,33 @@ const BrandCarousel = () => {
     return `translateX(-${currentIndex * itemWidth}%)`;
   };
 
+  // Handle touch events for mobile scrolling
+  const handleTouchStart = (e) => {
+    const touchStart = e.touches[0].clientX;
+    setTouchStart(touchStart);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStart === null) return;
+    const touchEnd = e.touches[0].clientX;
+    const diff = touchStart - touchEnd;
+    
+    if (Math.abs(diff) > 50) { // Minimum swipe distance
+      if (diff > 0) {
+        // Swipe left - next
+        setCurrentIndex((prev) => (prev + 1) % brands.length);
+      } else {
+        // Swipe right - previous
+        setCurrentIndex((prev) => (prev - 1 + brands.length) % brands.length);
+      }
+      setTouchStart(null);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setTouchStart(null);
+  };
+
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-7xl mx-auto">
@@ -65,7 +93,12 @@ const BrandCarousel = () => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
 
           {/* Carousel Container */}
-          <div className="relative overflow-hidden">
+          <div 
+            className="relative overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div
               className="flex transition-transform duration-2000 ease-in-out"
               style={{ 

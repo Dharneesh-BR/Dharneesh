@@ -15,6 +15,7 @@ import Programs from './pages/Programs';
 import Insights from './pages/Insights';
 import BlogPost from './pages/BlogPost';
 import Add from './pages/Add';
+import Newad from './pages/Newad';
 import GalleryPage from './pages/Gallery';
 import ContactUs from './pages/ContactUs';
 import Mission from './components/sections/Mission';
@@ -72,6 +73,7 @@ function AppRouter() {
             <Route path="/insights" element={<Insights />} />
             <Route path="/insights/:slug" element={<BlogPost />} />
             <Route path="/add" element={<Add />} />
+            <Route path="/newad" element={<Newad />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
