@@ -101,7 +101,7 @@ const Programs = () => {
 
     // Create Razorpay checkout options with error handling
     const options = {
-      key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
       amount: 19900, // Amount in paise (₹199)
       currency: 'INR',
       name: formData.name,
