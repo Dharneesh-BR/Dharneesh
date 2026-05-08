@@ -9,7 +9,7 @@ const Hero = () => {
   const hoverAnimation = useHoverAnimation();
   const navigate = useNavigate();
 
-  const heroTitles = ['Transforming Founders to', 'SuperHuman Leaders'];
+  const heroTitles = ['Build a Brand ', 'Ecosystem ', 'Designed for Scale'];
 
   const statsData = [
     {
@@ -62,8 +62,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-24 pb-16 px-6" style={{ backgroundColor: '#fbfaf9' }}>
-      <div className="container mx-auto">
+    <section className="pt-24 pb-16 px-4 sm:px-6" style={{ backgroundColor: '#fbfaf9' }}>
+      <div className="container mx-auto max-w-7xl">
         {/* Mobile Layout */}
         <div className="md:hidden">
           <motion.div
@@ -72,8 +72,8 @@ const Hero = () => {
             animate="visible"
           >
             {/* Mobile Title */}
-            <motion.div variants={itemVariants} className="text-left mb-8 pt-8">
-              <motion.h1 className="text-4xl font-bold mb-6 leading-tight tracking-wide text-center">
+            <motion.div variants={itemVariants} className="text-left mb-12 pt-12">
+              <motion.h1 className="text-3xl sm:text-4xl font-bold leading-tight tracking-wide text-center overflow-visible break-words">
                 {heroTitles.map((title, index) => (
                   <Fragment key={title}>
                     <motion.span
@@ -81,22 +81,21 @@ const Hero = () => {
                       variants={animations.heroTitle}
                       initial="hidden"
                       animate="show"
-                      className={`inline-block ${index === 1 ? 'bg-gradient-to-r from-[#3533cd] via-[#00ffff] to-[#00ffff] bg-clip-text text-transparent' : ''}`}
-                      style={index === 0 ? { color: '#000047' } : {}}
+                      className={`inline text-center ${index === 1 ? 'text-blue-600 font-bold' : index === 2 ? 'text-cyan-400 font-bold' : ''}`}
+                      style={index === 0 || index === 1 ? { color: '#000047' } : {}}
                     >
                       {title}
                     </motion.span>
-                    {index < heroTitles.length - 1 && <br className="mb-4" />}
-                  </Fragment>
+                                      </Fragment>
                 ))}
               </motion.h1>
             </motion.div>
 
             
             {/* Mobile Bio */}
-            <motion.div variants={itemVariants} className="mb-8">
+            <motion.div variants={itemVariants} className="mb-8 px-2">
               <motion.p 
-                className="text-base text-subtext leading-relaxed font-large text-center"
+                className="text-base sm:text-lg text-subtext leading-relaxed font-medium text-center break-words"
                 variants={itemVariants}
                 {...scrollAnimation}
               >
@@ -106,7 +105,7 @@ const Hero = () => {
 
             {/* Mobile Buttons */}
             <motion.div 
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-4 px-4 sm:px-6"
               variants={itemVariants}
               {...scrollAnimation}
             >
@@ -143,12 +142,12 @@ const Hero = () => {
           </motion.div>
 
           {/* Mobile Image */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <div className="relative mx-auto w-64 h-64">
+            <motion.div variants={itemVariants} className="mb-8 px-4">
+              <div className="relative mx-auto w-56 h-56 sm:w-64 sm:h-64">
                 <motion.img
                   src="/Edited.png"
                   alt="Hero Banner"
-                  className="w-72 h-72 object-contain rounded-lg relative z-10 mx-auto"
+                  className="w-full h-full object-contain rounded-lg relative z-10 mx-auto max-w-full"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
@@ -169,26 +168,25 @@ const Hero = () => {
             {/* Left Column - Title and Content */}
             <motion.div variants={itemVariants}>
               {/* Hero Title */}
-              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-wide">
+              <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-relaxed tracking-wide pb-6 overflow-visible">
                 {heroTitles.map((title, index) => (
-                  <Fragment key={title}>
+                  <Fragment key={index}>
                     <motion.span
                       custom={index}
                       variants={animations.heroTitle}
                       initial="hidden"
                       animate="show"
-                      className={`inline-block ${index === 1 ? 'bg-gradient-to-r from-[#3533cd] via-[#00ffff] to-[#00ffff] bg-clip-text text-transparent' : ''}`}
-                      style={index === 0 ? { color: '#000047' } : {}}
+                      className={`inline-block py-2 ${title.includes('Designed for Scale') ? 'bg-gradient-to-r from-[#3533cd] via-[#00ffff] to-[#00ffff] bg-clip-text text-transparent font-bold' : 'text-gray-700 font-bold'}`}
+                      style={{ display: 'inline-block' }}
                     >
                       {title}
                     </motion.span>
-                    {index < heroTitles.length - 1 && <br className="mb-6" />}
                   </Fragment>
                 ))}
               </motion.h1>
               
               <motion.p 
-                className="text-lg md:text-xl text-subtext mb-8 leading-relaxed font-medium"
+                className="text-xl md:text-2xl text-subtext mb-8 leading-relaxed font-medium whitespace-pre-wrap"
                 variants={itemVariants}
                 {...scrollAnimation}
               >

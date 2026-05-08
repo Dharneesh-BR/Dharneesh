@@ -7,10 +7,22 @@ const milestones = [
   { title: "Hindustan Unilever", description: "FMCG scale partnership", position: "Territory Sales Officer", year: "2008", logo: "/Unilever.png" },
   { title: "Philips", description: "Global brand association", position: "Branch Manager", year: "2010", logo: "/Philips.png" },
   { title: "Samsung", description: "Enterprise collaboration", position: "Retail Marketing Head,MT", year: "2013", logo: "/Samsung.png" },
-  { title: "Recibo.Ai", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
-  { title: "EAZY.Ai", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
-  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Chief Consultant", year: "2019", logo: "/mind magna.png" },
+  { title: "Recibo.AI", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
+  { title: "EAZY.AI", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
+  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Business Strategist", year: "2025", logo: "/mind magna.png" },
   { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", year: "2026", logo: "/Eterno_logo.webp" }
+];
+
+// Descending order for mobile view (2026 to 2004)
+const mobileMilestones = [
+  { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", year: "2026", logo: "/Eterno_logo.webp" },
+  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Business Strategist", year: "2025", logo: "/mind magna.png" },
+  { title: "EAZY.AI", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
+  { title: "Recibo.AI", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
+  { title: "Samsung", description: "Enterprise collaboration", position: "Retail Marketing Head,MT", year: "2013", logo: "/Samsung.png" },
+  { title: "Philips", description: "Global brand association", position: "Branch Manager", year: "2010", logo: "/Philips.png" },
+  { title: "Hindustan Unilever", description: "FMCG scale partnership", position: "Territory Sales Officer", year: "2008", logo: "/Unilever.png" },
+  { title: "Glaxo Smithkline", description: "Healthcare expansion", position: "Medical Representative", year: "2004", logo: "/GSK.png" }
 ];
 
 const majorBrands = ["Samsung", "Philips", "Hindustan Unilever", "Glaxo Smithkline"];
@@ -76,10 +88,10 @@ const Roadmap = () => {
       const timer = setTimeout(calculatePositions, 100);
       return () => clearTimeout(timer);
     } else if (isMobile) {
-      // Mobile: vertical stacking
-      const mobilePositions = milestones.map((_, index) => ({
+      // Mobile: vertical stacking with descending order
+      const mobilePositions = mobileMilestones.map((_, index) => ({
         x: 50,
-        y: (index + 1) * (100 / (milestones.length + 1))
+        y: (index + 1) * (100 / (mobileMilestones.length + 1))
       }));
       setPositions(mobilePositions);
     }
@@ -213,7 +225,7 @@ const Roadmap = () => {
             </svg>
             
             {/* Mobile Milestones */}
-            {milestones.map((milestone, index) => {
+            {mobileMilestones.map((milestone, index) => {
               // Consistent spacing calculation
               const yPos = 60 + (index * 115);
               

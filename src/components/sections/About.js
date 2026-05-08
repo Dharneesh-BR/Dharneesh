@@ -30,6 +30,7 @@ const About = () => {
   title: "Growth Begins in the Mind. Scale Begins in Consciousness.",
   introduction: "Hi, I'm Dharneesh.",
   mainContent: [
+    "Over the past <span style='color: #FFFFFF; font-weight: 700;'>23+ years</span>, I've built systems, scaled products, and created measurable business impact working with global giants like <span style='color: #FFFFFF; font-weight: 700;'>Samsung, Philips, Unilever, and GlaxoSmithKline</span>, and later founding ventures like <span style='color: #FFFFFF; font-weight: 700;'>EAZY and Recibo.AI</span>, now serving <span style='color: #FFFFFF; font-weight: 700;'>650+ brands across 8 countries</span>.",
     "I work at the intersection of <span style='color: #FFFFFF; font-weight: 700;'>Brand Strategy</span>, <span style='color: #FFFFFF; font-weight: 700;'>Business Coaching</span>, and <span style='color: #FFFFFF; font-weight: 700;'>Human Transformation</span>.",
     "I believe better businesses are built at the intersection of clear thinking, aligned energy and intelligent systems.",
     "My work sits where conscious brand building, AI-powered growth, founder performance and human potential meet, because lasting scale comes from optimizing both the business and the builder.",
@@ -103,6 +104,23 @@ const About = () => {
                   />
                 ))}
               </div>
+              
+              {/* Signature Image */}
+              <motion.div 
+                className="mt-8 flex justify-end"
+                variants={itemVariants}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <motion.img
+                  src="/bold signature.png"
+                  alt="Dharneesh Signature"
+                  className="h-16 w-auto"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </motion.div>
             </motion.div>
           </motion.div>
         </motion.div>

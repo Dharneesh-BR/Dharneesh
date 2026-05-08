@@ -151,7 +151,7 @@ const ContactUs = () => {
               {/* Right: Image */}
               <motion.div variants={itemVariants} className="hidden md:flex items-center justify-center -ml-16">
                 <img
-                  src="/contact-1.png"
+                  src="/contac-2.png"
                   alt="Contact Us"
                   className="w-full h-auto max-h-[400px] object-contain rounded-lg"
                 />
@@ -224,7 +224,7 @@ const ContactUs = () => {
               {/* Mobile-only Image */}
               <motion.div variants={itemVariants} className="md:hidden w-full flex justify-center mb-0 order-1">
                 <img
-                  src="/contact-1.png"
+                  src="/contac-2.png"
                   alt="Contact Us"
                   className="w-full max-w-[350px] h-auto object-contain rounded-lg"
                 />

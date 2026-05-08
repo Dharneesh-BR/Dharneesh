@@ -109,8 +109,8 @@ const Programs = () => {
     {
       number: "A",
       letter: "A2",
-      title: "Alignment of Energy & Execution",
-      subtitle: "Sustainable growth needs founder longevity.",
+      title: "Alignment of Team & Execution",
+      subtitle: "Sustainable growth needs team alignment and peak performance.",
       description: "Focus on energy management over time management. Align health, clarity, and decision quality. Create team alignment with vision and values. Reduce chaos-driven execution.",
       items: [
         "Energy management > time management",
@@ -139,13 +139,16 @@ const Programs = () => {
               className="mb-6"
               variants={itemVariants}
             >
-              <div className="text-center mb-4">
+              <div className="text-center mb-4 pt-8">
                 <div className="relative inline-block align-baseline">
                   <div className="absolute -inset-x-6 -inset-y-3 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 blur-2xl" />
                   <h1 className="relative text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-normal bg-gradient-to-r from-[#000080] via-[#1e3a8a] to-[#1e40af] bg-clip-text text-transparent leading-normal pb-2">
-                    Join MAGNA Business Program
+                    MAGNA BRAND SCALE <br/><span className='text-2xl md:text-3xl lg:text-4xl'>Masterclass</span>
                   </h1>
                   <div className="relative mx-auto h-1.5 w-32 md:w-40 lg:w-48 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" />
+                  <p className="text-gray-600 text-xl md:text-2xl mt-6 mb-6 font-medium">
+                    2 Day Live Intensive Workshop for MSME Consumer Brands
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -263,7 +266,7 @@ const Programs = () => {
                 <div className="text-center mb-14 md:mb-16">
                   <h2 className="text-4xl md:text-5xl font-extrabold mb-4 text-white tracking-tight">MAGNA Framework</h2>
                   <p className="text-2xl font-semibold mb-8 text-white/90 max-w-3xl mx-auto">
-                    A Conscious Growth System for Scaling MSME Business Exponentially
+                    A Conscious Growth System for Scaling Consumer Brands
                   </p>
                   
                 </div>
@@ -745,7 +748,7 @@ const Programs = () => {
 
             {/* 2-DAY MAGNA BUSINESS PROGRAM Section */}
             <motion.div 
-              className="mb-20"
+              className="relative mb-20 overflow-hidden py-16 md:py-20"
               variants={itemVariants}
               style={{
                 backgroundColor: '#000047',
@@ -754,16 +757,23 @@ const Programs = () => {
                 marginRight: 'calc(50% - 50vw)'
               }}
             >
-              <div className="text-center mb-12 pt-12">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Join the 2 day MAGNA Business Program</h2>
+              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(135deg,rgba(0,255,255,0.12)_0%,rgba(255,255,255,0)_36%,rgba(185,72,255,0.14)_100%)]" />
+
+              <div className="relative z-10 mx-auto mb-12 max-w-4xl px-6 text-center">
+                
+                <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-white">Join the MAGNA Business Program</h2>
+                <p className="mx-auto mt-5 max-w-3xl text-lg md:text-xl leading-relaxed text-white/75">
+                  Two focused days to move from founder-led chaos to a system-driven business with clearer growth, control, and execution.
+                </p>
               </div>
 
-              <div className="max-w-7xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-8 pb-12">
+              <div className="relative z-10 max-w-6xl mx-auto px-6">
+                <div className="grid gap-8 lg:grid-cols-2">
                   {/* DAY 1 */}
                   <motion.div 
-                    className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl shadow-xl border border-cyan-200/50 overflow-hidden"
+                    className="group relative overflow-hidden rounded-3xl border border-white/30 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
                     style={{
+                      background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
                       boxShadow: '0 0 25px rgba(0, 255, 255, 0.2), 0 15px 35px rgba(53, 51, 205, 0.15)'
                     }}
                     variants={itemVariants}
@@ -773,41 +783,42 @@ const Programs = () => {
                     }}
                     transition={{ duration: 0.3 }}
                   >
+                    <div className="h-1.5 w-full bg-gradient-to-r from-[#3533cd] via-[#7231EC] to-[#00ffff]" />
                     <div 
-                      className="p-6 text-center"
-                      style={{
-                        background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)'
-                      }}
+                      className="p-6 md:p-8"
                     >
-                      <h3 className="text-2xl md:text-3xl font-bold text-white">DAY 01</h3>
-                      <h4 className="text-lg font-semibold text-white mt-1">FOUNDATION + SYSTEMIZATION</h4>
-                      <p className="text-sm text-white/90 mt-1">(Mindset + Architecture)</p>
+                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">FOUNDATION & SYSTEMS</h3>
+                          
+                        </div>
+                        <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-lg font-extrabold text-[#3533cd] shadow-[0_0_24px_rgba(0,255,255,0.35)]">
+                          Day 1
+                        </div>
+                      </div>
                     </div>
                     
-                    <div className="p-6 space-y-6">
+                    <div className="px-6 pb-6 md:px-8 md:pb-8 space-y-5">
                       {/* Session 1 */}
-                      <div>
-                        <h5 className="font-bold text-gray-900 mb-2 text-center">Session 1: M — Mindset (Foundation)</h5>
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Theme: From Operator to Scalable Leader</p>
-                        
-                        
-                        <div className="mb-3">
-                          <p className="font-semibold text-gray-900 mb-2">What you will learn:</p>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                      <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
+                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 1: M — Mindset </h5>
+                                           
+                      <div className="mb-3">
+                            <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
+                              <span className="mt-1 font-bold text-[#3533cd]">→</span>
                               <span>The 3 identity shifts required to scale beyond ₹1Cr → ₹100 Cr+</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
+                              <span className="mt-1 font-bold text-[#3533cd]">→</span>
                               <span>Why "hard work" is killing growth (and what replaces it)</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
+                              <span className="mt-1 font-bold text-[#3533cd]">→</span>
                               <span>Breaking "founder dependency loop"</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
+                              <span className="mt-1 font-bold text-[#3533cd]">→</span>
                               <span>Moving from firefighting → foresight-driven leadership</span>
                             </li>
                           </ul>
@@ -815,41 +826,33 @@ const Programs = () => {
                         
                                               </div>
                       
-                      <div className="border-b border-gray-200 my-6"></div>
-
-                      <div className="border-b border-gray-200 my-6"></div>
-
+                      
+                      
                       {/* Session 2 */}
-                      <div>
-                        <h5 className="font-bold text-gray-900 mb-2 text-center">Session 2: A — Architecture (Systems)</h5>
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Theme: Build a Business That Runs Without You</p>
-                        
-                        
-                        <div className="mb-3">
-                          <p className="font-semibold text-gray-900 mb-2">What you will learn:</p>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                      <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
+                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 2: A — Architecture </h5>
+                                              
+                      <div className="mb-3">
+                            <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>The 5 core systems every scalable business must have:</span>
-                            </li>
-                            <li className="ml-6 space-y-1 text-sm text-gray-600">
-                              <span>• Lead Generation System</span>
-                              <span>• Sales System</span>
-                              <span>• Delivery System</span>
-                              <span>• Hiring System</span>
-                              <span>• Finance System</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
+                              <span className="mt-1 font-bold text-[#4E26E2]">→</span>
                               <span>How to remove "people dependency"</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
+                              <span className="mt-1 font-bold text-[#4E26E2]">→</span>
                               <span>Designing SOPs that actually get followed</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Intro to AI-powered workflows for MSMEs</span>
+                              <span className="mt-1 font-bold text-[#4E26E2]">→</span>
+                              <span>Tools & workflows to reduce manual effort by 30–50%</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 font-bold text-[#4E26E2]">→</span>
+                              <span>Automating marketing, sales follow-ups, and operation</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                              <span className="mt-1 font-bold text-[#4E26E2]">→</span>
+                              <span>Where AI actually fits in MSME businesses </span>
                             </li>
                           </ul>
                         </div>
@@ -857,41 +860,41 @@ const Programs = () => {
                                                 
                                               </div>
                       
-                      <div className="border-b border-gray-200 my-6"></div>
-
+                      
                       {/* Session 3 */}
-                      <div>
-                        <h5 className="font-bold text-gray-900 mb-2 text-center">Session 3: AI Integration for Scale (Bridge Session)</h5>
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Theme: Leveraging AI to Multiply Output</p>
+                      <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
+                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 3: G — Growth </h5>
+                        
                         
                         <div className="mb-3">
-                          <p className="font-semibold text-gray-900 mb-2">What you will learn:</p>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                        
+                          <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Where AI actually fits in MSME businesses (practical use cases)</span>
+                              <span className="mt-1 font-bold text-[#7231EC]">→</span>
+                              <span>How to create predictable monthly revenue</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Automating marketing, sales follow-ups, and operations</span>
+                              <span className="mt-1 font-bold text-[#7231EC]">→</span>
+                              <span>Fixing inconsistent sales pipelines</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Tools & workflows to reduce manual effort by 30–50%</span>
+                              <span className="mt-1 font-bold text-[#7231EC]">→</span>
+                              <span>Positioning & messaging for premium growth</span>
                             </li>
+                            
                           </ul>
                         </div>
                         
                                               </div>
                       
-                      <div className="border-b border-gray-200 my-6"></div>
-                    </div>
+                                          </div>
                   </motion.div>
 
                   {/* DAY 2 */}
                   <motion.div 
-                    className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl shadow-xl border border-cyan-200/50 overflow-hidden"
+                    className="group relative overflow-hidden rounded-3xl border border-white/30 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
                     style={{
+                      background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
                       boxShadow: '0 0 25px rgba(0, 255, 255, 0.2), 0 15px 35px rgba(53, 51, 205, 0.15)'
                     }}
                     variants={itemVariants}
@@ -901,112 +904,98 @@ const Programs = () => {
                     }}
                     transition={{ duration: 0.3 }}
                   >
+                    <div className="h-1.5 w-full bg-gradient-to-r from-[#953DF5] via-[#B948FF] to-[#00ffff]" />
                     <div 
-                      className="p-6 text-center"
-                      style={{
-                        background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)'
-                      }}
+                      className="p-6 md:p-8"
                     >
-                      <h3 className="text-2xl md:text-3xl font-bold text-white">DAY 02</h3>
-                      <h4 className="text-lg font-semibold text-white mt-1">SCALE + CONTROL + SUSTAINABILITY</h4>
-                      <p className="text-sm text-white/90 mt-1">(Growth + Numbers + Alignment)</p>
+                      <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">SCALE & SUSTAINABILITY</h3>
+                          
+                        </div>
+                        <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-lg font-extrabold text-[#953DF5] shadow-[0_0_24px_rgba(185,72,255,0.35)]">
+                          Day 2
+                        </div>
+                      </div>
                     </div>
                     
-                    <div className="p-6 space-y-6">
+                    <div className="px-6 pb-6 md:px-8 md:pb-8 space-y-5">
                       {/* Session 4 */}
-                      <div>
-                        <h5 className="font-bold text-gray-900 mb-2 text-center">Session 4: G — Growth (Engine)</h5>
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Theme: Build Predictable Revenue, Not Random Sales</p>
+                      <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
+                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 4: N — Numbers </h5>
+                        
                         
                         
                         <div className="mb-3">
-                          <p className="font-semibold text-gray-900 mb-2">What you will learn:</p>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                          
+                          <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>The 3-part growth engine:</span>
-                            </li>
-                            <li className="ml-6 space-y-1 text-sm text-gray-600">
-                              <span>• Lead Generation</span>
-                              <span>• Conversion System</span>
-                              <span>• Customer Retention</span>
+                              <span className="mt-1 font-bold text-[#953DF5]">→</span>
+                              <span>The only KPIs that actually matter for founders</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>How to create predictable monthly revenue</span>
+                              <span className="mt-1 font-bold text-[#953DF5]">→</span>
+                              <span>Understanding CAC, LTV, conversion ratios, and margins</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Fixing inconsistent sales pipelines</span>
+                              <span className="mt-1 font-bold text-[#953DF5]">→</span>
+                              <span>How to stop "profit leaks" in your business</span>
                             </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Positioning & messaging for premium growth</span>
-                            </li>
+                            
                           </ul>
                         </div>
                         
                                                 
                                               </div>
                       
-                      <div className="border-b border-gray-200 my-6"></div>
-
+                      
                       {/* Session 5 */}
-                      <div>
-                        <h5 className="font-bold text-gray-900 mb-2 text-center">Session 5: N — Numbers (Control)</h5>
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Theme: Scale with Clarity, Not Guesswork</p>
+                      <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
+                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 5:A — Alignment  </h5>
+                        
                         
                         
                         <div className="mb-3">
-                          <p className="font-semibold text-gray-900 mb-2">What you will learn:</p>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                          
+                          <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>The only KPIs that actually matter for founders</span>
+                              <span className="mt-1 font-bold text-[#B948FF]">→</span>
+                              <span>Aligning team, systems, and founder energy</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Understanding CAC, LTV, conversion ratios, and margins</span>
+                              <span className="mt-1 font-bold text-[#B948FF]">→</span>
+                              <span>Hiring for scale vs hiring for survival</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Building a simple dashboard for decision-making</span>
+                              <span className="mt-1 font-bold text-[#B948FF]">→</span>
+                              <span>Time, energy & focus management for founders</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>How to stop "profit leaks" in your business</span>
+                              <span className="mt-1 font-bold text-[#B948FF]">→</span>
+                              <span>Creating a culture of ownership, not dependency</span>
                             </li>
                           </ul>
                         </div>
                         
                                               </div>
                       
-                      <div className="border-b border-gray-200 my-6"></div>
-
+                      
                       {/* Session 6 */}
-                      <div>
-                        <h5 className="font-bold text-gray-900 mb-2 text-center">Session 6: A — Alignment (Sustainability)</h5>
-                        <p className="text-sm font-semibold text-gray-700 mb-2">Theme: Scale Without Burnout or Chaos</p>
+                      <div className="rounded-2xl border border-cyan-200/70 bg-gradient-to-br from-white to-cyan-50 p-5 shadow-lg">
+                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 6: Q & A Session </h5>
+                        
                         
                         
                         <div className="mb-3">
-                          <p className="font-semibold text-gray-900 mb-2">What you will learn:</p>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                          
+                          <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Aligning team, systems, and founder energy</span>
+                              <span className="mt-1 font-bold text-cyan-600">→</span>
+                              <span>Addressing specific challenges and questions from participants</span>
                             </li>
                             <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Hiring for scale vs hiring for survival</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Time, energy & focus management for founders</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                              <span className="text-yellow-500 mt-1">→</span>
-                              <span>Creating a culture of ownership, not dependency</span>
+                              <span className="mt-1 font-bold text-cyan-600">→</span>
+                              <span>Final insights and next steps for implementation</span>
                             </li>
                           </ul>
                         </div>
@@ -1133,7 +1122,7 @@ const Programs = () => {
 
             {/* WHAT MAKES THIS PROGRAM A MUST-ATTEND Section */}
             <section
-              className="py-16 md:py-20 mb-20"
+              className="py-16 md:py-20 mb-0"
               style={{
                 backgroundColor: '#000047',
                 width: '100vw',
@@ -1167,8 +1156,7 @@ const Programs = () => {
                       </div>
                     </div>
                     
-                    <div className="border-b border-gray-200 my-6"></div>
-
+                    
                     {/* Point 2 */}
                     <div className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl p-6 shadow-lg border border-cyan-200/50" 
                          style={{
@@ -1185,8 +1173,7 @@ const Programs = () => {
                       </div>
                     </div>
                     
-                    <div className="border-b border-gray-200 my-6"></div>
-
+                    
                     {/* Point 3 */}
                     <div className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl p-6 shadow-lg border border-cyan-200/50" 
                          style={{
@@ -1203,8 +1190,7 @@ const Programs = () => {
                       </div>
                     </div>
                     
-                    <div className="border-b border-gray-200 my-6"></div>
-
+                    
                     {/* Point 4 */}
                     <div className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl p-6 shadow-lg border border-cyan-200/50" 
                          style={{
@@ -1221,8 +1207,7 @@ const Programs = () => {
                       </div>
                     </div>
                     
-                    <div className="border-b border-gray-200 my-6"></div>
-
+                    
                     {/* Point 5 */}
                     <div className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl p-6 shadow-lg border border-cyan-200/50" 
                          style={{
@@ -1239,8 +1224,7 @@ const Programs = () => {
                       </div>
                     </div>
                     
-                    <div className="border-b border-gray-200 my-6"></div>
-
+                    
                     {/* Point 6 */}
                     <div className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl p-6 shadow-lg border border-cyan-200/50" 
                          style={{
