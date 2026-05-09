@@ -30,7 +30,7 @@ const About = () => {
   title: "Growth Begins in the Mind. Scale Begins in Consciousness.",
   introduction: "Hi, I'm Dharneesh.",
   mainContent: [
-    "Over the past <span style='color: #FFFFFF; font-weight: 700;'>23+ years</span>, I've built systems, scaled products, and created measurable business impact working with global giants like <span style='color: #FFFFFF; font-weight: 700;'>Samsung, Philips, Unilever, and GlaxoSmithKline</span>, and later founding ventures like <span style='color: #FFFFFF; font-weight: 700;'>EAZY and Recibo.AI</span>, now serving <span style='color: #FFFFFF; font-weight: 700;'>650+ brands across 8 countries</span>.",
+    "Over the past <span style='color: #FFFFFF; font-weight: 700;'>23+ years</span>, I've built systems, scaled products, and created measurable business impact working with global giants like <span style='color: #FFFFFF; font-weight: 700;'>Samsung, Philips, Unilever, and GlaxoSmithKline</span>, and later founding ventures like <span style='color: #FFFFFF; font-weight: 700;'>Recibo.AI and EAZY.AI</span>, now serving <span style='color: #FFFFFF; font-weight: 700;'>650+ brands across 8 countries</span>.",
     "I work at the intersection of <span style='color: #FFFFFF; font-weight: 700;'>Brand Strategy</span>, <span style='color: #FFFFFF; font-weight: 700;'>Business Coaching</span>, and <span style='color: #FFFFFF; font-weight: 700;'>Human Transformation</span>.",
     "I believe better businesses are built at the intersection of clear thinking, aligned energy and intelligent systems.",
     "My work sits where conscious brand building, AI-powered growth, founder performance and human potential meet, because lasting scale comes from optimizing both the business and the builder.",

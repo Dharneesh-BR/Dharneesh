@@ -38,9 +38,9 @@ const Programs = () => {
 
   const mentorProof = [
     "23+ years of building systems, scaling products, and creating measurable business impact",
-    "Experience across Samsung, Philips, Unilever, GlaxoSmithKline, EAZY, Recibo.AI, and Mind Magna",
-    "650+ brands served across 8 countries through venture and growth work",
-    "7,88,175+ business owners trained in the last 6 years",
+    "Founder of Recibo.AI and EAZY.AI, enabling MNC brands across 23 countries with AI-powered Sales & Distribution solutions.",
+    "Corporate leadership experience spanning FMCG, Consumer Durables, Mobile Devices, and Pharma, with a track record of working across global organizations including Samsung, Philips, Unilever, and GlaxoSmithKline..",
+    "Partnered with 650+ brands in 8 countries to drive scalable growth and business outcomes.",
     "Practical frameworks at the intersection of business coaching, brand strategy, and founder transformation"
   ];
 
@@ -52,7 +52,52 @@ const Programs = () => {
 
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [showDownloadSection, setShowDownloadSection] = useState(false);
-  
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 15,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    // Countdown timer
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        const { hours, minutes, seconds } = prev;
+        
+        if (seconds > 0) {
+          return { hours, minutes, seconds: seconds - 1 };
+        } else if (minutes > 0) {
+          return { hours, minutes: minutes - 1, seconds: 59 };
+        } else if (hours > 0) {
+          return { hours: hours - 1, minutes: 59, seconds: 59 };
+        } else {
+          return { hours: 0, minutes: 15, seconds: 0 }; // Reset to 15 minutes
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+    
+    // Load Razorpay script
+    if (!window.Razorpay) {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      script.onload = () => {
+        console.log('Razorpay script loaded successfully');
+      };
+      script.onerror = () => {
+        console.error('Failed to load Razorpay script');
+      };
+      document.head.appendChild(script);
+    }
+  }, []);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -253,52 +298,188 @@ const Programs = () => {
         <motion.button
           className="group relative inline-flex items-center justify-center w-full px-10 py-6 text-xl font-bold text-white overflow-hidden transition-all duration-300 shadow-2xl whitespace-nowrap"
           style={{
-            background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
-            boxShadow: '0 0 30px rgba(0, 255, 255, 0.4), 0 20px 40px rgba(53, 51, 205, 0.3)',
-            minHeight: '80px'
+            background: 'rgba(0, 0, 71, 0.7)',
+            boxShadow: '0 0 30px rgba(0, 255, 255, 0.4), 0 20px 40px rgba(0, 0, 71, 0.3)',
+            minHeight: '80px',
+            borderRadius: '50px'
           }}
           whileHover={{ 
             scale: 1.08,
-            boxShadow: '0 0 40px rgba(0, 255, 255, 0.5), 0 25px 50px rgba(53, 51, 205, 0.35)'
+            boxShadow: '0 0 40px rgba(0, 255, 255, 0.5), 0 25px 50px rgba(0, 0, 71, 0.35)'
           }}
           whileTap={{ scale: 0.98 }}
           onClick={() => {
             setShowBookingForm(true);
           }}
         >
-          <span className="relative z-10 flex items-center gap-3">
-            <i className="fas fa-user-plus text-lg"></i>
-            Register Now
-          </span>
+          <span className="relative z-10 flex flex-col items-center">
+              <span className="flex items-center gap-2 text-xl font-medium">
+                <i className="fas fa-rocket text-xl"></i>
+                Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+              </span>
+              <span className="text-xl opacity-90">
+                <i className="fas fa-clock mr-1"></i>
+                {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')} left
+              </span>
+            </span>
           <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
         </motion.button>
       </motion.div>
       
-      <section className="pt-24 pb-12 px-6" ref={ref}>
+      <section className="pt-8 pb-12 px-6" ref={ref}>
         <div className="container mx-auto max-w-6xl">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            {/* Header */}
-            <motion.div 
-              className="mb-6"
-              variants={itemVariants}
-            >
-              <div className="text-center mb-4 pt-8">
-                <div className="relative inline-block align-baseline">
-                  <div className="absolute -inset-x-6 -inset-y-3 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 blur-2xl" />
-                  <h1 className="relative text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-normal bg-gradient-to-r from-[#000080] via-[#1e3a8a] to-[#1e40af] bg-clip-text text-transparent leading-normal pb-2">
-                    MAGNA BRAND SCALE <br/><span className='text-2xl md:text-3xl lg:text-4xl'>Masterclass</span>
-                  </h1>
-                  <div className="relative mx-auto h-1.5 w-32 md:w-40 lg:w-48 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" />
-                  <p className="text-gray-600 text-xl md:text-2xl mt-6 mb-6 font-medium">
-                    2 Day Live Intensive Workshop for MSME Consumer Brands
-                  </p>
-                </div>
+            
+            {/* Hero Section */}
+            <motion.section className="py-2 px-4" variants={itemVariants}>
+              <div className="max-w-6xl mx-auto">
+                <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                  <div className="text-center">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-[#000080] via-[#1e3a8a] to-[#1e40af] bg-clip-text text-transparent">
+                      From Bottlenecks to Breakthrough Scale Your Consumer Brand 3X in 90 Days
+                    </h1>
+                    <div className=" rounded-xl shadow-lg bg-gradient-to-r from-[#3533cd] to-[#00ffff] p-4 border border-[#3533cd]/20">
+                    <p className="text-white text-xl md:text-2xl font-medium text-center">
+                      2 Day Live Intensive Workshop for MSME Consumer Brands
+                    </p>
+                  </div>
+                  
+                  {/* Padding after workshop box */}
+                  <div className="py-4"></div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <motion.div variants={itemVariants} className="order-2 md:order-1">
+                      <div className="space-y-4">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Workshop Details</h3>
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                                <i className="fas fa-calendar text-white text-xs"></i>
+                              </div>
+                              <div>
+                                <p className="text-gray-700 text-sm">30th & 31st of May</p>
+                                <p className="text-gray-600 text-xs">at 6 PM</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                                <i className="fas fa-language text-white text-xs"></i>
+                              </div>
+                              <div>
+                                <p className="text-gray-700 text-sm">English, Hindi</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                                <i className="fas fa-video text-white text-xs"></i>
+                              </div>
+                              <div>
+                                <p className="text-gray-700 text-sm">Live On Zoom</p>
+                                <p className="text-gray-600 text-xs">Online</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
+                            <div className="flex items-center justify-center gap-2">
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                                <i className="fas fa-clock text-white text-xs"></i>
+                              </div>
+                              <div>
+                                <p className="text-gray-700 text-sm">Duration</p>
+                                <p className="text-gray-600 text-xs">2 days</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <motion.button
+                          className="w-full mt-8 py-4 px-6 text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 shadow-lg"
+                          style={{
+                            background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
+                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.3), 0 10px 25px rgba(53, 51, 205, 0.2)'
+                          }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: '0 0 30px rgba(0, 255, 255, 0.4), 0 15px 35px rgba(53, 51, 205, 0.25)'
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => setShowBookingForm(true)}
+                        >
+                          Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                        </motion.button>
+                      </div>
+                      
+                      {/* Padding after Join Now button */}
+                      <div className="py-6"></div>
+                    </motion.div>
+
+                    <motion.div variants={itemVariants} className="order-1 md:order-2">
+                      {/* Padding before image */}
+                      <div className="py-3"></div>
+                      <img
+                        src="/Magna.png"
+                        alt="Scale Your Consumer Brand"
+                        className="w-full h-auto max-w-none rounded-2xl shadow-xl object-cover transform scale-125"
+                      />
+                      {/* Padding after image */}
+                      <div className="py-3"></div>
+                    </motion.div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
+            </motion.section>
+
+            {/* Meet Your Mentor Section */}
+            <motion.section style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)' }} className="px-4 py-12" variants={itemVariants}>
+              <div className="mx-auto w-full">
+                <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                  <motion.div className="mb-8 text-center" variants={itemVariants}>
+                    <h2 className="text-2xl font-bold leading-tight text-white">
+                      Learn From a Proven Business Builder
+                    </h2>
+                  </motion.div>
+
+                  <motion.div className="rounded-2xl border border-[#3533cd]/15 bg-gradient-to-br from-white to-cyan-50 p-5 shadow-xl" variants={itemVariants}>
+                    <div className="mb-6 text-center">
+                      <img
+                        src="/Edited-1.png"
+                        alt="Dharneesh B R"
+                        className="mx-auto h-56 w-auto object-contain"
+                      />
+                      <div className="relative h-1 w-full mb-4 rounded-full" style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)' }}></div>
+                      <h3 className="text-2xl font-bold text-blue-900">Dharneesh B R</h3>
+                      <p className="mt-1 text-sm font-semibold text-gray-600">3x Founder | CPG Business Strategist</p>
+                      <p className="mt-1 text-sm font-semibold text-gray-600">Ex-Samsung, Philips, Unilever, GSK</p>
+                      <div className="relative h-1 w-full mt-4 rounded-full" style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)' }}></div>
+                    </div>
+
+                    <ul className="space-y-4">
+                      {mentorProof.map((item) => (
+                        <li key={item} className="flex items-start gap-3">
+                          <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white">
+                            <i className="fas fa-check text-xs"></i>
+                          </span>
+                          <span className="text-sm leading-relaxed text-gray-800">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.section>
+             {/* Padding after mentor section */}
+            <div className="py-8"></div>
+
 
             {/* Content Section with 2 Grids */}
             <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-6 lg:gap-8 items-start">
@@ -619,11 +800,67 @@ const Programs = () => {
                     </motion.div>
                   ))}
                 </div>
+                <motion.button
+                          className="w-full mt-8 py-4 px-6 text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 shadow-lg"
+                          style={{
+                            background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
+                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.3), 0 10px 25px rgba(53, 51, 205, 0.2)'
+                          }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: '0 0 30px rgba(0, 255, 255, 0.4), 0 15px 35px rgba(53, 51, 205, 0.25)'
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => setShowBookingForm(true)}
+                        >
+                          Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                        </motion.button> 
+                        <div className='py-4'></div>
 
-                
+                        {/* Animated Running Clock */}
+              <motion.div
+                className="mb-8 text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <div className="relative inline-block">
+                  <div className="bg-red-50 rounded-xl shadow-lg p-6 w-80">
+                    <div className="w-40 h-40 mx-auto p-4 flex items-center justify-center mb-4">
+                      <motion.img
+                        src="/Alaram.png"
+                        alt="Alarm"
+                        className="w-full h-full object-contain"
+                        animate={{ rotate: [0, 10, -10, 10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      />
+                    </div>
+                    
+                    {/* Digital timer display below clock */}
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-800">
+                        {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+                      </div>
+                      <div className="text-xl font-bold text-red-600">Remaining Time</div>
+                      <motion.p 
+                        className="mt-6 text-2xl font-bold text-red-700 text-center leading-relaxed"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                      >
+                         Don’t wait because your competition won’t
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+               
               </div>
             </motion.div>
 
+            
             {/* WHAT MAKES MAGNA DIFFERENT Section */}
             <section
               className="py-16 md:py-20 mb-20"
@@ -1141,6 +1378,63 @@ const Programs = () => {
                   </motion.div>
                 </div>
               </div>
+              <motion.button
+                          className="w-full mt-8 py-4 px-6 text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 shadow-lg"
+                          style={{
+                            background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
+                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.3), 0 10px 25px rgba(53, 51, 205, 0.2)'
+                          }}
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: '0 0 30px rgba(0, 255, 255, 0.4), 0 15px 35px rgba(53, 51, 205, 0.25)'
+                          }}
+                          whileTap={{ scale: 0.98 }}
+                          onClick={() => setShowBookingForm(true)}
+                        >
+                          Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                        </motion.button> 
+                        <div className='py-4'></div>
+
+                        {/* Animated Running Clock */}
+              <motion.div
+                className="mb-8 text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                <div className="relative inline-block">
+                  <div className="bg-red-50 rounded-xl shadow-lg p-6 w-80">
+                    <div className="w-40 h-40 mx-auto p-4 flex items-center justify-center mb-4">
+                      <motion.img
+                        src="/Alaram.png"
+                        alt="Alarm"
+                        className="w-full h-full object-contain"
+                        animate={{ rotate: [0, 10, -10, 10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      />
+                    </div>
+                    
+                    {/* Digital timer display below clock */}
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-800">
+                        {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+                      </div>
+                      <div className="text-xl font-bold text-red-600">Remaining Time</div>
+                      <motion.p 
+                        className="mt-6 text-2xl font-bold text-red-700 text-center leading-relaxed"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                      >
+                         Don’t wait because your competition won’t
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+              
             </motion.div>
 
             {/* BEFORE vs AFTER MAGNA Section */}
@@ -1256,42 +1550,7 @@ const Programs = () => {
               </div>
             </motion.div>
 
-            {/* Meet Your Mentor Section */}
-            <motion.section className="bg-white px-4 py-12" variants={itemVariants}>
-              <div className="mx-auto w-full">
-                <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                  <motion.div className="mb-8 text-center" variants={itemVariants}>
-                    <p className="mb-2 text-sm font-bold uppercase tracking-[0.16em] text-[#3533cd]">Meet Your Mentor</p>
-                    <h2 className="text-2xl font-bold leading-tight text-blue-900">
-                      Learn From A Proven Business Builder
-                    </h2>
-                  </motion.div>
-
-                  <motion.div className="rounded-2xl border border-[#3533cd]/15 bg-gradient-to-br from-white to-cyan-50 p-5 shadow-xl" variants={itemVariants}>
-                    <div className="mb-6 text-center">
-                      <img
-                        src="/Edited-1.png"
-                        alt="Dharneesh B R"
-                        className="mx-auto h-56 w-auto object-contain"
-                      />
-                      <h3 className="text-2xl font-bold text-blue-900">Dharneesh B R</h3>
-                      <p className="mt-1 text-sm font-semibold text-gray-600">Business Growth Strategist | Founder & Business Coach</p>
-                    </div>
-
-                    <ul className="space-y-4">
-                      {mentorProof.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white">
-                            <i className="fas fa-check text-xs"></i>
-                          </span>
-                          <span className="text-sm leading-relaxed text-gray-800">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                </motion.div>
-              </div>
-            </motion.section>
+            
 
             {/* Trusted by Leading Brands Section */}
             <BrandCarousel />
@@ -1301,7 +1560,10 @@ const Programs = () => {
               <div className="mx-auto w-full">
                 <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                   <motion.div 
-                    className="rounded-2xl border border-[#3533cd]/20 bg-white p-5 shadow-xl"
+                    className="rounded-2xl border border-[#3533cd]/20 bg-gradient-to-br from-white to-[#f0f9ff] p-5 shadow-xl"
+                    style={{
+                      boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
+                    }}
                     variants={itemVariants}
                   >
                     <h2 className="mb-8 text-center text-2xl font-bold text-blue-900">Our Guarantee</h2>
@@ -1371,7 +1633,7 @@ const Programs = () => {
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-bold text-gray-900 mb-2">Follow a System That Drives Sustainable Growth</h3>
-                          <p className="text-gray-700">Understand a proven framework used by 25,000+ business owners to scale efficiently—without being stuck in day-to-day operations.</p>
+                          <p className="text-gray-700">Understand a proven framework used by 25,000+ business professionals to scale efficiently without being stuck in day-to-day operations.</p>
                         </div>
                       </div>
                     </div>
@@ -1539,48 +1801,57 @@ const Programs = () => {
                 </motion.div>
               </div>
             </section>
+          </motion.div>
 
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.6 }}
               className="text-center mt-12"
             >
-              <motion.button
-                className="group relative inline-flex items-center justify-center px-12 py-6 text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105"
-                style={{
-                  background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',
-                  boxShadow: '0 0 30px rgba(0, 255, 255, 0.3), 0 15px 35px rgba(53, 51, 205, 0.2)'
-                }}
-                whileHover={{ 
-                  boxShadow: '0 0 40px rgba(0, 255, 255, 0.4), 0 20px 45px rgba(53, 51, 205, 0.25), 0 0 0 2px rgba(0, 255, 255, 0.5)',
-                  scale: 1.05
-                }}
-                transition={{ duration: 0.3 }}
-                onClick={() => {
-  window.scrollTo(0, 0);
-  navigate('/contact-us');
-}}
-              >
-                <span className="relative z-10">APPLY NOW</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-              </motion.button>
-              
-              <motion.p 
-                className="mt-6 mb-12 text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                            
+
+              {/* Animated Running Clock */}
+              <motion.div
+                className="mb-8 text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Build a business that doesn't just grow<br/>
-                but evolves intelligently.
-              </motion.p>
-            </motion.div>
+                <div className="relative inline-block">
+                  <div className="bg-red-50 rounded-xl shadow-lg p-6 w-80">
+                    <div className="w-40 h-40 mx-auto p-4 flex items-center justify-center mb-4">
+                      <motion.img
+                        src="/Alaram.png"
+                        alt="Alarm"
+                        className="w-full h-full object-contain"
+                        animate={{ rotate: [0, 10, -10, 10, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      />
+                    </div>
+                    
+                    {/* Digital timer display below clock */}
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-gray-800">
+                        {String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+                      </div>
+                      <div className="text-xl font-bold text-red-600">Remaining Time</div>
+                      <motion.p 
+                        className="mt-6 text-2xl font-bold text-red-700 text-center leading-relaxed"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                      >
+                         Don’t wait because your competition won’t
+                      </motion.p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
           </motion.div>
-        </div>
-      </section>
 
       {/* Booking Form Modal */}
       {showBookingForm && (
@@ -1716,6 +1987,8 @@ const Programs = () => {
           </motion.div>
         </motion.div>
       )}
+      </div>
+      </section>
     </div>
   );
 };

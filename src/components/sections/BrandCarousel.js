@@ -20,11 +20,15 @@ const BrandCarousel = () => {
   // Duplicate brands for seamless infinite scroll
   const duplicatedBrands = [...brands, ...brands];
 
-  // Auto-scroll functionality
+  // Auto-scroll functionality (desktop only)
   useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % brands.length);
-    }, 2000); // Change every 2 seconds
+    // Only auto-scroll on desktop (screen width > 768px)
+    const isDesktop = window.innerWidth > 768;
+    if (isDesktop) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % brands.length);
+      }, 2000); // Change every 2 seconds
+    }
 
     return () => {
       if (intervalRef.current) {
@@ -67,7 +71,7 @@ const BrandCarousel = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="py-12 px-3 sm:px-4 lg:px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -109,10 +113,10 @@ const BrandCarousel = () => {
               {duplicatedBrands.map((brand, index) => (
                 <div
                   key={`${brand.id}-${index}`}
-                  className="flex-shrink-0 px-3"
+                  className="flex-shrink-0 px-2 sm:px-3"
                   style={{ 
-                    width: '162.5px',
-                    marginRight: '20px'
+                    width: 'clamp(120px, 12vw, 162.5px)',
+                    marginRight: 'clamp(8px, 2vw, 20px)'
                   }}
                 >
                   <figure className="swiper-slide-inner">

@@ -40,7 +40,7 @@ function AppRouter() {
   }
 
   const HomePage = () => (
-    <>
+    <div className="min-h-screen">
       <Navigation />
       <Hero />
       <About />
@@ -54,7 +54,7 @@ function AppRouter() {
       <Gallery />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 
   return (
@@ -73,7 +73,7 @@ function AppRouter() {
             <Route path="/insights" element={<Insights />} />
             <Route path="/insights/:slug" element={<BlogPost />} />
             <Route path="/add" element={<Add />} />
-            <Route path="/newad" element={<Newad />} />
+            <Route path="/magna-business-masterclass" element={<Newad />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/contact-us" element={<ContactUs />} />
           </Routes>

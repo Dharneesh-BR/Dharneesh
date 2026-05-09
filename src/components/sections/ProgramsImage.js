@@ -7,7 +7,7 @@ const ProgramsImage = () => {
       <div className="lg:hidden">
         <div className="relative rounded-2xl overflow-hidden">
           <img 
-            src="/Programs.png" 
+            src="/Program.png" 
             alt="Business Magna Program" 
             className="w-full h-60 object-contain"
           />

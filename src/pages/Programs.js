@@ -150,7 +150,7 @@ const Programs = () => {
                 <div className="relative inline-block align-baseline">
                   <div className="absolute -inset-x-6 -inset-y-3 bg-gradient-to-r from-[#3533cd]/10 to-[#00ffff]/10 blur-2xl" />
                   <h1 className="relative text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-normal bg-gradient-to-r from-[#000080] via-[#1e3a8a] to-[#1e40af] bg-clip-text text-transparent leading-normal pb-2">
-                    MAGNA BRAND SCALE <br/><span className='text-2xl md:text-3xl lg:text-4xl'>Masterclass</span>
+                    MAGNA BUSINESS  <br/><span className='text-xl md:text-2xl lg:text-3xl'>Masterclass</span>
                   </h1>
                   <div className="relative mx-auto h-1.5 w-32 md:w-40 lg:w-48 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff]" />
                   <p className="text-gray-600 text-xl md:text-2xl mt-6 mb-6 font-medium">
