@@ -145,13 +145,31 @@ const Programs = () => {
     }
 
     // Create Razorpay checkout options with error handling
+    const isDevelopment = process.env.NODE_ENV === 'development' || window.location.hostname === 'localhost';
+    const razorpayKey = process.env.RAZORPAY_KEY_ID;
+    
+    if (!razorpayKey) {
+      console.error('Razorpay key not found');
+      alert('Payment configuration error. Please contact support.');
+      return;
+    }
+    
+    console.log('Environment:', isDevelopment ? 'Development' : 'Production');
+    console.log('Using Razorpay key:', razorpayKey?.substring(0, 8) + '...');
+    
+    // For development, you might want to use test key
+    // const testKey = 'rzp_test_...'; // Add your test key here
+    // const finalKey = isDevelopment ? testKey : razorpayKey;
+    
     const options = {
-      key: process.env.RAZORPAY_KEY_ID,
+      key: razorpayKey,
       amount: 100, // Amount in paise (₹1)
       currency: 'INR',
       name: formData.name,
-      description: 'Decode Diabetes Program Consultation',
+      description: 'MAGNA Business Program Consultation',
       image: 'https://eterno.fit/icons/eterno-logo.png',
+      callback_url: window.location.href,
+      redirect: true,
       handler: function (response) {
         console.log('Payment successful:', response);
         
@@ -172,7 +190,7 @@ const Programs = () => {
         contact: formData.mobileNumber
       },
       notes: {
-        program: 'Decode Diabetes Consultation',
+        program: 'MAGNA Business Program',
         timestamp: new Date().toISOString()
       },
       theme: {
@@ -182,14 +200,37 @@ const Programs = () => {
 
     try {
       const razorpay = new window.Razorpay(options);
+      
+      // Add comprehensive event handlers
       razorpay.on('payment.failed', function (response) {
         console.error('Payment failed:', response.error);
         alert('Payment failed: ' + response.error.description);
+        setShowBookingForm(false);
       });
+      
+      razorpay.on('payment.cancel', function (response) {
+        console.log('Payment cancelled:', response);
+        alert('Payment was cancelled.');
+      });
+      
+      // Add timeout to close modal if stuck
+      const timeout = setTimeout(() => {
+        console.log('Payment timeout - closing modal');
+        setShowBookingForm(false);
+        alert('Payment timed out. Please try again.');
+      }, 30000); // 30 seconds timeout
+      
       razorpay.open();
+      
+      // Clear timeout if payment completes
+      razorpay.on('payment.success', function (response) {
+        clearTimeout(timeout);
+      });
+      
     } catch (error) {
       console.error('Error initializing Razorpay:', error);
       alert('Payment initialization failed. Please try again.');
+      setShowBookingForm(false);
     }
   };
 
