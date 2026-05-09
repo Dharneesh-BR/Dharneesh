@@ -173,18 +173,18 @@ const Programs = () => {
       name: formData.name,
       description: 'MAGNA Business Program Consultation',
       image: 'https://eterno.fit/icons/eterno-logo.png',
-      callback_url: `${window.location.origin}/magna-business-masterclass?payment=success`,
-      redirect: true,
       handler: function (response) {
         console.log('Payment successful:', response);
         
-        setShowBookingForm(false);
-        setShowDownloadSection(true);
+        // Store payment success in localStorage
+        localStorage.setItem('paymentSuccess', 'true');
+        
+        // Reset form and processing state
         setFormData({ name: '', mobileNumber: '', email: '' });
         setIsProcessing(false);
         
-        // Store payment success in localStorage as backup
-        localStorage.setItem('paymentSuccess', 'true');
+        // Navigate to success page using React Router (GET request, no reload)
+        navigate('/magna-business-masterclass?payment=success');
       },
       modal: {
         ondismiss: function() {
@@ -221,6 +221,7 @@ const Programs = () => {
       razorpay.on('payment.cancel', function (response) {
         console.log('Payment cancelled:', response);
         alert('Payment was cancelled.');
+        setShowBookingForm(false);
         setIsProcessing(false);
       });
       

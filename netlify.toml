@@ -5,13 +5,7 @@
 [build.environment]
   NPM_FLAGS = "--legacy-peer-deps"
 
-# Handle payment success with query parameters
-[[redirects]]
-  from = "/magna-business-masterclass/*"
-  to = "/index.html"
-  status = 200
-
-# Handle all other routes (SPA routing)
+# Handle all SPA routes (React Router)
 [[redirects]]
   from = "/*"
   to = "/index.html"
