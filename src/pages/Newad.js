@@ -52,6 +52,7 @@ const Programs = () => {
 
   const [showBookingForm, setShowBookingForm] = useState(false);
   const [showDownloadSection, setShowDownloadSection] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 15,
@@ -77,26 +78,7 @@ const Programs = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    // Scroll to top when page loads
-    window.scrollTo(0, 0);
-    
-    // Load Razorpay script
-    if (!window.Razorpay) {
-      const script = document.createElement('script');
-      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
-      script.async = true;
-      script.onload = () => {
-        console.log('Razorpay script loaded successfully');
-      };
-      script.onerror = () => {
-        console.error('Failed to load Razorpay script');
-      };
-      document.head.appendChild(script);
-    }
-  }, []);
+  }, [timeLeft]); // Add dependency for proper cleanup
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -122,6 +104,14 @@ const Programs = () => {
 
   const handlePayment = (e) => {
     e.preventDefault();
+    
+    // Prevent multiple simultaneous payment attempts
+    if (isProcessing) {
+      console.log('Payment already processing...');
+      return;
+    }
+    
+    setIsProcessing(true);
     console.log('Initiating payment for:', formData);
 
     // Check if Razorpay is loaded
@@ -168,7 +158,7 @@ const Programs = () => {
       name: formData.name,
       description: 'MAGNA Business Program Consultation',
       image: 'https://eterno.fit/icons/eterno-logo.png',
-      callback_url: window.location.href,
+      callback_url: `${window.location.origin}/`,
       redirect: true,
       handler: function (response) {
         console.log('Payment successful:', response);
@@ -176,6 +166,7 @@ const Programs = () => {
         setShowBookingForm(false);
         setShowDownloadSection(true);
         setFormData({ name: '', mobileNumber: '', email: '' });
+        setIsProcessing(false);
       },
       modal: {
         ondismiss: function() {
@@ -206,17 +197,20 @@ const Programs = () => {
         console.error('Payment failed:', response.error);
         alert('Payment failed: ' + response.error.description);
         setShowBookingForm(false);
+        setIsProcessing(false);
       });
       
       razorpay.on('payment.cancel', function (response) {
         console.log('Payment cancelled:', response);
         alert('Payment was cancelled.');
+        setIsProcessing(false);
       });
       
       // Add timeout to close modal if stuck
       const timeout = setTimeout(() => {
         console.log('Payment timeout - closing modal');
         setShowBookingForm(false);
+        setIsProcessing(false);
         alert('Payment timed out. Please try again.');
       }, 30000); // 30 seconds timeout
       
@@ -1971,9 +1965,10 @@ const Programs = () => {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full py-3 px-6 bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
+                    disabled={isProcessing}
+                    className={`w-full py-3 px-6 bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
-                    Pay ₹1 & Register
+                    {isProcessing ? 'Processing...' : 'Pay ₹1 & Register'}
                   </button>
                 </div>
 

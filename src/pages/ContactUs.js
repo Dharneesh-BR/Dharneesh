@@ -9,7 +9,7 @@ const ContactUs = () => {
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
-  }, []);
+  }, []); // Only run once on mount
   
   const [formData, setFormData] = useState({
     name: '',

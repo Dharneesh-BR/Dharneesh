@@ -54,7 +54,7 @@ const Insights = () => {
     };
 
     fetchData();
-  }, []);
+  }, []); // No dependencies needed - runs once on mount
 
   const filteredPosts =
     selectedCategory === "All"

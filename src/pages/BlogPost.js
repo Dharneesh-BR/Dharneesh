@@ -15,7 +15,7 @@ const BlogPost = () => {
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
-  }, []);
+  }, []); // Only run once on mount
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -33,7 +33,7 @@ const BlogPost = () => {
     if (slug) {
       fetchPost();
     }
-  }, [slug]);
+  }, [slug]); // Only run when slug changes
 
   if (loading) {
     return (

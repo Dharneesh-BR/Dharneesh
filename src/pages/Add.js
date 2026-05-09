@@ -19,7 +19,7 @@ const Add = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [timeLeft]); // Add dependency
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);

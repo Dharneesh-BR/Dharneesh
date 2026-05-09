@@ -10,7 +10,7 @@ const GalleryPage = () => {
   useEffect(() => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
-  }, []);
+  }, []); // Only run once on mount
 
   // All 25 images with varied sizes
   const allImages = [
@@ -53,26 +53,44 @@ const GalleryPage = () => {
     return sizeMap[size] || 'h-64';
   };
 
-  // Intersection Observer for scroll animations
   useEffect(() => {
+    // Intersection Observer for scroll animations
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect();
+            if (observer.current) {
+              observer.current.unobserve(entry.target);
+            }
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    if (galleryRef.current) {
-      observer.observe(galleryRef.current);
+    // Observe all gallery items
+    const observeImages = () => {
+      allImages.forEach((image) => {
+        const imgElement = document.getElementById(`gallery-${image.id}`);
+        if (imgElement) {
+          observer.current?.observe(imgElement);
+        }
+      });
+    };
+
+    // Initial observation when component mounts and images are loaded
+    if (loadedImages.size > 0) {
+      observeImages();
     }
 
-    return () => observer.disconnect();
-  }, []);
+    // Cleanup when component unmounts
+    return () => {
+      if (observer.current) {
+        observer.current.disconnect();
+      }
+    };
+  }, [loadedImages]); // Dependency on loadedImages
 
   // Handle image load
   const handleImageLoad = useCallback((imageId) => {
