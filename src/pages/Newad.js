@@ -21,6 +21,21 @@ const Programs = () => {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
     
+    // Check for payment success in URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentStatus = urlParams.get('payment');
+    
+    // Also check localStorage as fallback
+    const paymentSuccess = localStorage.getItem('paymentSuccess');
+    
+    if (paymentStatus === 'success' || paymentSuccess === 'true') {
+      setShowDownloadSection(true);
+      // Clean URL to remove parameters
+      window.history.replaceState({}, document.title, window.location.pathname);
+      // Clear localStorage after showing success
+      localStorage.removeItem('paymentSuccess');
+    }
+    
     // Load Razorpay script
     if (!window.Razorpay) {
       const script = document.createElement('script');
@@ -158,7 +173,7 @@ const Programs = () => {
       name: formData.name,
       description: 'MAGNA Business Program Consultation',
       image: 'https://eterno.fit/icons/eterno-logo.png',
-      callback_url: `${window.location.origin}/`,
+      callback_url: `${window.location.origin}/magna-business-masterclass?payment=success`,
       redirect: true,
       handler: function (response) {
         console.log('Payment successful:', response);
@@ -167,6 +182,9 @@ const Programs = () => {
         setShowDownloadSection(true);
         setFormData({ name: '', mobileNumber: '', email: '' });
         setIsProcessing(false);
+        
+        // Store payment success in localStorage as backup
+        localStorage.setItem('paymentSuccess', 'true');
       },
       modal: {
         ondismiss: function() {
@@ -350,7 +368,7 @@ const Programs = () => {
           <span className="relative z-10 flex flex-col items-center">
               <span className="flex items-center gap-2 text-xl font-medium">
                 <i className="fas fa-rocket text-xl"></i>
-                Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                Join Now @ just ₹1/- <span style={{ textDecoration: 'line-through' }}>2999</span>
               </span>
               <span className="text-xl opacity-90">
                 <i className="fas fa-clock mr-1"></i>
@@ -450,7 +468,7 @@ const Programs = () => {
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setShowBookingForm(true)}
                         >
-                          Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                          Join Now @ just ₹1/- <span style={{ textDecoration: 'line-through' }}>2999</span>
                         </motion.button>
                       </div>
                       
@@ -848,7 +866,7 @@ const Programs = () => {
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setShowBookingForm(true)}
                         >
-                          Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                          Join Now @ just ₹1/- <span style={{ textDecoration: 'line-through' }}>2999</span>
                         </motion.button> 
                         <div className='py-4'></div>
 
@@ -1426,7 +1444,7 @@ const Programs = () => {
                           whileTap={{ scale: 0.98 }}
                           onClick={() => setShowBookingForm(true)}
                         >
-                          Join Now @ just ₹199/- <span style={{ textDecoration: 'line-through' }}>2999</span>
+                          Join Now @ just ₹1/- <span style={{ textDecoration: 'line-through' }}>2999</span>
                         </motion.button> 
                         <div className='py-4'></div>
 
