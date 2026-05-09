@@ -147,7 +147,7 @@ const Programs = () => {
     // Create Razorpay checkout options with error handling
     const options = {
       key: process.env.RAZORPAY_KEY_ID,
-      amount: 19900, // Amount in paise (₹199)
+      amount: 100, // Amount in paise (₹1)
       currency: 'INR',
       name: formData.name,
       description: 'Decode Diabetes Program Consultation',
@@ -1932,7 +1932,7 @@ const Programs = () => {
                     type="submit"
                     className="w-full py-3 px-6 bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
                   >
-                    Pay ₹199 & Register
+                    Pay ₹1 & Register
                   </button>
                 </div>
 
