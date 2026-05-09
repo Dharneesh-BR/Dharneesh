@@ -51,6 +51,25 @@ const Programs = () => {
     }
   }, []);
 
+  // Watch for localStorage changes (for in-page navigation)
+  useEffect(() => {
+    const checkPaymentSuccess = () => {
+      const paymentSuccess = localStorage.getItem('paymentSuccess');
+      if (paymentSuccess === 'true') {
+        setShowDownloadSection(true);
+        localStorage.removeItem('paymentSuccess');
+      }
+    };
+
+    // Check immediately
+    checkPaymentSuccess();
+
+    // Set up interval to check for localStorage changes
+    const interval = setInterval(checkPaymentSuccess, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   const mentorProof = [
     "23+ years of building systems, scaling products, and creating measurable business impact",
     "Founder of Recibo.AI and EAZY.AI, enabling MNC brands across 23 countries with AI-powered Sales & Distribution solutions.",
