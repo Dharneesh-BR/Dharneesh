@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
 import ProgramsImage from '../components/sections/ProgramsImage';
 import BrandCarousel from '../components/sections/BrandCarousel';
+import BrandCarouselMobile from '../components/sections/BrandCarouselMobile';
 
 const MAGNA_COLORS = {
   M: '#2A1AD8',
@@ -72,8 +73,8 @@ const Programs = () => {
 
   const mentorProof = [
     "23+ years of building systems, scaling products, and creating measurable business impact",
-    "Founder of Recibo.AI and EAZY.AI, enabling MNC brands across 23 countries with AI-powered Sales & Distribution solutions.",
-    "Corporate leadership experience spanning FMCG, Consumer Durables, Mobile Devices, and Pharma, with a track record of working across global organizations including Samsung, Philips, Unilever, and GlaxoSmithKline..",
+    "Founder of Recibo.AI and EAZY.AI, enabling SME & MNC brands across 8 countries with AI-powered Sales & Distribution solutions.",
+    "Corporate leadership experience spanning FMCG, Consumer Durables, Mobile Devices, and Pharma, with a track record of working across global organizations including Samsung, Philips, Unilever, PepsiCo, Nestle and GlaxoSmithKline.",
     "Partnered with 650+ brands in 8 countries to drive scalable growth and business outcomes.",
     "Practical frameworks at the intersection of business coaching, brand strategy, and founder transformation"
   ];
@@ -429,51 +430,36 @@ const Programs = () => {
                     <motion.div variants={itemVariants} className="order-2 md:order-1">
                       <div className="space-y-4">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Workshop Details</h3>
-                        <div className="grid grid-cols-2 gap-2">
-                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
-                            <div className="flex items-center justify-center gap-2">
-                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div className="bg-white rounded-xl shadow-lg p-4 border border-[#3533cd]/20 text-center">
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center mx-auto mb-2">
                                 <i className="fas fa-calendar text-white text-xs"></i>
                               </div>
-                              <div>
-                                <p className="text-gray-700 text-sm">30th & 31st of May</p>
-                                <p className="text-gray-600 text-xs">at 6 PM</p>
-                              </div>
+                              <p className="text-gray-700 text-sm">30th & 31st of May</p>
                             </div>
-                          </div>
-                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
-                            <div className="flex items-center justify-center gap-2">
-                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                            <div className="bg-white rounded-xl shadow-lg p-4 border border-[#3533cd]/20 text-center">
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center mx-auto mb-2">
                                 <i className="fas fa-language text-white text-xs"></i>
                               </div>
-                              <div>
-                                <p className="text-gray-700 text-sm">English, Hindi</p>
-                              </div>
+                              <p className="text-gray-700 text-sm">English, Hindi</p>
                             </div>
-                          </div>
-                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
-                            <div className="flex items-center justify-center gap-2">
-                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
-                                <i className="fas fa-video text-white text-xs"></i>
-                              </div>
-                              <div>
-                                <p className="text-gray-700 text-sm">Live On Zoom</p>
-                                <p className="text-gray-600 text-xs">Online</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="bg-white rounded-xl shadow-lg py-2 px-6 border border-[#3533cd]/20 text-center opacity-90">
-                            <div className="flex items-center justify-center gap-2">
-                              <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center flex-shrink-0">
+                            <div className="bg-white rounded-xl shadow-lg p-4 border border-[#3533cd]/20 text-center">
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center mx-auto mb-2">
                                 <i className="fas fa-clock text-white text-xs"></i>
                               </div>
-                              <div>
-                                <p className="text-gray-700 text-sm">Duration</p>
-                                <p className="text-gray-600 text-xs">2 days</p>
-                              </div>
+                              
+                              <p className="text-gray-600 text-sm">6 PM to 9 PM</p>
                             </div>
+                            <div className="bg-white rounded-xl shadow-lg p-4 border border-[#3533cd]/20 text-center">
+                              <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center mx-auto mb-2">
+                                <i className="fas fa-video text-white text-xs"></i>
+                              </div>
+                              
+                              <p className="text-gray-600 text-sm">Live on Zoom</p>
+                            </div>
+                            {/* Padding after Join Now button */}
+                      <div className="py-2"></div>
                           </div>
-                        </div>
                         
                         <motion.button
                           className="w-full mt-8 py-4 px-6 text-xl font-bold text-white rounded-2xl overflow-hidden transition-all duration-300 shadow-lg"
@@ -518,7 +504,7 @@ const Programs = () => {
                 <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                   <motion.div className="mb-8 text-center" variants={itemVariants}>
                     <h2 className="text-2xl font-bold leading-tight text-white">
-                      Learn From a Proven Business Builder
+                      Learn from a proven Business Builder
                     </h2>
                   </motion.div>
 
@@ -532,16 +518,14 @@ const Programs = () => {
                       <div className="relative h-1 w-full mb-4 rounded-full" style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)' }}></div>
                       <h3 className="text-2xl font-bold text-blue-900">Dharneesh B R</h3>
                       <p className="mt-1 text-sm font-semibold text-gray-600">3x Founder | CPG Business Strategist</p>
-                      <p className="mt-1 text-sm font-semibold text-gray-600">Ex-Samsung, Philips, Unilever, GSK</p>
+                      <p className="mt-1 text-sm font-semibold text-gray-600">Ex-Samsung, Philips, Unilever, Pepsico, Nestle, GSK</p>
                       <div className="relative h-1 w-full mt-4 rounded-full" style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)' }}></div>
                     </div>
 
                     <ul className="space-y-4">
                       {mentorProof.map((item) => (
                         <li key={item} className="flex items-start gap-3">
-                          <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white">
-                            <i className="fas fa-check text-xs"></i>
-                          </span>
+                          <span className="mt-1.5 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-[#3533cd]"></span>
                           <span className="text-sm leading-relaxed text-gray-800">{item}</span>
                         </li>
                       ))}
@@ -558,9 +542,12 @@ const Programs = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-6 lg:gap-8 items-start">
               {/* Left Grid - Content */}
               <div className="self-start rounded-lg shadow-md pt-4 px-4 pb-4 lg:-ml-3" style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)',}}>
-                <h2 className="text-lg md:text-xl font-bold text-white mb-2">
-                  Build a Business that scales without burning you out
+                <h2 className="text-lg md:text-xl text-center font-bold text-white mb-2">
+                  Build a Consumer Brand that scales without burning you out
                 </h2>
+                
+                {/* Padding after main heading */}
+                <div className="py-3"></div>
                 
                 <div className="space-y-1 mb-2">
                   <div className="bg-red-50 rounded-lg p-3 mb-2">
@@ -587,19 +574,22 @@ const Programs = () => {
                     </ul>
                   </div>
                 </div>
-                
+                {/* Padding after main heading */}
+                <div className="py-3"></div>
                                 
                 <div className="space-y-1">
-                  <h3 className="text-lg md:text-xl font-bold text-white mb-2">
+                  <h3 className="text-lg text-center md:text-xl font-bold text-white mb-2">
                     A high impact business transformation program designed for MSME founders to:
                   </h3>
+                  {/* Padding after main heading */}
+                <div className="py-3"></div>
                   <div className="bg-green-50 rounded-md p-3">
                     <ul className="space-y-2 text-base text-gray-700">
                       <li className="flex items-start gap-3">
                         <span className="mt-1 inline-flex rounded-full bg-emerald-500/10 px-1.5 py-1.5 items-center justify-center text-emerald-600 flex-shrink-0">
                           <i className="fas fa-check text-xs"></i>
                         </span>
-                        <span>Build system-driven businesses</span>
+                        <span>Build system-driven Brand with sustained profitability</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="mt-1 inline-flex rounded-full bg-emerald-500/10 px-1.5 py-1.5 items-center justify-center text-emerald-600 flex-shrink-0">
@@ -611,21 +601,26 @@ const Programs = () => {
                         <span className="mt-1 inline-flex rounded-full bg-emerald-500/10 px-1.5 py-1.5 items-center justify-center text-emerald-600 flex-shrink-0">
                           <i className="fas fa-check text-xs"></i>
                         </span>
-                        <span>Gain clarity, control, and sustainability</span>
+                        <span>Gain clarity, control, and efficiency</span>
                       </li>
                     </ul>
                   </div>
                 </div>
+                {/* Padding after main heading */}
+                <div className="py-3"></div>
                 
                 <div className="mt-2">
-                  <p className="text-lg font-semibold text-white">
+                  <p className="text-lg text-center font-semibold text-white">
                     Unlike traditional programs, this is not about motivation or theory.
                   </p>
-                  <p className="text-lg font-semibold text-white">
+                  <p className="text-lg font-semibold text-center text-white">
                     This is about restructuring how your business actually runs.
                   </p>
                 </div>
+                {/* Padding after main heading */}
+                <div className="py-3"></div>
               </div>
+              
               
               {/* Right Grid - Image */}
               <div className="lg:ml-3 mt-2 lg:mt-0">
@@ -768,14 +763,14 @@ const Programs = () => {
                         viewport={{ once: false, amount: 0.7 }}
                         transition={{ duration: 0.65, delay: 0.75, ease: "easeOut" }}
                       />
-                      <motion.polygon
-                        points="270,44 250,44 270,26 286,44"
-                        fill="#00ffff"
-                        initial={{ opacity: 0, scale: 0.7 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: false, amount: 0.7 }}
-                        transition={{ duration: 0.25, delay: 1.4, ease: "easeOut" }}
-                      />
+                       <motion.polygon
+                                              points="270,44 250,44 270,26 286,44"
+                                              fill="#00ffff"
+                                              initial={{ opacity: 0, scale: 0.7 }}
+                                              whileInView={{ opacity: 1, scale: 1 }}
+                                              viewport={{ once: false, amount: 0.7 }}
+                                              transition={{ duration: 0.25, delay: 1.4, ease: "easeOut" }}
+                                            />
                     </svg>
                   </div>
                 </motion.div>
@@ -852,7 +847,7 @@ const Programs = () => {
                         <div className="flex items-start gap-4">
                           {/* Numbered Circle */}
                           <div 
-                            className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg"
+                            className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg"
                             style={{ backgroundColor: achievement.color }}
                           >
                             <span className="text-white text-lg font-bold">{index + 1}</span>
@@ -906,7 +901,7 @@ const Programs = () => {
                         alt="Alarm"
                         className="w-full h-full object-contain"
                         animate={{ rotate: [0, 10, -10, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        transition={{ duration: 2, repeat: Infinity,}}
                       />
                     </div>
                     
@@ -917,13 +912,13 @@ const Programs = () => {
                       </div>
                       <div className="text-xl font-bold text-red-600">Remaining Time</div>
                       <motion.p 
-                        className="mt-6 text-2xl font-bold text-red-700 text-center leading-relaxed"
+                        className="mt-6 text-xl font-bold text-red-700 text-center leading-relaxed"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
-                         Don’t wait because your competition won’t
+                         Don’t wait because your competition won’t !
                       </motion.p>
                     </div>
                   </div>
@@ -969,13 +964,13 @@ const Programs = () => {
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 mb-4 border border-white/30">
+                        <div className="flex items-start gap-4 text-left">
+                          <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/30">
                             <i className="fas fa-exchange-alt text-white text-lg"></i>
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-2">Not Just Training — Transformation</h3>
-                            <p className="text-sm text-white/90">We don't just teach. We redesign how your business operates.</p>
+                            <h3 className="text-xl font-bold text-white mb-2">Not Just Training</h3>
+                            <p className="text-md text-white/90">We don't just teach. We redesign how your business operates.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -994,13 +989,13 @@ const Programs = () => {
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 mb-4 border border-white/30">
+                        <div className="flex items-start gap-4 text-left">
+                          <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/30">
                             <i className="fas fa-industry text-white text-lg"></i>
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-2">Built for MSME Reality</h3>
-                            <p className="text-sm text-white/90">No startup theory. Everything is designed for real Indian businesses.</p>
+                            <h3 className="text-xl font-bold text-white mb-2">Built for MSME Reality</h3>
+                            <p className="text-md text-white/90">No startup theory. Everything is designed for real Indian businesses.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1019,13 +1014,13 @@ const Programs = () => {
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 mb-4 border border-white/30">
+                        <div className="flex items-start gap-4 text-left">
+                          <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/30">
                             <i className="fas fa-robot text-white text-lg"></i>
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-2">AI + Business Systems Integration</h3>
-                            <p className="text-sm text-white/90">We combine:<br/>• AI tools<br/>• Business frameworks<br/>• Execution systems</p>
+                            <h3 className="text-xl font-bold text-white mb-2">AI + Business Systems Integration</h3>
+                            <p className="text-md text-white/90">We combine:<br/>• AI tools<br/>• Business frameworks<br/>• Execution systems</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1044,13 +1039,13 @@ const Programs = () => {
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="flex flex-col items-center text-center">
-                          <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 mb-4 border border-white/30">
+                        <div className="flex items-start gap-4 text-left">
+                          <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 border border-white/30">
                             <i className="fas fa-users text-white text-lg"></i>
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-2">Founder + Business Growth Together</h3>
-                            <p className="text-sm text-white/90">Because scaling a business without evolving the founder leads to burnout.</p>
+                            <h3 className="text-xl font-bold text-white mb-2">Founder + Business Growth Together</h3>
+                            <p className="text-md text-white/90">Because scaling a business without evolving the founder leads to burnout.</p>
                           </div>
                         </div>
                       </motion.div>
@@ -1090,13 +1085,15 @@ const Programs = () => {
                     }}
                   >
                     <div className="p-6 md:p-8 border-b border-gray-200">
-                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                      <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
                         <div>
-                          <p className="text-base sm:text-sm font-semibold text-[#3533cd]">WHO THIS IS FOR</p>
-                          <h3 className="text-2xl font-extrabold text-[#000047] mt-1">This program is designed for:</h3>
-                        </div>
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white shadow-sm flex-shrink-0">
-                          <i className="fas fa-check"></i>
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                              <i className="fas fa-check"></i>
+                            </div>
+                            <p className="text-base sm:text-sm font-semibold text-[#3533cd]">WHO THIS IS FOR</p>
+                          </div>
+                          <h3 className="text-lg font-bold text-[#000047] ">This program designed for</h3>
                         </div>
                       </div>
                     </div>
@@ -1104,25 +1101,25 @@ const Programs = () => {
                     <div className="p-6 md:p-8">
                       <ul className="space-y-4 text-lg text-gray-800">
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
                             <i className="fas fa-check text-sm"></i>
                           </span>
                           <span>MSME founders stuck in daily operations</span>
                         </li>
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
                             <i className="fas fa-check text-sm"></i>
                           </span>
                           <span>Business owners with ₹20L–₹5Cr+ revenue looking to scale</span>
                         </li>
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
                             <i className="fas fa-check text-sm"></i>
                           </span>
                           <span>Entrepreneurs who want systems, not just ideas</span>
                         </li>
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-[#3533cd]/10 flex items-center justify-center text-[#3533cd] flex-shrink-0">
                             <i className="fas fa-check text-sm"></i>
                           </span>
                           <span>Founders ready to move from operator → architect → leader</span>
@@ -1133,24 +1130,26 @@ const Programs = () => {
 
                   {/* NOT FOR */}
                   <motion.div
-                    className="bg-gradient-to-br from-white to-[#f0f9ff] rounded-2xl shadow-xl border border-cyan-200/50 overflow-hidden"
+                    className="bg-gradient-to-br from-white to-red-50 rounded-2xl shadow-xl border border-red-200/50 overflow-hidden"
                     style={{
-                      boxShadow: '0 0 25px rgba(0, 255, 255, 0.2), 0 15px 35px rgba(53, 51, 205, 0.15)'
+                      boxShadow: '0 0 25px rgba(239, 68, 68, 0.2), 0 15px 35px rgba(239, 68, 68, 0.15)'
                     }}
                     variants={itemVariants}
                     whileHover={{ 
                       y: -4,
-                      boxShadow: '0 0 35px rgba(0, 255, 255, 0.3), 0 25px 45px rgba(53, 51, 205, 0.2), 0 0 0 1px rgba(0, 255, 255, 0.4)'
+                      boxShadow: '0 0 35px rgba(239, 68, 68, 0.3), 0 25px 45px rgba(239, 68, 68, 0.2), 0 0 0 1px rgba(239, 68, 68, 0.4)'
                     }}
                   >
                     <div className="p-6 md:p-8 border-b border-red-200">
-                      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                      <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
                         <div>
-                          <p className="text-base sm:text-sm font-semibold text-red-600">WHO THIS IS NOT FOR</p>
-                          <h3 className="text-2xl font-extrabold text-[#000047] mt-1">This will not be a fit if:</h3>
-                        </div>
-                        <div className="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
-                          <i className="fas fa-times"></i>
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                              <i className="fas fa-times"></i>
+                            </div>
+                            <p className="text-base sm:text-sm font-semibold text-red-600">WHO THIS IS NOT FOR</p>
+                          </div>
+                          <h3 className="text-lg font-bold text-[#000047] mt-1">This will not be a fit if:</h3>
                         </div>
                       </div>
                     </div>
@@ -1158,19 +1157,19 @@ const Programs = () => {
                     <div className="p-6 md:p-8">
                       <ul className="space-y-4 text-lg text-gray-800 mb-8">
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
                             <i className="fas fa-times text-sm"></i>
                           </span>
                           <span>People looking for quick hacks or shortcuts</span>
                         </li>
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
                             <i className="fas fa-times text-sm"></i>
                           </span>
                           <span>Founders unwilling to implement</span>
                         </li>
                         <li className="flex items-start gap-4">
-                          <span className="mt-1 w-8 h-8 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
+                          <span className="mt-1 w-6 h-6 rounded-xl bg-red-600/10 flex items-center justify-center text-red-600 flex-shrink-0">
                             <i className="fas fa-times text-sm"></i>
                           </span>
                           <span>Those expecting "motivation-only" programs</span>
@@ -1246,7 +1245,7 @@ const Programs = () => {
                     <div className="px-6 pb-6 md:px-8 md:pb-8 space-y-5">
                       {/* Session 1 */}
                       <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
-                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 1: M — Mindset </h5>
+                        <h5 className="mb-3 text-center text-lg font-extrabold text-gray-950">Session 1: <br/><span style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>M — Mindset </span></h5>
                                            
                       <div className="mb-3">
                             <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
@@ -1275,7 +1274,7 @@ const Programs = () => {
                       
                       {/* Session 2 */}
                       <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
-                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 2: A — Architecture </h5>
+                        <h5 className="mb-3 text-center text-lg font-extrabold text-gray-950">Session 2: <br/><span style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>A — Architecture </span></h5>
                                               
                       <div className="mb-3">
                             <ul className="space-y-3 text-sm leading-relaxed text-gray-700">
@@ -1308,7 +1307,7 @@ const Programs = () => {
                       
                       {/* Session 3 */}
                       <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
-                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 3: G — Growth </h5>
+                        <h5 className="mb-3 text-center text-lg font-extrabold text-gray-950">Session 3: <br/><span style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>G — Growth</span> </h5>
                         
                         
                         <div className="mb-3">
@@ -1368,7 +1367,7 @@ const Programs = () => {
                     <div className="px-6 pb-6 md:px-8 md:pb-8 space-y-5">
                       {/* Session 4 */}
                       <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
-                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 4: N — Numbers </h5>
+                        <h5 className="mb-3 text-center text-lg font-extrabold text-gray-950">Session 4: <br/><span style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>N — Numbers</span> </h5>
                         
                         
                         
@@ -1397,7 +1396,7 @@ const Programs = () => {
                       
                       {/* Session 5 */}
                       <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-lg">
-                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 5:A — Alignment  </h5>
+                        <h5 className="mb-3 text-center text-lg font-extrabold text-gray-950">Session 5:<br/><span style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>A — Alignment </span> </h5>
                         
                         
                         
@@ -1428,7 +1427,7 @@ const Programs = () => {
                       
                       {/* Session 6 */}
                       <div className="rounded-2xl border border-cyan-200/70 bg-gradient-to-br from-white to-cyan-50 p-5 shadow-lg">
-                        <h5 className="mb-3 text-left text-lg font-extrabold text-gray-950">Session 6: Q & A Session </h5>
+                        <h5 className="mb-3 text-center text-lg font-extrabold text-gray-950">Session 6:<br/><span style={{ background: 'linear-gradient(135deg, #3533cd 0%, #00ffff 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}> Q & A Session</span> </h5>
                         
                         
                         
@@ -1466,7 +1465,7 @@ const Programs = () => {
                         >
                           Join Now @ just ₹1/- <span style={{ textDecoration: 'line-through' }}>2999</span>
                         </motion.button> 
-                        <div className='py-4'></div>
+                          <div className='py-4'></div>
 
                         {/* Animated Running Clock */}
               <motion.div
@@ -1484,7 +1483,7 @@ const Programs = () => {
                         alt="Alarm"
                         className="w-full h-full object-contain"
                         animate={{ rotate: [0, 10, -10, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        transition={{ duration: 2, repeat: Infinity,}}
                       />
                     </div>
                     
@@ -1495,13 +1494,13 @@ const Programs = () => {
                       </div>
                       <div className="text-xl font-bold text-red-600">Remaining Time</div>
                       <motion.p 
-                        className="mt-6 text-2xl font-bold text-red-700 text-center leading-relaxed"
+                        className="mt-6 text-xl font-bold text-red-700 text-center leading-relaxed"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
-                         Don’t wait because your competition won’t
+                         Don’t wait because your competition won’t !
                       </motion.p>
                     </div>
                   </div>
@@ -1518,7 +1517,7 @@ const Programs = () => {
               <div className="text-center mb-12">
                 
                 <h2 className="text-4xl md:text-5xl font-extrabold text-heading tracking-tight">
-                  BEFORE vs AFTER MAGNA
+                  BEFORE vs AFTER MAGNA PROGRAM
                 </h2>
               </div>
 
@@ -1533,12 +1532,14 @@ const Programs = () => {
                     <div className="h-1.5 w-full bg-gradient-to-r from-red-500 to-rose-400" />
                     <div className="p-6 md:p-8 border-b border-red-200">
                       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                        <div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                            <i className="fas fa-exclamation"></i>
+                          </div>
                           <p className="text-lg sm:text-base font-semibold text-red-600">Before</p>
-                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#000047] mt-1">Where most founders start</h3>
                         </div>
-                        <div className="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
-                          <i className="fas fa-exclamation"></i>
+                        <div>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#000047] mt-1">Where most founders start</h3>
                         </div>
                       </div>
                     </div>
@@ -1581,12 +1582,14 @@ const Programs = () => {
                     <div className="h-1.5 w-full bg-gradient-to-r from-emerald-500 to-cyan-400" />
                     <div className="p-6 md:p-8 border-b border-emerald-200">
                       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-                        <div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-400 flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                            <i className="fas fa-check"></i>
+                          </div>
                           <p className="text-lg sm:text-base font-semibold text-emerald-600">After</p>
-                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#000047] mt-1">What MAGNA unlocks</h3>
                         </div>
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-emerald-500 to-cyan-400 flex items-center justify-center text-white shadow-sm flex-shrink-0">
-                          <i className="fas fa-check"></i>
+                        <div>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#000047] mt-1">What MAGNA unlocks</h3>
                         </div>
                       </div>
                     </div>
@@ -1626,20 +1629,26 @@ const Programs = () => {
             
 
             {/* Trusted by Leading Brands Section */}
-            <BrandCarousel />
+            {/* Desktop View */}
+            <div className="hidden md:block">
+              <BrandCarousel />
+            </div>
+            
+            {/* Mobile View */}
+            <BrandCarouselMobile />
 
             {/* Our Guarantee Section */}
             <motion.section className="bg-white px-4 py-12">
               <div className="mx-auto w-full">
                 <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                   <motion.div 
-                    className="rounded-2xl border border-[#3533cd]/20 bg-gradient-to-br from-white to-[#f0f9ff] p-5 shadow-xl"
+                    className="rounded-2xl border border-[#3533cd]/20 bg-gradient-to-br from-[#3533cd] to-[#00ffff] p-5 shadow-xl"
                     style={{
                       boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                     }}
                     variants={itemVariants}
                   >
-                    <h2 className="mb-8 text-center text-2xl font-bold text-blue-900">Our Guarantee</h2>
+                    <h2 className="mb-8 text-center text-2xl font-bold text-white">Our Guarantee</h2>
                     <div className="text-center">
                       <motion.img 
                         src="/Guarntee.webp" 
@@ -1647,8 +1656,8 @@ const Programs = () => {
                         className="w-32 h-32 mx-auto mb-6"
                         variants={itemVariants}
                       />
-                      <h3 className="text-2xl font-bold text-blue-900 mb-4">A Promise</h3>
-                      <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                      <h3 className="text-2xl font-bold text-white mb-4">A Promise</h3>
+                      <p className="text-lg text-white max-w-2xl mx-auto">
                         If you don't feel this workshop provides immense value and actionable insights to transform your business, 
                         we'll refund your investment. No questions asked.
                       </p>
@@ -1684,7 +1693,7 @@ const Programs = () => {
                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                          }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                           <i className="fas fa-graduation-cap text-white text-lg"></i>
                         </div>
                         <div className="flex-1">
@@ -1701,7 +1710,7 @@ const Programs = () => {
                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                          }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                           <i className="fas fa-cogs text-white text-lg"></i>
                         </div>
                         <div className="flex-1">
@@ -1718,7 +1727,7 @@ const Programs = () => {
                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                          }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                           <i className="fas fa-crown text-white text-lg"></i>
                         </div>
                         <div className="flex-1">
@@ -1735,7 +1744,7 @@ const Programs = () => {
                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                          }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                           <i className="fas fa-lightbulb text-white text-lg"></i>
                         </div>
                         <div className="flex-1">
@@ -1752,7 +1761,7 @@ const Programs = () => {
                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                          }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                           <i className="fas fa-clock text-white text-lg"></i>
                         </div>
                         <div className="flex-1">
@@ -1769,7 +1778,7 @@ const Programs = () => {
                            boxShadow: '0 0 20px rgba(0, 255, 255, 0.15), 0 10px 30px rgba(53, 51, 205, 0.1)'
                          }}>
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0">
                           <i className="fas fa-clipboard-check text-white text-lg"></i>
                         </div>
                         <div className="flex-1">
@@ -1830,7 +1839,7 @@ const Programs = () => {
                           className="text-center group"
                           whileHover={{ y: -4 }}
                         >
-                          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#3533cd] to-[#3533cd] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                          <div className="w-12 h-12 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#3533cd] to-[#3533cd] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
                             <i className="fas fa-brain text-white text-2xl"></i>
                           </div>
                           <h4 className="text-lg font-bold text-white mb-2">Personal Clarity</h4>
@@ -1843,7 +1852,7 @@ const Programs = () => {
                           className="text-center group"
                           whileHover={{ y: -4 }}
                         >
-                          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#00ffff] to-[#3533cd] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                          <div className="w-12 h-12 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#00ffff] to-[#3533cd] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
                             <i className="fas fa-cogs text-white text-2xl"></i>
                           </div>
                           <h4 className="text-lg font-bold text-white mb-2">Real Implementation</h4>
@@ -1856,7 +1865,7 @@ const Programs = () => {
                           className="text-center group"
                           whileHover={{ y: -4 }}
                         >
-                          <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#3533cd] to-[#00ffff] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
+                          <div className="w-12 h-12 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#3533cd] to-[#00ffff] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
                             <i className="fas fa-chart-line text-white text-2xl"></i>
                           </div>
                           <h4 className="text-lg font-bold text-white mb-2">Measurable Outcomes</h4>
@@ -1901,7 +1910,7 @@ const Programs = () => {
                         alt="Alarm"
                         className="w-full h-full object-contain"
                         animate={{ rotate: [0, 10, -10, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                        transition={{ duration: 2, repeat: Infinity,}}
                       />
                     </div>
                     
@@ -1912,13 +1921,13 @@ const Programs = () => {
                       </div>
                       <div className="text-xl font-bold text-red-600">Remaining Time</div>
                       <motion.p 
-                        className="mt-6 text-2xl font-bold text-red-700 text-center leading-relaxed"
+                        className="mt-6 text-xl font-bold text-red-700 text-center leading-relaxed"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
-                         Don’t wait because your competition won’t
+                         Don’t wait because your competition won’t !
                       </motion.p>
                     </div>
                   </div>
@@ -2041,16 +2050,9 @@ const Programs = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
               <p className="text-gray-600 mb-6">
-                Thank you for registering for the MAGNA Business Program. We've sent a confirmation email with all the details.
+                Thank you for registering for the MAGNA Business Program.
               </p>
-              <button
-                onClick={() => {
-                  setShowDownloadSection(false);
-                }}
-                className="w-full py-3 px-6 bg-gradient-to-r from-[#3533cd] to-[#00ffff] text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
-              >
-                Download Program Guide
-              </button>
+              
               <button
                 onClick={() => setShowDownloadSection(false)}
                 className="w-full mt-3 py-3 px-6 bg-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-300 transition-all duration-300"
