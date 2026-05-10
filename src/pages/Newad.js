@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ProgramsImage from '../components/sections/ProgramsImage';
 import BrandCarousel from '../components/sections/BrandCarousel';
 import BrandCarouselMobile from '../components/sections/BrandCarouselMobile';
+import FAQ from '../components/sections/FAQ';
 
 const MAGNA_COLORS = {
   M: '#2A1AD8',
@@ -764,12 +765,11 @@ const Programs = () => {
                         transition={{ duration: 0.65, delay: 0.75, ease: "easeOut" }}
                       />
                        <motion.polygon
-                                              points="270,44 250,44 270,26 286,44"
-                                              fill="#00ffff"
-                                              initial={{ opacity: 0, scale: 0.7 }}
-                                              whileInView={{ opacity: 1, scale: 1 }}
-                                              viewport={{ once: false, amount: 0.7 }}
-                                              transition={{ duration: 0.25, delay: 1.4, ease: "easeOut" }}
+                        points="270,44 250,44 270,26 286,44"
+                        fill="#00ffff"
+                        initial={{ opacity: 0, scale: 0.7 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.25, delay: 1.8,  }}
                                             />
                     </svg>
                   </div>
@@ -1085,15 +1085,17 @@ const Programs = () => {
                     }}
                   >
                     <div className="p-6 md:p-8 border-b border-gray-200">
-                      <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                        <div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white shadow-sm flex-shrink-0">
-                              <i className="fas fa-check"></i>
-                            </div>
-                            <p className="text-base sm:text-sm font-semibold text-[#3533cd]">WHO THIS IS FOR</p>
+                      <div className="text-center mb-6">
+                        <div className="flex justify-center mb-4">
+                          <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                            <i className="fas fa-check"></i>
                           </div>
-                          <h3 className="text-lg font-bold text-[#000047] ">This program designed for</h3>
+                        </div>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                          <div>
+                            <p className="text-base sm:text-sm font-semibold text-[#3533cd]">WHO THIS IS FOR</p>
+                            <h3 className="text-lg font-bold text-[#000047] ">This program designed for</h3>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1141,15 +1143,17 @@ const Programs = () => {
                     }}
                   >
                     <div className="p-6 md:p-8 border-b border-red-200">
-                      <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                        <div>
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
-                              <i className="fas fa-times"></i>
-                            </div>
-                            <p className="text-base sm:text-sm font-semibold text-red-600">WHO THIS IS NOT FOR</p>
+                      <div className="text-center mb-6">
+                        <div className="flex justify-center mb-4">
+                          <div className="w-10 h-10 rounded-2xl bg-red-600 flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                            <i className="fas fa-times"></i>
                           </div>
-                          <h3 className="text-lg font-bold text-[#000047] mt-1">This will not be a fit if:</h3>
+                        </div>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                          <div>
+                            <p className="text-base sm:text-sm font-semibold text-red-600">WHO THIS IS NOT FOR</p>
+                            <h3 className="text-lg font-bold text-[#000047] mt-1">This will not be a fit if:</h3>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1667,6 +1671,8 @@ const Programs = () => {
               </div>
             </motion.section>
 
+           
+
             {/* WHAT MAKES THIS PROGRAM A MUST-ATTEND Section */}
             <section
               className="py-16 md:py-20 mb-0"
@@ -1933,6 +1939,8 @@ const Programs = () => {
                   </div>
                 </div>
               </motion.div>
+               {/* FAQ Section */}
+            <FAQ />
           </motion.div>
 
       {/* Booking Form Modal */}
