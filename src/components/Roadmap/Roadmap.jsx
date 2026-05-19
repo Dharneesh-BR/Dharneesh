@@ -9,14 +9,14 @@ const milestones = [
   { title: "Samsung", description: "Enterprise collaboration", position: "Retail Marketing Head,MT", year: "2013", logo: "/Samsung.png" },
   { title: "Recibo.AI", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
   { title: "EAZY.AI", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
-  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Business Strategist", year: "2025", logo: "/mind magna.png" },
+  { title: "Magnafic", description: "Early growth partnership", position: "Founder, Business Strategist", year: "2025", logo: "/Magnafic.png" },
   { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", year: "2026", logo: "/Eterno_logo.webp" }
 ];
 
 // Descending order for mobile view (2026 to 2004)
 const mobileMilestones = [
   { title: "Eterno", description: "Initial brand collaboration", position: "Founder, CEO", year: "2026", logo: "/Eterno_logo.webp" },
-  { title: "Mind Magna", description: "Early growth partnership", position: "Founder, Business Strategist", year: "2025", logo: "/mind magna.png" },
+  { title: "Magnafic", description: "Early growth partnership", position: "Founder, Business Strategist", year: "2025", logo: "/Magnafic.png" },
   { title: "EAZY.AI", description: "Scaling operations", position: "Co-founder, COO", year: "2022", logo: "/eazy.png" },
   { title: "Recibo.AI", description: "Market expansion", position: "Founder, Director", year: "2017", logo: "/recibo-logo.png" },
   { title: "Samsung", description: "Enterprise collaboration", position: "Retail Marketing Head,MT", year: "2013", logo: "/Samsung.png" },

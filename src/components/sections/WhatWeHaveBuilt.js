@@ -124,6 +124,18 @@ const WhatWeHaveBuilt = () => {
             ))}
           </div>
 
+          <div className="mt-20 text-center">
+            <a 
+              href="https://magnafic.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-4 rounded-lg text-xl font-bold text-white"
+              style={{ backgroundColor: '#000047' }}
+            >
+              I am ready to scale
+            </a>
+          </div>
+
           {/* Program Image */}
           <motion.div 
             className="mt-20 text-center"
