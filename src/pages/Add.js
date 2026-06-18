@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const Add = () => {
   const [timeLeft, setTimeLeft] = useState(900); // 15 minutes in seconds
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const [showThankYouModal, setShowThankYouModal] = useState(false);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+  const [registerForm, setRegisterForm] = useState({
+    name: '',
+    mobileNumber: '',
+    email: ''
+  });
 
   useEffect(() => {
     // Scroll to top when page loads
@@ -19,7 +28,16 @@ const Add = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft]); // Add dependency
+  }, []);
+
+  useEffect(() => {
+    if (!window.Razorpay) {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }, []);
 
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
@@ -48,6 +66,109 @@ const Add = () => {
         ease: "easeOut",
       },
     },
+  };
+
+  const handleRegisterInputChange = (e) => {
+    const { name, value } = e.target;
+    setRegisterForm((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const sendRegistrationDetails = async () => {
+    const serviceId = 'service_wrxc15j';
+    const templateId = 'template_i9py1ut';
+    const publicKey = 'QaaFaWtiDe2OpRfzE';
+
+    const emailData = {
+      to_email: 'dharneeshbr@gmail.com',
+      from_name: registerForm.name,
+      from_email: registerForm.email,
+      contact_number: registerForm.mobileNumber,
+      message: 'Paid registration from Add page workshop popup.',
+      subject: 'Paid Workshop Registration from Add Page'
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, emailData, publicKey);
+    } catch (error) {
+      console.error('Error sending registration email:', error);
+    }
+  };
+
+  const handlePayment = async (e) => {
+    e.preventDefault();
+
+    if (isProcessingPayment) return;
+
+    if (!registerForm.name || !registerForm.mobileNumber || !registerForm.email) {
+      alert('Please fill in your name, mobile number, and email.');
+      return;
+    }
+
+    if (!window.Razorpay) {
+      alert('Payment service is still loading. Please try again in a moment.');
+      return;
+    }
+
+    const razorpayKey = process.env.RAZORPAY_KEY_ID;
+
+    if (!razorpayKey) {
+      alert('Payment configuration is missing. Please contact support.');
+      return;
+    }
+
+    setIsProcessingPayment(true);
+
+    const options = {
+      key: razorpayKey,
+      amount: 9900,
+      currency: 'INR',
+      name: registerForm.name,
+      description: 'Business Growth Masterclass Registration',
+      handler: async function () {
+        await sendRegistrationDetails();
+        setShowRegisterModal(false);
+        setShowThankYouModal(true);
+        setRegisterForm({
+          name: '',
+          mobileNumber: '',
+          email: ''
+        });
+        setIsProcessingPayment(false);
+      },
+      modal: {
+        ondismiss: function () {
+          setIsProcessingPayment(false);
+        }
+      },
+      prefill: {
+        name: registerForm.name,
+        email: registerForm.email,
+        contact: registerForm.mobileNumber
+      },
+      notes: {
+        source: 'add-page-popup',
+        program: 'Business Growth Masterclass'
+      },
+      theme: {
+        color: '#3533cd'
+      }
+    };
+
+    try {
+      const razorpay = new window.Razorpay(options);
+      razorpay.on('payment.failed', function () {
+        alert('Payment failed. Please try again.');
+        setIsProcessingPayment(false);
+      });
+      razorpay.open();
+    } catch (error) {
+      console.error('Error launching payment:', error);
+      alert('Unable to start payment right now. Please try again.');
+      setIsProcessingPayment(false);
+    }
   };
 
   const painPoints = [
@@ -305,6 +426,7 @@ const Add = () => {
                 className="w-full rounded-full bg-gradient-to-r from-[#3533cd] to-[#00ffff] px-6 py-4 text-lg font-bold text-white transition-all duration-300 hover:shadow-2xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setShowRegisterModal(true)}
               >
                 REGISTER NOW AT Rs 99/- ONLY
               </motion.button>
@@ -622,6 +744,7 @@ const Add = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               variants={itemVariants}
+              onClick={() => setShowRegisterModal(true)}
             >
               REGISTER NOW AT Rs 99/- ONLY
             </motion.button>
@@ -754,6 +877,7 @@ const Add = () => {
                 className="group inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-4 text-lg font-bold text-[#3533cd] transition-all duration-300 hover:shadow-2xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setShowRegisterModal(true)}
               >
                 <span className="flex items-center gap-3">
                   <span>Register Now at Rs 99/- Only</span>
@@ -882,32 +1006,26 @@ const Add = () => {
         </div>
       </motion.section>
 
-    {/* 2-DAY MAGNA BUSINESS PROGRAM Section - Full width section */}
+    {/* 2-DAY MAGNA BUSINESS PROGRAM Section */}
     <motion.div 
-      className="relative mb-20 overflow-hidden py-16 md:py-20"
+      className="relative mb-16 overflow-hidden bg-gradient-to-r from-[#3533cd] to-[#00ffff] px-4 py-12"
       variants={itemVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      style={{
-        backgroundColor: '#000047',
-        width: '100vw',
-        marginLeft: 'calc(50% - 50vw)',
-        marginRight: 'calc(50% - 50vw)'
-      }}
     >
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(135deg,rgba(0,255,255,0.12)_0%,rgba(255,255,255,0)_36%,rgba(185,72,255,0.14)_100%)]" />
 
-        <div className="relative z-10 mx-auto mb-12 max-w-4xl px-6 text-center">
+        <div className="relative z-10 mx-auto mb-10 w-full text-center">
           
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-white">Join the MAGNA Business Program</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg md:text-xl leading-relaxed text-white/75">
+          <h2 className="text-2xl font-extrabold leading-tight text-white">Join the MAGNA Business Program</h2>
+          <p className="mx-auto mt-4 text-base leading-relaxed text-white/85">
             Two focused days to move from founder-led chaos to a system-driven business with clearer growth, control, and execution.
           </p>
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6">
-          <div className="grid gap-8 lg:grid-cols-2">
+        <div className="relative z-10 mx-auto w-full">
+          <div className="grid gap-6">
             {/* DAY 1 */}
             <motion.div 
               className="group relative overflow-hidden rounded-3xl border border-white/30 shadow-[0_24px_70px_rgba(0,0,0,0.28)]"
@@ -926,12 +1044,12 @@ const Add = () => {
               <div 
                 className="p-6 md:p-8"
               >
-                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">FOUNDATION & SYSTEMS</h3>
+                    <h3 className="text-xl font-extrabold leading-tight text-white">FOUNDATION & SYSTEMS</h3>
                     
                   </div>
-                  <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-lg font-extrabold text-[#3533cd] shadow-[0_0_24px_rgba(0,255,255,0.35)]">
+                  <div className="flex h-14 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-base font-extrabold text-[#3533cd] shadow-[0_0_24px_rgba(0,255,255,0.35)]">
                     Day 1
                   </div>
                 </div>
@@ -1047,12 +1165,12 @@ const Add = () => {
               <div 
                 className="p-6 md:p-8"
               >
-                <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-extrabold leading-tight text-white">SCALE & SUSTAINABILITY</h3>
+                    <h3 className="text-xl font-extrabold leading-tight text-white">SCALE & SUSTAINABILITY</h3>
                     
                   </div>
-                  <div className="flex h-16 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-lg font-extrabold text-[#953DF5] shadow-[0_0_24px_rgba(185,72,255,0.35)]">
+                  <div className="flex h-14 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-base font-extrabold text-[#953DF5] shadow-[0_0_24px_rgba(185,72,255,0.35)]">
                     Day 2
                   </div>
                 </div>
@@ -1145,6 +1263,104 @@ const Add = () => {
           </div>
         </div>
       </motion.div>
+
+      {showRegisterModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-4">
+          <div className="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl">
+            <div className="mb-6 flex items-start justify-between gap-4">
+              <div>
+                <h2 className="text-2xl font-extrabold text-blue-900">Complete Your Registration</h2>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  Enter your details and continue to payment for the Business Growth Masterclass.
+                </p>
+              </div>
+              <button
+                type="button"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600"
+                onClick={() => {
+                  setShowRegisterModal(false);
+                  setIsProcessingPayment(false);
+                }}
+              >
+                <i className="fas fa-times"></i>
+              </button>
+            </div>
+
+            <form onSubmit={handlePayment} className="space-y-4">
+              <div>
+                <label htmlFor="register-name" className="mb-2 block text-sm font-semibold text-gray-700">Name</label>
+                <input
+                  id="register-name"
+                  name="name"
+                  type="text"
+                  value={registerForm.name}
+                  onChange={handleRegisterInputChange}
+                  required
+                  className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#3533cd] focus:ring-2 focus:ring-[#3533cd]/20"
+                  placeholder="Enter your full name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="register-mobile" className="mb-2 block text-sm font-semibold text-gray-700">Mobile Number</label>
+                <input
+                  id="register-mobile"
+                  name="mobileNumber"
+                  type="tel"
+                  value={registerForm.mobileNumber}
+                  onChange={handleRegisterInputChange}
+                  required
+                  className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#3533cd] focus:ring-2 focus:ring-[#3533cd]/20"
+                  placeholder="Enter your mobile number"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="register-email" className="mb-2 block text-sm font-semibold text-gray-700">Email</label>
+                <input
+                  id="register-email"
+                  name="email"
+                  type="email"
+                  value={registerForm.email}
+                  onChange={handleRegisterInputChange}
+                  required
+                  className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#3533cd] focus:ring-2 focus:ring-[#3533cd]/20"
+                  placeholder="Enter your email address"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isProcessingPayment}
+                className="w-full rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] px-6 py-4 text-base font-bold text-white shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {isProcessingPayment ? 'Processing...' : 'Pay Rs 99'}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {showThankYouModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 px-4">
+          <div className="w-full max-w-sm rounded-3xl bg-white p-6 text-center shadow-2xl">
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+              <i className="fas fa-check text-2xl"></i>
+            </div>
+            <h2 className="text-2xl font-extrabold text-blue-900">Thank You</h2>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              Our team will contact you shortly.
+            </p>
+            <button
+              type="button"
+              className="mt-6 w-full rounded-2xl bg-gradient-to-r from-[#3533cd] to-[#00ffff] px-6 py-3 text-sm font-bold text-white"
+              onClick={() => setShowThankYouModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="bg-gray-900 px-4 py-8 text-center text-white">
